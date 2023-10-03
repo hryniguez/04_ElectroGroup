@@ -25,6 +25,9 @@ Sitios de Referencia
 
 Investigacion
 ejemplo:tomamos el detalle del producto
-[mercado Libre ](url)
+[](url)
+
+Paleta de colores
+Tipo de letras
 
 
