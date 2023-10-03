@@ -1,4 +1,8 @@
+# Daily Sprint Nº 1
+
 02/10
-Se realizo el repositorio 
-se compartio jira con el profe
-se asignaron tareas en los tableros.
+* Se reorganizo el tablero jira
+* Se definió el logo
+* Se definió los colores
+* se creó estructura de carpetas dentro del repo
+* se creó la rama Develop
