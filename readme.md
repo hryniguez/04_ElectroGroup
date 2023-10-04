@@ -22,7 +22,8 @@ Sitios de Referencia
 * [sitio 3](https://www.hardvisionlr.com.ar/)
 * [sitio 4](https://www.venex.com.ar/)
 * [sitio 5](https://www.espacioelectronica.com/)
-
+* [sitio 6](https://www.hp.com/ar-es/shop/notebooks.html)
+* [sitio 7](https://www.lenovo.com/ar/es/pc)
 ## Investigacion
 tomamos el detalle del producto
 
