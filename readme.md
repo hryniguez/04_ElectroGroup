@@ -24,6 +24,8 @@ Sitios de Referencia
 * [sitio 5](https://www.espacioelectronica.com/)
 * [sitio 6](https://www.hp.com/ar-es/shop/notebooks.html)
 * [sitio 7](https://www.lenovo.com/ar/es/pc)
+* [sitio 8](https://www.fravega.com)
+* [sitio 9](https://www.mercadolibre.com.ar)
 ## Investigacion
 tomamos el detalle del producto
 
