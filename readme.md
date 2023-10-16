@@ -26,13 +26,13 @@ Sitios de Referencia
 * [sitio 7](https://www.lenovo.com/ar/es/pc)
 * [sitio 8](https://www.fravega.com)
 * [sitio 9](https://www.mercadolibre.com.ar)
-* [sitio 10](https://www.garbarino.com)
-## Investigacion
-tomamos el detalle del producto
+# Manual de Marca
 
+* Logo : Nuestro Logo representa a sus cinco socios en una armonia romboidal que hace eco de la buena comunicacion que hay dentro de la empresa.Los colores frios definidos que lo componen (azul,celeste,violeta) hacen referencia a la tranquilidad,calma y armonia,provocan relajacion y confortabilidad.
 
-* Tipografías
-* Logo
-* Paleta de Colores
+* Tipografia : Utilizamos la tipografia Poppins por ser compacta y de geometría pura, muy versátil y de sencilla combinación con otras tipografías. Es minimalista, elegante y neutra.
+
+* Paleta de Colores : Al igual que en el logo los colores de la pagina utilizan los mismo colores frios en sus diferentes variaciones de tono,los colores son los mismos (azul,celeste,violeta)
+
 
 
