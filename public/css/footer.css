@@ -1,0 +1,48 @@
+footer{
+    background-color: var(--color-violeta);
+    color: white;
+    }
+
+footer nav{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2%;
+}
+
+footer nav ul {
+    width: 25%;
+    font-size: 6px;
+    text-align: center;
+    margin: 0 2%;
+    }
+
+footer nav ul li{
+    margin: 1% 0
+}
+
+
+footer nav h5{
+    font-size: 8px;
+    margin-bottom: 5%;
+    text-transform: uppercase;
+    font-weight: 300;
+    
+}
+
+footer nav div{
+    align-self: flex-end;
+    width: 20%;
+    margin-left: 2%;
+    
+}
+
+footer nav div i{
+    width: 30%;
+    padding-left: 8%;
+}
+
+.footer__copyright{
+    font-size: 5px;
+    border-top: 1px solid black;
+    text-align: center;
+}
