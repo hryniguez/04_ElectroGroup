@@ -13,6 +13,7 @@
     font-family: 'Poppins', sans-serif; 
 }
 
-a{
+ul a{
     color: white;
+    text-decoration: none;
 }
