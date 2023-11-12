@@ -6,27 +6,38 @@
     <script src="https://kit.fontawesome.com/23bf6444a3.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/css/style.css">
     
-    <title>Electrogroup</title>
+    
 </head>
 <body>
-    <main>
+  <div class="logo-login">
+    <img src="img/electroGroupstexto.png" alt="logo de login">
+    <h1>ElectroGroup</h1>
+        </div>
+    
+    <main class="registro__main">
+      <title>Electrogroup</title>
+       
         <fieldset class="registro__main2">
             <h1>login</h1>
             
               <form action="/login" method="post">
-                <div>
-                  <label for="nombre">user name </label>
-                  <input type="text" name="nombre">
+                <div >
+                  <label for="nombre"> </label>
+                  <input type="text" name="usuario" placeholder="User name" required>
                 </div>
-                <div>
-                  <label for="password">password </label>
-                  <input type="password" name="password" required>
+                <div >
+                  <label for="password"> </label>
+                  <input type="password" placeholder="Password" name="Password" required>
+                  <div class="contraseña">
+                    <a href="#">Forgot password?</a>
                 </div>
-                <a href="./login">Forgot password?</a>
+                </div>
+               
+            
+                
                 <div class="contenor_botones">
-                  
-                  <button type="submit">login</button>
-                  <button type="reset">signup</button>
+                    <button type="submit" title="Ingresar" name="Ingresar">Login</button>
+                  <button id="botonrojo" type="reset">signup</button>
                 </div>
               </form>
           </fieldset>  
