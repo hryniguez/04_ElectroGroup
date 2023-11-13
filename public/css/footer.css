@@ -21,7 +21,7 @@ footer nav ul {
     }
 
 footer nav ul li{
-    padding: 8% 0;
+    padding: 5% 0;
     
 }
 
@@ -40,7 +40,11 @@ footer nav div{
     margin-left: 2%;
     position: absolute;
     bottom: 6%;
-    right: 4%;
+    right: 8%;
+}
+
+.home__footer__comunidad{
+    display: none;
 }
 
 footer nav div a{
@@ -55,6 +59,58 @@ footer nav div a{
 }
 
 
+
 @media(min-width: 768px){
+    footer nav ul {
+        width: 20%;
+        font-size: 10px;
+        margin: 0 5%;
+        text-align: center;
+        
+        }
+
+    footer nav h5{
+            font-size: 14px;
+        }
+    
+    .home__footer__comunidad{
+        display: block;
+        
+        text-align: center;
+        font-size: 16px;
+        font-weight: 300;
+        margin-bottom: 5%;
+    }
+
+     nav div a{
+            width: 10%;
+            padding-left: 1%
+        } 
+    
+    .footer__copyright{
+            font-size: 8px;
+            
+        }
+}
+
+@media(min-width: 1024px){
+    footer nav ul {
+        font-size: 14px;
+       }
+    footer nav h5{
+        font-size: 20px;
+    }
+    .home__footer__comunidad{
+       
+        font-size: 20px;
+        
+    }
+
+    footer nav div a{
+        width: 40%;
+        padding-left: 10%;
+    }
+
+    
     
 }
