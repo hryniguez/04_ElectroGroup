@@ -7,6 +7,7 @@ footer nav{
     display: flex;
     justify-content: space-between;
     position: relative;
+    padding-top: 10px;
   
 }
 
@@ -94,6 +95,12 @@ footer nav div a{
 }
 
 @media(min-width: 1024px){
+    
+    footer nav{
+        max-width: 1024px;
+        margin: 0 auto;
+    }
+
     footer nav ul {
         font-size: 14px;
        }
