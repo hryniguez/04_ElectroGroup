@@ -1,5 +1,5 @@
 
-body{
+.body_general_login{
     
     background-image: url('/img/alien.jpg');
     background-size: cover;
@@ -75,9 +75,7 @@ body{
    
 }
 
-.contraseña{
-    
-}
+
 .contraseña a{
     color: #21043d;
     font-size: 6px;
@@ -165,7 +163,7 @@ body{
         margin-bottom: 8%;
         justify-content: space-around;
     }
-    body {
+    .body_general_login {
         background-image: url(/img/alien.jpg);
         background-size: cover;
         background-repeat: no-repeat;
@@ -221,6 +219,16 @@ body{
         flex-direction: column;
         font-size: 27px;
         width: 88%;
+    }
+    .body_general_login {
+        background-image: url(/img/alien.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        width: 100%;
+        padding: 10px;
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 200px;
     }
     
 
