@@ -58,7 +58,7 @@
     position: absolute;
     bottom: 2%;
     right: 8%;
-    border-radius: 10%;
+    border-radius: 20px;
     padding: 2%;
     
 }
@@ -77,4 +77,68 @@
 .home__main__section-article div{
     position: relative;
 
+}
+
+/* Tablet responsive */
+
+@media(min-width: 768px){
+ 
+    .home__main__section article img{
+        width: 80%;
+        height: 60%;
+        
+    }
+    
+
+    .home__main__section p{
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 15px;
+        
+    }
+    
+    
+    .home__section__article-logos{
+        text-align: center;
+    }
+
+    .home__section__article-logos a{
+        width: 20%;
+    }
+    
+    .home__section__article-logos img{
+        width: 50%;
+        padding: 5px;
+    }
+    
+    .home__main__section-article button{
+        
+        font-size: 12px;
+        font-weight: 400;
+        
+        
+    }
+    
+    .home__main__section-article h4{
+        font-size: 24px;
+        margin: 0 0 10% 3%;
+        font-weight: bold;
+    }
+    
+    .home__main__section-article button a{
+        text-decoration: none;
+        color: black;
+    }
+    
+    .home__main__section-article div{
+        position: relative;
+    
+    }
+    
+}
+
+/*Desktop*/
+
+@media(min-width: 1024px){
+   
 }
