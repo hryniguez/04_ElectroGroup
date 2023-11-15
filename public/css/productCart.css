@@ -26,7 +26,7 @@
 .header__productcart input {
     margin-bottom: 4px;
     font-size: 9px;
-    width: 60vh;
+    width: 252px;
     text-align: center;
     text-decoration: underline;
 }
@@ -80,7 +80,7 @@
     background-size: 10%;
     display: flex;
     flex-direction: row;
-
+    align-items: center;
     font-size: 23%;
     border-radius: 7px;
     width: 80%;
@@ -191,7 +191,7 @@ input {
 
 .andreani img {
     width: 60%;
-    height: 7vh;
+    height: 60%;
 }
 
 h3 {
@@ -287,12 +287,12 @@ h3 {
         align-items: center;
         width: 23%;
         justify-content: center;
-        font-size: 351%;
+        font-size: 14px;
         color: #21043d;
     }
     .andreani img {
-        width: 74%;
-        height: 84%;
+        width: 65%;
+        height: 68%;
     }
     .electroenvio {
         display: flex;
@@ -344,9 +344,9 @@ h3 {
 }
 @media(min-width: 1024px){
     .header__productcart input {
-        margin-top: 30px;
-        font-size: 17px;
-        width: 800px;
+        margin-top: 42px;
+        font-size: 25px;
+        width: 879px;
         text-align: center;
         text-decoration: underline;
     }
@@ -377,7 +377,7 @@ h3 {
         align-items: center;
         width: 23%;
         justify-content: center;
-        font-size: 440%;
+        font-size: 19px;
         color: #21043d;
     }
     .boton_compra button {
@@ -391,7 +391,18 @@ h3 {
     }
     .andreani img {
         width: 60%;
-        height: 87%;
+        height: 56%; 
     }
-    
+    h2 {
+        color: #21043d;
+        font-weight: bold;
+        font-size: 20px;
+        margin-left: 10px;
+    }
+    .electroenvio h2 {
+        font-size: 30px;
+    }
+    .electroenvio h5{
+        font-size: 10px;
+    }
 }
