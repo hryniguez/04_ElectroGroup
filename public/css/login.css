@@ -71,6 +71,7 @@
     border-radius: 10px;
     text-align: center;
     font-size: 40%;
+    margin-top: 10%;
     
    
 }
@@ -107,6 +108,7 @@
         border-radius: 10px;
         text-align: center;
         font-size: 75%;
+        margin-top: 10%;
     }
     .registro__main2 {
         color: #21043d;
@@ -213,6 +215,7 @@
         border-radius: 10px;
         text-align: center;
         font-size: 62%;
+        margin-top: 10%;
     }
     .registro__main form {
         display: flex;
