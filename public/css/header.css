@@ -1,0 +1,87 @@
+*{
+    box-sizing: border-box;
+}
+.main__header{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border: solid 5px red;
+    
+}
+.main__header__top_bar{
+    background-color: var(--color-violeta);
+    width: 100%;
+}
+.hamburguer-buttom{
+    display: block;
+    background-color: rgb(149, 149, 155);
+    color: white;
+    display: block;
+    max-width: 50px;
+    padding:15px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 18px;
+    margin: auto;
+   
+}
+
+.main__header__top_bar .logo{
+    display: flex;
+    width: 25%;
+     padding: 50px;
+}
+.copy__header {
+    display: none;
+    font-weight: 400px;
+    text-align: center;
+    color: white;
+
+
+}
+
+input {
+    display: flex;
+    
+}
+.main__navbar-icon {
+      
+    width: 100%;
+    color: white;
+    border: solid 2px rgb(248, 246, 246);
+    
+}
+.main__navbar__bottom {
+    display: flex;
+    justify-content: space-between;
+     color: white;
+    background:var(--color-celesteclaro) ;
+    
+}
+
+.left-navbar  {
+display: flex;
+justify-content:flex-start;
+border: solid 2px rgb(255, 0, 123);
+}
+.left-navbar li{
+    display: flex;
+    justify-content: space-between;
+    padding:20px;
+
+
+}
+
+
+ .right-navbar h3 {
+ display: flex;
+ justify-content: space-between;
+justify-content:flex-start;
+border: solid 2px white;
+width: 100%;
+padding: 20px;
+
+}
+.right-navbar i{
+    padding: 0 25px;
+} 
