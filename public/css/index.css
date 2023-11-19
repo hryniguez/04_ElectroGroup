@@ -17,15 +17,25 @@
    flex-wrap: wrap;
    justify-content: space-around;
    gap: 2%;
-   box-shadow: 5px 5px 10px var(--color-violeta);
+   transition: box-shadow 0.8s;
 }
+
 
 .home__main__section article img{
     width: 70%;
     height: 40%;
+    transition: padding 1.5s
     
 }
 
+.home__main__section-article:hover{
+    box-shadow: 0px 0px 50px var(--color-violeta);
+   
+}
+
+.home__main__section-article:hover img{
+    padding: 50px ;
+}
 .home__main__section p{
     font-size: 9px;
     font-weight: 500;
