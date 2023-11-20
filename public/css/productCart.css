@@ -190,7 +190,7 @@ input {
 }
 
 .andreani img {
-    width: 60%;
+    width: 75%;
     height: 60%;
 }
 
@@ -277,7 +277,7 @@ h3 {
         font-size: 20px;
     }
     .bodygeneral_productcard2 p{
-        font-size: 410%;
+        font-size: 550%;
     }
     .boton_hambur .fa-solid{
         display: none;
@@ -291,7 +291,7 @@ h3 {
         color: #21043d;
     }
     .andreani img {
-        width: 65%;
+        width: 75%;
         height: 68%;
     }
     .electroenvio {
@@ -390,7 +390,7 @@ h3 {
         font-size: 30px;
     }
     .andreani img {
-        width: 60%;
+        width: 75%;
         height: 56%; 
     }
     h2 {
@@ -404,5 +404,14 @@ h3 {
     }
     .electroenvio h5{
         font-size: 10px;
+    }
+}
+@media (min-width: 1440px){
+    .envioelectro {
+        width: 60%;
+        font-size: 15px;
+        border-radius: 6px;
+        border: 0.1px solid;
+        text-align: center;
     }
 }
