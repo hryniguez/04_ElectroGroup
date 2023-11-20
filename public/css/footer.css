@@ -34,11 +34,11 @@ footer nav h5{
 
 footer nav div{
     align-self: flex-end;
-    width: 20%;
+    width: 16%;
     margin-left: 2%;
     position: absolute;
-    top:60px;
-    right: 8px;
+    top:65px;
+    right: 0px;
 }
 
 .home__footer__comunidad{

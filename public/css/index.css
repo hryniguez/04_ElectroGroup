@@ -43,6 +43,7 @@
 .home__main__section p{
     font-size: 12px;
     font-weight: 500;
+    margin: 0 5px;
     
 }
 
@@ -59,9 +60,11 @@
 
 .home__main__section-article h4{
     font-size: 14px;
-    margin-bottom: 20%;
+    margin-bottom: 5%;
     font-weight: bold;
+    margin-left: 5px;
 }
+
 
 .home__main__section-article button a{
     text-decoration: none;
