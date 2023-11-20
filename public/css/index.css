@@ -22,6 +22,9 @@
     transition: box-shadow 0.8s;
 }
 
+.enlace__articulo__detalle{
+    color:black
+}
 
 .home__main__section-article img{
     width: 70%;
@@ -29,6 +32,7 @@
     filter:brightness(1.1);
     mix-blend-mode: multiply;
     transition: 1.5s
+
     
 }
 
@@ -116,6 +120,7 @@
         width: 80%;
         height: 60%;
         
+        
     }
     
 
@@ -161,7 +166,7 @@
         height: 60%;
         filter:brightness(1.1);
         mix-blend-mode: multiply;
-        transition: 1.5s
+        transition: 1.5s;
         
     }
     
@@ -271,35 +276,47 @@
         width: 50%;
         font-size: 10px;
         position: absolute;
-        bottom: 4%;
-        right: 3%;
+        bottom: 10%;
+        right: 5%;
         transition: 1.5s;
         padding: 2%;
         
     }
+
+    .home__main__ofertas button{
+        width: 50%;
+        font-size: 10px;
+        position: absolute;
+        bottom: 10%;
+        right: 5%;
+        transition: 1.5s;
+        padding: 2%;
+    }
     
     .home__main__section-article h4{
-        font-size: 18px;
-        margin: 0 0 10% 3%;
-        font-weight: bold;
-    }
+        font-size: 15px;
+    margin: 0 0 15% 3%;
+    font-weight: bold;
+}
+    
 
     .home__main__section-ofertas h4{
-        font-size: 18px;
-        margin: 0 0 10% 3%;
+        font-size: 15px;
+        margin: 0 0 15% 3%;
         font-weight: bold;
     }
     .home__main__section p{
-        font-size: 12px;
+        font-size: 10px;
         font-weight: 600;
-        margin-bottom: 15px;
+        margin-bottom: 10px;
         
     }
 
+    
     .home__main__ofertas p{
-        font-size: 12px;
+        font-size: 10px;
         font-weight: 600;
-        margin-bottom: 15px;
+        margin-bottom: 10px;
         
     }
 
@@ -321,8 +338,8 @@
     .home__main__section-ofertas:hover button{
         background-color: rgb(35, 184, 6);
     }
-}
 
+}
 
 @media(min-width: 1200px){
     .home__main__section article{
