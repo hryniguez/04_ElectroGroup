@@ -240,3 +240,215 @@
         text-align: center;
     }
 }
+
+
+/* Escritorio*/
+
+
+@media(min-width:1024px){
+
+    .Detail__main__articulos {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 5px;
+        align-items: center;
+        width: 76%;
+        border-bottom: 1px solid black;
+        flex-direction: column;
+    }
+    .Detail__main__principal{
+        display: flex;
+       width: 100%;
+   }
+
+   .detail__main__recomendado article{
+       margin: 10px;
+       flex-direction: row-reverse;
+       
+   }
+   
+   
+   .detail__main__recomendado article{
+       margin: 10px;
+       flex-direction: column;
+   }
+   .Detail__main__articulos img {
+       width: 370px;
+   }
+   .Detail__main__articulos a {
+
+       height: 30px;
+       /*top: 315px;
+       left: 112px;*/
+       border-radius: 43px;}
+   .Detail__main__articulos div {
+       width: 45%;
+       height: 19%;
+       background-color: rgb(165, 162, 162);
+       border: 1px solid black;
+       border-radius: 32px;
+       margin-top: 22px;
+
+   } 
+
+   .Detail__main__articulos img{
+       width: 370px;
+   }
+   .caracteristicas__titulo h2 {
+       margin-left: 10px;
+       width: 100%;
+       font-size: 17px;
+       color: aquamarine;}
+
+       .recomendado__titulo h3 {
+           font-size: 18px;
+           text-decoration: underline;
+       }
+       .recomendado__titulo h4{
+       display: none;}
+       .detail__main__recomendado article {
+           margin: 10px;
+           display: flex;
+           flex-direction: column;
+           align-items: center;
+       }
+   .caracteristicas__titulo {
+       list-style: circle;
+       width: 386px;
+       
+       padding: 13px;}
+   .Detail__main__caracteristicas li {
+       width: 100%;
+       font-size: 14px;
+       margin: 5px;
+       list-style: circle;
+       padding-left: 3px;}
+  .caracteristicas__detalles {
+       margin-left: 15px;
+       width: 100%;}
+  .caracteristicas__detalles h2 {
+    font-size: 14px;
+               }
+       
+   .recomendado__articulo{
+       display: flex;
+       height: 58%;
+       width: 100%;
+       flex-direction: row;
+       align-items: center;
+   }
+   .Detail__main__articulos div h2 {
+       color: white;
+       font-size: 18px;
+       text-align: center;
+   }
+}
+
+
+/* Escritorio 1440*/
+
+@media(min-width:1440px){
+
+    .Detail__main__articulos {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 5px;
+        align-items: center;
+        width: 64%;
+        border-bottom: 1px solid black;
+        flex-direction: column;
+    }
+    .Detail__main__principal{
+        display: flex;
+       width: 100%;
+   }
+
+   .detail__main__recomendado article{
+       margin: 10px;
+       flex-direction: row-reverse;
+       
+   }
+   
+   
+   .detail__main__recomendado article{
+       margin: 10px;
+       flex-direction: column;
+   }
+   
+   .Detail__main__articulos a {
+
+       height: 30px;
+       /*top: 315px;
+       left: 112px;*/
+       border-radius: 43px;}
+   .Detail__main__articulos div {
+       width: 30%;
+       height: 16%;
+       background-color: rgb(165, 162, 162);
+       border: 1px solid black;
+       border-radius: 32px;
+       margin-top: 22px;
+
+   } 
+
+   .Detail__main__articulos img{
+       width: 496px;
+   }
+   .caracteristicas__titulo h2 {
+       margin-left: 10px;
+       width: 100%;
+       font-size: 17px;
+       color: aquamarine;}
+
+       .recomendado__titulo h3 {
+           font-size: 18px;
+           text-decoration: underline;
+       }
+       .recomendado__titulo h4{
+       display: none;}
+       .detail__main__recomendado article {
+           margin: 10px;
+           display: flex;
+           flex-direction: column;
+           align-items: center;
+       }
+   .caracteristicas__titulo {
+       list-style: circle;
+       width: 386px;
+       
+       padding: 13px;}
+   .Detail__main__caracteristicas li {
+       width: 100%;
+       font-size: 16px;
+       margin: 5px;
+       list-style: circle;
+       padding-left: 3px;}
+  .caracteristicas__detalles {
+       margin-left: 15px;
+       width: 100%;}
+  .caracteristicas__detalles h2 {
+    font-size: 14px;
+               }
+       
+   .recomendado__articulo{
+       display: flex;
+       height: 58%;
+       width: 100%;
+       flex-direction: row;
+       align-items: center;
+   }
+   .Detail__main__articulos div h2 {
+       color: white;
+       font-size: 18px;
+       text-align: center;
+   }
+   .recomendado__articulo p {
+    text-align: center;
+    width: 100%;
+    font-size: 16px;
+}
+.recomendado__articulo img {
+    width: 70%;
+    height: 33%;
+}
+}
