@@ -7,21 +7,19 @@ footer nav{
     display: flex;
     justify-content: space-between;
     position: relative;
+    padding: 10px 0
   
 }
 
 footer nav ul {
-    width: 20%;
+    width: 25%;
     font-size: 6px;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    margin: 0 5%;
-    
+    text-align: center;
+    margin: 0 2%;
     }
 
 footer nav ul li{
-    padding: 8% 0;
+    padding: 5% 0;
     
 }
 
@@ -36,15 +34,24 @@ footer nav h5{
 
 footer nav div{
     align-self: flex-end;
-    width: 15%;
+    width: 16%;
     margin-left: 2%;
     position: absolute;
-    bottom: 6%;
-    right: 4%;
+    top:65px;
+    right: 0px;
+}
+
+.home__footer__comunidad{
+    display: none;
 }
 
 footer nav div a{
-    width: 30%;
+    display: inline-block;
+    width: 40%;
+}
+
+footer nav div a i{
+    width: 100%;
     padding-left: 8%;
 }
 
@@ -55,6 +62,92 @@ footer nav div a{
 }
 
 
+
 @media(min-width: 768px){
+    footer nav ul {
+        width: 20%;
+        font-size: 10px;
+        margin: 0 5%;
+        text-align: center;
+        
+        }
+
+    footer nav h5{
+            font-size: 14px;
+        }
+    
+        footer nav div{
+            
+            width: 25%;
+            text-align: center;
+            top:100px;
+            right: 18px;
+        }
+        
+
+    .home__footer__comunidad{
+        display: block;
+        
+        text-align: center;
+        font-size: 16px;
+        font-weight: 300;
+        margin-bottom: 5%;
+    }
+
+     footer nav div a{
+        
+        width: 22%;
+            padding-left: 1%
+        } 
+
+        footer nav div i{
+            font-size: 25px;
+        
+        }
+    
+    .footer__copyright{
+            font-size: 8px;
+            
+        }
+}
+
+@media(min-width: 1024px){
+    
+    footer nav{
+        max-width: 1024px;
+        margin: 0 auto;
+    }
+
+    footer nav ul {
+        font-size: 14px;
+       }
+    footer nav h5{
+        font-size: 20px;
+    }
+    .home__footer__comunidad{
+       
+        font-size: 22px;
+        padding-left: 10px;
+        
+    }
+
+    footer nav div{
+            
+        width: 25%;
+        top:145px;
+        right: 32px;
+        text-align: center;
+    }
+    
+    footer nav div i{
+        font-size: 25px;
+    
+    }
+    footer nav div a{
+        width: 22%;
+        padding-left: 10%;
+    }
+
+    
     
 }

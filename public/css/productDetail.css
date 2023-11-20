@@ -200,6 +200,7 @@
         .recomendado__titulo h3 {
             font-size: 18px;
             text-decoration: underline;
+            width: 39%;
         }
         .recomendado__titulo h4{
         display: none;}
