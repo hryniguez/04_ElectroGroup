@@ -3,10 +3,10 @@ const fs = require('fs');
 
 const usercontrollers = {
     login: function (req, res) {
-        res.render("login", { title: "login" });
+        res.render("users/login", { title: "login" });
     },
     register: function (req, res) {
-        res.render("register", { title: "register" });
+        res.render("users/register", { title: "register" });
     },
     createUser:(req,res)=> {
         console.log(req.body);

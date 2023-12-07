@@ -8,13 +8,13 @@ const detailcontrollers = {
     productDetail: function (req, res) {
         const id = req.params.id;
         const detalle = products.find(detalle => detalle.id == id)
-        res.render("productDetail", { title: "productDetail", detalle, products });
+        res.render("products/productDetail", { title: "productDetail", detalle, products });
     },
     productCart: function (req, res) {
-        res.render("productCart", { title: "productCart" });
+        res.render("products/productCart", { title: "productCart" });
     },
     productcreate: function (req, res) {
-        res.render("productcreate", { title: "productcreate" });
+        res.render("products/productcreate", { title: "productcreate" });
     },
     dashboard:(req, res) => {
       const propiedades = ["id","nombre","imagen","sticker"];

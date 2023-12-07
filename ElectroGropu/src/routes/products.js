@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const {productDetail,detail, productCart,formCreate,dashboard,create,formUpdate,update,productDelete} = require("../controllers/productControllers")
+const {productDetail, productCart,formCreate,dashboard,create,formUpdate,update,productDelete} = require("../controllers/productControllers")
 
 router.get('/productDetail', productDetail)
 router.get('/productDetail/:id', productDetail)
