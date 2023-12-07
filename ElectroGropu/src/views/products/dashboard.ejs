@@ -1,0 +1,40 @@
+
+
+    <body class="home__body">
+   
+            <main class="dashbord">
+                <fieldset class="tablet">
+                    <a href="/products/productcreate"><button class="botondash">Crear Producto</button></a>
+                    <section class="home__main__products">
+                        <% products.forEach(product=> {%>
+                            <article class="home__main__products__product">
+                                <div class="home__main__products__product__photo-container">
+                                    <img class="home__main__products__product__photo-container--photo"
+                                        src="/img/<%= product.image %> " alt="<%= product.titulo %>" />
+                                </div>
+                                <h4 class="h4dash">
+                                    <%= product.titulo %>
+                                </h4>
+                                <div class="contenedor-botones-dashboard">
+                                    <a class="home__main__products__product__photo-container--more"
+                                        href="/products/detail/<%= product.id %>"><i
+                                            class="fa-brands fa-readme"></i></a>
+                                    <a class="home__main__products__product__photo-container--more"
+                                        href="/products/update/<%= product.id %>">
+                                        <i class="fa-solid fa-pen-to-square"></i>
+                                    </a>
+                                    <a class="home__main__products__product__photo-container--more"
+                                        href="/products/delete/<%= product.id %>"><i class="fa-solid fa-trash"></i>
+                                    </a>
+                                </div>
+                            </article>
+                            <% }); %>
+
+                    </section>
+                </fieldset>
+
+            </main>
+          
+    </body>
+
+    </html>
