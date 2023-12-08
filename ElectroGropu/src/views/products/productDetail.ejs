@@ -1,6 +1,4 @@
-<head>
-    <link rel="stylesheet" href="/stylesheets/style.css">
-</head>
+
 
 <body>
     
@@ -26,9 +24,9 @@
              </article>
              <article class="Detail__main__caracteristicas">
                 <ul class="caracteristicas__titulo">
-                    <% for(propiedad in products.description){ %>
+                    <% for(propiedad in detalle.description){ %>
                         <p>
-                            <%= propiedad %>: <%= product.description[propiedad] %>
+                            <%= propiedad %>: <%= detalle.description[propiedad] %>
                         </p>
                     <% } %>
                 </ul>
@@ -41,7 +39,7 @@
                 </div>
 
              <ul class="recomendado__articulo">
-                <!-- <article>
+                <article>
                 <img src="/img/1-thinkpad Yoga X1.png" alt="Aquí va foto1 Notebook Thinkpad X1 Yoga">
                 
                 <p>Notebook Thinkpad X1 Yoga 6ta generacion Pantalla 14" 512gb Ssd 16gb Win 11 Pro</p>
@@ -57,7 +55,7 @@
                 <img src="/img/1-rog strix g16.png" alt="Aquí va foto3 Notebook Gamer ROG Strix g16">
                 <p>Notebook Gamer ROG Strix g16 Pantalla 16" 16gb Ram 1tb Ssd 16 Rtx 4070 8gb</p>
                 <p>$2.167.999</p>
-             </article> -->
+             </article>
             </div>
 
           </section>

@@ -8,7 +8,7 @@ const detailcontrollers = {
     productDetail: function (req, res) {
         const id = req.params.id;
         const detalle = products.find(detalle => detalle.id == id)
-        res.render("products/productDetail", { title: "productDetail", detalle, products });
+        res.render("products/productDetail", { title: "productDetail", detalle });
     },
     productCart: function (req, res) {
         res.render("products/productCart", { title: "productCart" });
@@ -17,9 +17,7 @@ const detailcontrollers = {
         res.render("products/productcreate", { title: "productcreate" });
     },
     dashboard:(req, res) => {
-      const propiedades = ["id","nombre","imagen","sticker"];
-      console.log(propiedades);
-      res.render('products/dashboard', { title: "Dashboard", products, propiedades });
+      res.render('products/dashboard', { title: "Dashboard", products });
   },
   formCreate:(req, res) => {
     res.render('products/createProduct', { title: "Create Product" });
@@ -29,7 +27,6 @@ create:(req, res) => {
     const producto = req.body;
     producto.id = products[products.length-1].id + 1;
     products.push(producto);
-    console.log(products);
     const json = JSON.stringify(products);
     fs.writeFileSync(path.join(__dirname,"../data/products.json"),json,'utf-8')
     res.redirect("/products/dashboard");
