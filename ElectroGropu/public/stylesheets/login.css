@@ -151,13 +151,13 @@
     }
     .body__login{
         display: flex;
-        align-items: center;
-        justify-content: space-evenly;
-        background-color: #21043da8;
-        border-radius: 20px;
-        border: 1px solid white;
-        height: 24vh;
-        width: 45vh;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #21043da8;
+    border-radius: 20px;
+    border: 1px solid white;
+    height: 35vh;
+    width: 50vh;
 
     }
     .contenor_botones {
