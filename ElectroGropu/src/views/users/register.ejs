@@ -1,123 +1,96 @@
 <%- include("../partials/head.ejs")%>
 
-<body >
-    <%- include("../partials/header.ejs")%>
+    <body class="body_general_registro">
+        <%- include("../partials/header.ejs")%>
 
 
-  <div class="copy_header_register">
-    <h3 >Crear tu cuenta ElectroGroup</h3>
-  </div>
-    
+            <div class="copy_header_register">
+                <h3>Crear tu cuenta ElectroGroup</h3>
+            </div>
 
-<div class="cajagranderegister">
-    <section class="main__register__form">
-    
-    
-        <form  action="/users/register" method="post" class="register__form_general">
+
+            <div class="cajagranderegister">
+                <section class="main__register__form">
+
+
+                    <form action="/users/register" method="post" class="register__form_general">
+
+                        <div class="register ">
+                            <label for="">Nombre de usuario</label>
+                            <input type="text" name="Nombre de usuario" id="placeholder"
+                                placeholder="Nombre de usuario" required>
+                            <div class="iconousuario">
+                                <i class="fa-regular fa-circle-user" id=""></i>
+                            </div>
+                        </div>
+                        <div class="register ">
+                            <label for="">Correo Electrónico</label>
+                            <input type="email" name="correo" id="placeholder" placeholder="Correo Electrónico" required>
+                            <div class="iconousuario">
+                                <i class="fa-regular fa-envelope" id=""></i>
+                            </div>
+                        </div>
+                        <div class="register ">
+                            <label for="">Confirma tu contraseña</label>
+                            <input type="password" name="contraseña" id="placeholder"
+                                placeholder="contraseña" required>
+                            <div class="iconousuario">
+                                <i class="fa-regular fa-eye-slash" id=""></i>
+                            </div>
+                        </div>
+                        <div class="register ">
+                            <label for="">Contraseña</label>
+                            <input type="password" name="contraseña" id="placeholder" placeholder="Repetir contraseña" required>
+                            <div class="iconousuario">
+                                <i class="fa-solid fa-eye-slash" id=""></i>
+                            </div>
+                        </div>
+                        <div class="register__terminos-condiciones">
+                            <input type="checkbox" name="terminos">
+                            <label for="">Acepto terminos y condiciones</label>
+                        </div>
+
+
+                        <div class="register__buttom">
+
+                            <button type="submit">Registrarme</button>
+
+
+                            <h6>Registrarme con</h6>
+                            <nav>
+                                <ul class="redessocialesregsiter">
+                                    <a href="https://google.com"><i class="fa-brands fa-google"></i></i></a>
+                                    <a href="https://twitter.com"><i class="fa-brands fa-twitter"></i></i></a>
+                                    <a href="https://facebook.com"><i class="fa-brands fa-facebook"></i></i></a>
+                                </ul>
+                            </nav>
+                            <h5>¿ya tiene una cuenta? <a href="/users/login"> inicie sesión</a></h5>
+
+
+                        </div>
+
+                    </form>
+
+                </section>
+            </div>
+
+
             
-        <div class="register">
-           <div class="register__form_general-label">
-                <label for="">Nombre de usuario</label>
-             </div>
-            
-            <div class="register__form_general-icon">
-                
-                <i class="fa-regular fa-circle-user" id=""></i>
-            </div>
-    
-            <div class="register__form_general-input">
-                <input type="text" name="Nombre de usuario" id="placeholder" placeholder="Escribe aqui tu nombre">
-            </div> 
-        </div>  
-    
-        <div class="register">
-    
-            <div class="register__form_general-label">
-                 <label for="">Correo Electrónico</label>
-            </div>
-    
-            <div class="register__form_general-icon">
-                <i class="fa-regular fa-envelope" id="" ></i>
-            </div>
-    
-            <div class="register__form_general-input">    
-                <input type="email" name="correo" id="placeholder" placeholder="Escribí aquí tu correo">
-    
-            </div>
-        </div>
-    
-        <div class="register">
-            <div class="register__form_general-label">
-                <label for="">Contraseña</label>
-            </div>
-                
-            <div class="register__form_general-icon">
-                <i class="fa-solid fa-eye-slash" id="" ></i>
-            </div>  
-               
-            <div class="register__form_general-input">
-                <input type="password" name="contraseña" id="placeholder" placeholder="Escribí aquí tu contraseña">
-            </div>
-         
-        </div>
-    
-        
-        <div class="register">
-            <div class="register__form_general-label">
-               <label for="">Confirma tu contraseña</label>
-           </div>
-           <div class="register__form_general-icon">
-                <i class="fa-regular fa-eye-slash" id=""></i>
-            </div> 
-            
-            <div class="register__form_general-input">
-                <input type="password" name="contraseña" id="placeholder" placeholder="Repetir contraseña">
-            </div>
-        
-        </div>
-        <div class="register__buttom">
-            
-             <button type="submit">Registrarme</button>
-        
-            
-            <h6>Registrarme con</h6>
-            <nav>
-             <ul class="redessocialesregsiter">
-                 <a href="https://google.com"><i class="fa-brands fa-google"></i></i></a>
-                 <a href="https://twitter.com"><i class="fa-brands fa-twitter"></i></i></a>
-                 <a href="https://facebook.com"><i class="fa-brands fa-facebook"></i></i></a>
-             </ul>
-            </nav>
-            <h5>¿ya tiene una cuenta? inicie sesión</h5>
- 
- 
-         </div>
-    
-        </form>
-        
-    </section>
-</div>
-    
-    
-            <div class="register__terminos-condiciones">
-                <input type="checkbox" name="terminos">
-                <label for="">Acepto terminos y condiciones</label>
-            </div>   
-           
-           
-            
-    
 
-    
-  
 
-    
-       
-  
-    <div class="footer__productcart">
 
-    </div>
-    <%- include("../partials/footer.ejs")%>
-</body>
 
-</html>
+
+
+
+
+
+
+
+            <div class="footer__productcart">
+
+            </div>
+            <%- include("../partials/footer.ejs")%>
+    </body>
+
+    </html>
