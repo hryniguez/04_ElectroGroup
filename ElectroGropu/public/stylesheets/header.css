@@ -377,3 +377,15 @@ body {
 
 
 }
+@media (min-width: 1440px){
+    .copy__header {
+        display: flex;
+        margin: 0;
+        max-width: none;
+        font-size: 40px;
+        font-weight: 400;
+        position: absolute;
+        left: 14%;
+        top: 10%;
+    }
+}
