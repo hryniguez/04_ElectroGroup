@@ -1,5 +1,7 @@
-
+<%- include("../partials/head.ejs")%>
   <body class="home__body">
+
+    <%- include("../partials/header.ejs")%>
  
     <main class="createpro">
         <form action="/products/create" method="post">
@@ -26,6 +28,6 @@
             </div>
         </form>
     </main>
-    
+    <%- include("../partials/footer.ejs")%>
   </body>
 </html>

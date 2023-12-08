@@ -38,9 +38,11 @@
 
 .home__main__section-article div{
     border-top: 1px solid gray;
+    width: 100%;
 }
 
 .home__main__section p{
+    display:block;
     font-size: 12px;
     font-weight: 500;
     margin: 0 5px;
@@ -59,6 +61,7 @@
 }
 
 .home__main__section-article h4{
+    display: block;
     font-size: 14px;
     margin-bottom: 5%;
     font-weight: bold;

@@ -82,26 +82,6 @@
       "velocidad": "Velocidad de la CPU: 4 GHz"
     },
     "price": "2.364.932"
-  },
-  {
-    "titulo": "pca gamer",
-    "description": "jaf lkajs jlkasfjfl kjkla",
-    "image": "1-asus zenbook pro duo.png",
-    "price": "2.500.500",
-    "id": 7
-  },
-  {
-    "titulo": "dasd",
-    "description": "asdasdsa",
-    "image": "",
-    "price": "sdasd",
-    "id": 8
-  },
-  {
-    "titulo": "jbdsfkhsbfqfn",
-    "description": "qdsnfsdjfojn",
-    "image": "",
-    "price": "adasd",
-    "id": 9
   }
+  
 ]
