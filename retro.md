@@ -12,7 +12,7 @@ SPRINT I: Restrospectiva
 Seguir haciendo
 * Mantener nuestro tablero Jira actualizado con todos los avances.
 * Reuniones para poder resolver cualquier bloqueo o dificultad en el desarrollo de la tarea asignada.
-* Seguir mantienend el flujo de la comunicacion a traves de Whatsapp u otro medio de forma diaria.
+* Seguir manteniendo el flujo de la comunicacion a traves de Whatsapp u otro medio de forma diaria.
   
 Empezar a hacer
 * Crear las dailys de 15 o 30 minutos como máximo.
@@ -26,3 +26,27 @@ Empezar a hacer
 *  Hacer menos
 
 * Dejar de hacer
+
+SPRINT II: Retrospectiva
+
+Seguir haciendo
+* Mantener el tablero de jira actualizado con los avances dentro de cada tareas o incidencias
+* Reuniones para poder resolver cualquier bloqueo o dificultad en el desarrollo de la tarea asignada.
+* Seguir manteniendo una buena comunicación grupal.
+* Reunión de seguimiento sobre los avances individuales de la cursada(apoyarnos en el progreso y afianzar los conocimientos)
+* Seguir manteniendo el flujo de la comunicacion a traves de Whatsapp u otro medio de forma diaria.
+
+Empezar a hacer
+* Trabajar con fechas en jira y cumplirlas.
+* Comprometerse a avanzar todos los días tanto con el proyecto como con playground y los contenidos.
+* Implementar ramas de trabajo en Github.
+* Hacer una brainstorming por Sprint para innovaciones.
+
+Hacer más
+* Reuniones grupales y dailys antes de  la entrega.
+
+* Hacer menos
+
+Dejar de hacer
+* Resolver errores sobre la fecha de entrega del Sprint.
+  
