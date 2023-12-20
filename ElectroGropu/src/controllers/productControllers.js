@@ -47,10 +47,11 @@ productDelete: (req, res) => {
     const product = products.find(producto => producto.id == id);
     res.redirect("/products/dashboard");
 },
+
 editProduct:(req,res)=>{
     const {id}=req.params;
-    const product= products.find(products => product.id ==id);
-    res.redirect("/products/editProduct")
+    const product= products.find(producto => product.id ==id);
+    res.render("product-edit-form",{title:product.name,product});
 }
 };
 

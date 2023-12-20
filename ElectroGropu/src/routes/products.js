@@ -11,6 +11,6 @@ router
 .get('/formUpdate/:id',formUpdate)
 .put('/update/:id', update)
 .delete('/delete/:id', productDelete)
-.edit('/edit/:id',editProduct)
+.get('/edit/:id',editProduct)
 
 module.exports = router
