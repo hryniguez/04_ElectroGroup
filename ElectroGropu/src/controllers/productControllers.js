@@ -17,11 +17,11 @@ const detailcontrollers = {
         res.render("products/productcreate", { title: "productcreate" });
     },
     dashboard:(req, res) => {
-      res.render('products/dashboard', { title: "Dashboard", products });
-  },
-  formCreate:(req, res) => {
+    res.render('products/dashboard', { title: "Dashboard", products });
+    },
+    formCreate:(req, res) => {
     res.render('products/createProduct', { title: "Create Product" });
-},
+    },
 
 create:(req, res) => {
     const producto = req.body;
@@ -47,6 +47,11 @@ productDelete: (req, res) => {
     const product = products.find(producto => producto.id == id);
     res.redirect("/products/dashboard");
 },
+editProduct:(req,res)=>{
+    const {id}=req.params;
+    const product= products.find(products => product.id ==id);
+    res.redirect("/products/editProduct")
+}
 };
 
 module.exports = detailcontrollers;
