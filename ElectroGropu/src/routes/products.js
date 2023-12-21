@@ -1,9 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const {productDetail, productCart,formCreate,dashboard,create,formUpdate,update,productDelete} = require("../controllers/productControllers")
+const {productDetail, productCart,formCreate,dashboard,create,formUpdate,update,productDelete,products} = require("../controllers/productControllers")
 
 router
 .get('/productDetail/:id', productDetail)
+.get("/", products)
 .get('/productCart', productCart)
 .get('/dashboard', dashboard)
 .get('/createProduct', formCreate)

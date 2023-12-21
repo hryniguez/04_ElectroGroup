@@ -47,6 +47,9 @@ productDelete: (req, res) => {
     const product = products.find(producto => producto.id == id);
     res.redirect("/products/dashboard");
 },
+products: function (req, res) {
+    res.render("products/productsGeneral", { title: "ElectroGroup", products });
+  },
 };
 
 module.exports = detailcontrollers;
