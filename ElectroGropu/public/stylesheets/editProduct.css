@@ -1,0 +1,38 @@
+.main-editproduct-Form{
+    display: flex;
+    flex-direction: column;
+}
+.form-edit-product{
+    width: 37%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 16px;
+}
+.edit_product{
+    display: flex;
+    justify-content: center;
+    background-image: url("../img/alien.jpg");
+}
+
+.imput-edicion {
+    font-size: 12px;
+}
+.description {
+    width: 35%;
+}
+
+.imput-edit {
+    width: 81%;
+}
+.edicion {
+}
+.precio_edicion {
+}
+.boton_edit {
+    width: 16%;
+    height: auto;
+}
+.boton-edit-img img{
+    width: 35%;
+}

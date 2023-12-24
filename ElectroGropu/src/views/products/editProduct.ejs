@@ -4,17 +4,17 @@
     <%- include("../partials/header.ejs")%>
 
     <div class="edit_product">
-        <form action="/products/edit/<%= product.id%>?_method=PUT" method="POST"></form>
+        <form action="/products/editProduct/<%= product.id%>?_method=PUT" method="POST"></form>
             <div class="imput-edicion">
                 <label for="nombre" id="nombre"> Ingrese el nombre del producto</label>
-                <input type="text" name="titulo">
+                <input type="text" name="titulo" value="<% product.name%>">
             </div>
             <div class="description">
-                <textarea name="textarea" rows="20" cols="50">Especificaciones técnicas</textarea>
+                <textarea name="textarea" rows="20" cols="50" value="<% product.descripcion%>">Especificaciones técnicas</textarea>
             </div>
             <div class="imput- edicion">
                 <label for="imagen" >Selecciona una imagen para el producto</label>
-                <input type="file" name="image" id="imagen">
+                <input type="file" name="image" id="imagen"value="<% product.name%>">
             </div>
         
             <div class="precio_edicion">

@@ -51,7 +51,7 @@ productDelete: (req, res) => {
 editProduct:(req,res)=>{
     const {id}=req.params;
     const product= products.find(producto => product.id ==id);
-    res.render("product-edit-form",{title:product.name,product});
+    res.render("products/editProduct",{title:product.name,product});
 }
 };
 

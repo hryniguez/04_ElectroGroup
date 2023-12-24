@@ -54,7 +54,10 @@
     color:darkmagenta;
     font-size: center;
 }
-
+.fa-regular.fa-file-circle-plus{
+    color:darkmagenta;
+    font-size: center;
+}
 
 .createpro{
     background-image: url('/img/177606.jpg');
