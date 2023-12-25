@@ -50,7 +50,7 @@ productDelete: (req, res) => {
 
 editProduct:(req,res)=>{
     const {id}=req.params;
-    const product= products.find(producto => product.id ==id);
+    const product= products.find(product => product.id ==id);
     res.render("products/editProduct",{title:product.name,product});
 }
 };
