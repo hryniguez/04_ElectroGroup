@@ -47,12 +47,35 @@ productDelete: (req, res) => {
     const product = products.find(producto => producto.id == id);
     res.redirect("/products/dashboard");
 },
+editProduct: (req, res) => {
+    const { id } = req.params;
+    const product = products.find(product => product.id == id);
+    const { titulo, description, image, price} = req.body;
 
-editProduct:(req,res)=>{
-    const {id}=req.params;
-    const product= products.find(product => product.id ==id);
-    res.render("products/editProduct",{title:product.name,product});
+    const nuevoArray = products.map(product => {
+        if (product.id == id) {
+            return {
+                id,
+                titulo: titulo,
+                descripcion: description,
+                precio: +price,
+                imagen: image ? image : product.imagen,
+            };
+        }
+        return product;
+    });
+
+    products.forEach((product, index) => {
+        if (product.id == id) {
+            products[index] = nuevoArray.find(produc => product.id == id);
+        }
+    });
+
+    const jsonData = JSON.stringify(products);
+    fs.writeFileSync(path.join(__dirname, "../data/products.json"), jsonData);
+    res.render("products/editProduct", { title: product.nombre, product });
+    res.redirect(`/products/dashboad/${product.id}`);
+},
+
 }
-};
-
 module.exports = detailcontrollers;

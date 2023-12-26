@@ -1,19 +1,15 @@
-.main-editproduct-Form{
-    display: flex;
-    flex-direction: column;
-}
-
 .edit_product{
     width: 100%;
     display: flex;
     background-image: url(../img/giphy.gif);
+    align-items: center;
     flex-direction: column;
-    align-items: center
+
 }
 .form-editProduct{
     margin-top: 5px;
     gap: 12px;
-    width: 100%;
+    width: 95%;
     display: flex;
     flex-direction: column;
     margin-left: 14px;
@@ -23,7 +19,7 @@
     font-size: 17px;
     width: max-content;
 }
-.imput-edicion {
+.input-edicion {
     font-size: 12px;
     width: 90%;
 }
@@ -31,19 +27,13 @@
     width: 90%;
     font-size: 12px;
 }
-.precio_edicion {
-}
-.boton-edit-img img{
-    width: 40%;
-    color:grey;
-    width: max-content
-}
 .boton_edit{
     background-color:var(--color-celesteoscuro);
     color:white;
     width: max-content
 }
  /* vista tablet */
+
 @media(min-width:768px){
     .form-editProduct{ 
     margin-top: 5px;
@@ -53,6 +43,11 @@
     flex-direction: column;
     margin-left: 66px;
     }
+    .input-edicion {
+        font-size: 18px;
+        width: 55%;
+    }
+
 }
 
 /* vista desktop */
@@ -66,7 +61,7 @@
     flex-direction: column;
     margin-left: 60px;
 }
-.imput-edicion {
+.input-edicion {
     font-size: 12px;
     width: 32%;
     height: 38px;
