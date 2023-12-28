@@ -45,7 +45,7 @@
    color:white;
    width: 100%;
    height: 80%;
-   font-size: 100%;
+   font-size: 25px;
     background-color:var(--color-violeta);
     border: 1px solid black;
     border-radius: 10px;
@@ -181,7 +181,7 @@
         border-radius: 43px;}
     .Detail__main__articulos div {
         width: 45%;
-        height: 19%;
+        height: 11%;
         background-color: rgb(165, 162, 162);
         border: 1px solid black;
         border-radius: 32px;
@@ -441,7 +441,7 @@
    }
    .Detail__main__articulos div h2 {
        color: white;
-       font-size: 18px;
+       font-size: 42px;
        text-align: center;
    }
    .recomendado__articulo p {

@@ -1,3 +1,4 @@
+const { log } = require("console");
 const fs = require("fs");
 const path = require("path");
 const json = fs.readFileSync(path.join(__dirname,"../data/products.json"),"utf-8")
@@ -24,7 +25,10 @@ const detailcontrollers = {
 },
 
 create:(req, res) => {
+    console.log(req.file);
     const producto = req.body;
+    
+    producto.image = req.file.filename;
     producto.id = products[products.length-1].id + 1;
     products.push(producto);
     const json = JSON.stringify(products);

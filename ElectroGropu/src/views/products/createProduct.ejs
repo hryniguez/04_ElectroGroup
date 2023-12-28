@@ -4,7 +4,7 @@
     <%- include("../partials/header.ejs")%>
  
     <main class="createpro">
-        <form action="/products/create" method="post">
+        <form action="/products/createProduct" method="post" enctype="multipart/form-data">
             <div class="PRECIOCREATE">
                 <label for="nombre" id="nombre"> Ingrese el nombre del producto</label>
                 <input type="text" name="titulo">
@@ -15,7 +15,7 @@
             </div>
             <div class="PRECIOCREATE">
                 <label for="imagen" >Selecciona una imagen para el producto</label>
-                <input type="file" name="image" id="imagen">
+                <input type="file" name="image" id="imagen"  multiple></input>
             </div>
         
             <div class="PREC">

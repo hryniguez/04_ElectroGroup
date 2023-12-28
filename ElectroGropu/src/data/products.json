@@ -82,6 +82,20 @@
       "velocidad": "Velocidad de la CPU: 4 GHz"
     },
     "price": "2.364.932"
+  },
+  
+  {
+    "titulo": "fdddddd",
+    "description": "fffffffffffff",
+    "price": "5",
+    "image": "1703798066838_img_.png",
+    "id": 6
+  },
+  {
+    "titulo": "7777777777777",
+    "description": "77777777777777777777777",
+    "price": "555555555555",
+    "image": "1703798096483_img_.jpg",
+    "id": 7
   }
-
 ]
