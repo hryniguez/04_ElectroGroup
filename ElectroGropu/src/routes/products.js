@@ -6,10 +6,10 @@ const {productDetail, productCart,formCreate,dashboard,create,formUpdate,update,
 
 const storage = multer.diskStorage({
     destination:(req,file,cb)=>{
-    cb(null,path.join(__dirname,'../../public/img/articulos'))
+    cb(null,path.join(__dirname,'../../public/img'))
     },
     filename: (req,file,cb) =>{
-    let newFile = "product-"+ Date.now()+ path.extname(file.originalname);
+    let newFile = "image-"+ Date.now()+ path.extname(file.originalname);
     cb(null,newFile)
     }
 })
@@ -22,8 +22,8 @@ router
 .get('/dashboard', dashboard)
 .get('/createProduct', formCreate)
 .post('/create', create)
-// .get('/formUpdate/:id',formUpdate)
-// .put('/update/:id', update)
+.get('/formUpdate/:id',formUpdate)
+.put('/update/:id', update)
 .delete('/delete/:id', productDelete)
 .get('/editProduct/:id',formEdit)
 .put('/editProduct/:id', upLoad.array('imagenProducto'),editProduct)

@@ -1,30 +1,35 @@
 <%- include("../partials/head.ejs")%>
-<body class="home__body">
 
-    <%- include("../partials/header.ejs")%>
+    <body class="home__body">
 
-    <main class="edit_product">
-        <form class="form-editProduct" action="/products/editProduct/<%= product.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
-            <div class="div-input-edicion">
-                <label class="label-editP" for="titulo">Nombre Producto</label>
-                <input  class="input-edicion" type="text" name="titulo" value="<%= product.titulo%>">
-            </div>
-            <div class="description">
-                <textarea name="description" rows="20" cols="50" value="<%= product.descripcion%>"></textarea>
-            </div>
-            <div class="div-input-edicion">
-                <label class="label-editP" for="image" ></label>
-                <input class="input-edicion"type="file" name="imagenProducto" id="imagen" value="<%= product.image%>">
-            </div>
-        
-            <div class="precio_edicion">
-                <label class="label-editP" for="price" >Precio del Producto</label>
-                <input  class="input-edicion"type="text" name="price"  value="<%= product.price%>">
-            </div>
-            <div class="boton_edit">
-                <button class="boton_edit" type="submit"> Guardar Cambios</button>
-            </div>
-        </form>
-    </main>
-</body>
-</html>
+        <%- include("../partials/header.ejs")%>
+
+            <main class="edit_product">
+                <form class="form-editProduct" action="/products/editProduct/<%= product.id%>?_method=PUT" method="POST"
+                    enctype="multipart/form-data">
+                    <div class="div-input-edicion">
+                        <label class="label-editP" for="titulo">Nombre Producto</label>
+                        <input class="input-edicion" type="text" name="titulo" value="<%= product.titulo%>">
+                    </div>
+                    <div class="description">
+                        <textarea name="description" rows="20" cols="50"><%= product.descripcion%></textarea>.
+                        </div>
+                    <div class="div-input-edicion">
+                        <label class="label-editP" for="image"></label>
+                        <input class="input-edicion" type="file" name="image" id="imagen"
+                            value="<%= product.image%>">
+                    </div>
+
+                    <div class="precio_edicion">
+                        <label class="label-editP" for="price">Precio del Producto</label>
+                        <input class="input-edicion" type="text" name="price" value="<%= product.price%>">
+                    </div>
+                    <div class="boton_edit">
+                        <button class="boton_edit_a" type="submit"> Guardar Cambios</button>
+                    </div>
+                </form>
+            </main>
+            <%- include("../partials/footer.ejs")%>
+    </body>
+
+    </html>

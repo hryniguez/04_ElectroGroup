@@ -28,9 +28,13 @@
     font-size: 12px;
 }
 .boton_edit{
-    background-color:var(--color-celesteoscuro);
+    width: max-content;
+    margin-bottom: 10px
+}
+.boton_edit_a{
     color:white;
-    width: max-content
+    background-color:var(--color-celesteoscuro);
+    font-size: 18px;
 }
  /* vista tablet */
 
