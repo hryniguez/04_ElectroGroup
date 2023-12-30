@@ -26,7 +26,7 @@ router
 .put('/update/:id', update)
 .delete('/delete/:id', productDelete)
 .get('/editProduct/:id',formEdit)
-.put('/editProduct/:id', upLoad.array('imagenProducto'),editProduct)
+.put('/editProduct/:id', upLoad.array('images'),editProduct)
 
 
 
