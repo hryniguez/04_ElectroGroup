@@ -10,6 +10,7 @@ const detailcontrollers = {
         const detalle = products.find(detalle => detalle.id == id)
         res.render("products/productDetail", { title: "productDetail", detalle });
     },
+    
     productCart: function (req, res) {
         res.render("products/productCart", { title: "productCart" });
     },
@@ -28,6 +29,7 @@ const detailcontrollers = {
         res.render("products/editProduct", { title: products.titulo, product });
     },
 
+ develop
     create:(req, res) => {
         console.log(req.file);
         const producto = req.body;
@@ -39,6 +41,27 @@ const detailcontrollers = {
         res.redirect("/products/dashboard");
     },
     
+
+formUpdate: (req, res) => {
+    const {id} = req.params;
+    const product = products.find(producto => producto.id == id);
+    res.render('products/createProduct', { title: product.nombre, product });
+},
+update: (req, res) => {
+    const {id} = req.params;
+    const product = products.find(producto => producto.id == id);
+    res.redirect("/products/dashboard");
+},
+productDelete: (req, res) => {
+    const {id} = req.params;
+    const product = products.find(producto => producto.id == id);
+    res.redirect("/products/dashboard");
+},
+products: function (req, res) {
+    res.render("products/productsGeneral", { title: "ElectroGroup", products });
+  },
+};
+ todos_productos
 
     formUpdate: (req, res) => {
         const { id } = req.params;
@@ -72,29 +95,6 @@ const detailcontrollers = {
     
         
     },
-    // editProduct: (req, res) => {
-        // const {id} = req.params;
-        // const { titulo, description, image, price} = req.body;
-        // const json = fs.readFileSync(path.join(__dirname,"../data/products.json"),"utf-8")
-        // const products = JSON.parse(json);
-    // 
-        // const nuevoArray = products.map(product => {
-            // if (product.id == id) {
-                // return {
-                    // id,
-                    // titulo: titulo,
-                    // description: description,
-                    // price: +price,
-                    // image: image ? image : product.image,
-                // };
-            // }
-            // return product;
-        // });
-        // const jsonData = JSON.stringify(nuevoArray);
-        // fs.writeFileSync(path.join(__dirname, "../data/products.json"), jsonData,"utf-8");
-        // res.redirect(`/products/dashboard`);
-    // },
-    
     editProduct: (req, res) => {
         const files = req.files;
         const { id } = req.params;
