@@ -71,30 +71,7 @@ const detailcontrollers = {
     
     
         
-    },
-    // editProduct: (req, res) => {
-        // const {id} = req.params;
-        // const { titulo, description, image, price} = req.body;
-        // const json = fs.readFileSync(path.join(__dirname,"../data/products.json"),"utf-8")
-        // const products = JSON.parse(json);
-    // 
-        // const nuevoArray = products.map(product => {
-            // if (product.id == id) {
-                // return {
-                    // id,
-                    // titulo: titulo,
-                    // description: description,
-                    // price: +price,
-                    // image: image ? image : product.image,
-                // };
-            // }
-            // return product;
-        // });
-        // const jsonData = JSON.stringify(nuevoArray);
-        // fs.writeFileSync(path.join(__dirname, "../data/products.json"), jsonData,"utf-8");
-        // res.redirect(`/products/dashboard`);
-    // },
-    
+    },  
     editProduct: (req, res) => {
         const files = req.files;
         const { id } = req.params;
