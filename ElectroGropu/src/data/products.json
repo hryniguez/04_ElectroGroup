@@ -82,6 +82,26 @@
       "velocidad": "Velocidad de la CPU: 4 GHz"
     },
     "price": "2.364.932"
+  },
+  {
+    "titulo": "Laptop gamer Legion 5 Gen 6 (15.6\", AMD)",
+    "description": {
+      "opcional": "Laptop 2 en 1 potente y liviana con Intel Eva opcional",
+      "arranque": "Inicio de sección con un solo toque",
+      "lapiz": "Lápiz recargable integrado para dibujar o tomar notas",
+      "detalles": "Ver los detalles del Producto",
+      "marca": "Marca: ASUS",
+      "modelo": "Nombre del modelo: zenbook pro duo",
+      "pantalla": "Tamaño de pantalla: 17 Pulgadas oled",
+      "disco": "Tamaño de disco duro: 1tb SSD",
+      "cpu": " CPU: Core i7",
+      "memoria": "Memoria Ram Instalada:16 GB",
+      "sistema": "Sistema Operativo: Windows 10 Pro",
+      "grafica": "Tarjeta gráfica: Integrado",
+      "velocidad": "Velocidad de la CPU: 4 GHz"
+    },
+    "image": "lenovo-laptop-legion-5-15-amd-subseries-hero.avif",
+    "price": "$1.259.999",
+    "id": 5
   }
-
 ]

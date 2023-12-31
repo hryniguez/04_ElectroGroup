@@ -10,6 +10,7 @@ const detailcontrollers = {
         const detalle = products.find(detalle => detalle.id == id)
         res.render("products/productDetail", { title: "productDetail", detalle });
     },
+    
     productCart: function (req, res) {
         res.render("products/productCart", { title: "productCart" });
     },
