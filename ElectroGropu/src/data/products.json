@@ -2,9 +2,9 @@
     {
         "id": 1,
         "titulo": "asus zenbook pro duo",
-        "description": "editando again",
+        "description": "(15.6\", AMD)",
         "price": 45546345555,
-        "image": "image-1704046990265.webp"
+        "image": "image-1704047815612.jpeg"
     },
     {
         "id": 2,
@@ -63,10 +63,10 @@
         "image": "image-1704046902616.jpg"
     },
     {
-        "id": 51,
-        "titulo": "pc nueva",
-        "description": "hvjhggv",
-        "price": 12005,
-        "image": "image-1704045397906.jpg"
+        "titulo": "pc nueva esa34 ",
+        "description": "nuevo ingreso",
+        "price": "222222",
+        "image": "image-1704047737019.jpeg",
+        "id": 6
     }
 ]
