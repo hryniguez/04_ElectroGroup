@@ -10,6 +10,7 @@ const detailcontrollers = {
         const detalle = products.find(detalle => detalle.id == id)
         res.render("products/productDetail", { title: "productDetail", detalle });
     },
+    
     productCart: function (req, res) {
         res.render("products/productCart", { title: "productCart" });
     },
@@ -39,6 +40,27 @@ const detailcontrollers = {
         res.redirect("/products/dashboard");
     },
     
+
+formUpdate: (req, res) => {
+    const {id} = req.params;
+    const product = products.find(producto => producto.id == id);
+    res.render('products/createProduct', { title: product.nombre, product });
+},
+update: (req, res) => {
+    const {id} = req.params;
+    const product = products.find(producto => producto.id == id);
+    res.redirect("/products/dashboard");
+},
+productDelete: (req, res) => {
+    const {id} = req.params;
+    const product = products.find(producto => producto.id == id);
+    res.redirect("/products/dashboard");
+},
+products: function (req, res) {
+    res.render("products/productsGeneral", { title: "ElectroGroup", products });
+},
+
+
 
     formUpdate: (req, res) => {
         const { id } = req.params;
@@ -71,7 +93,7 @@ const detailcontrollers = {
     
     
         
-    },  
+    },
     editProduct: (req, res) => {
         const files = req.files;
         const { id } = req.params;
