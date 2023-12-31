@@ -28,14 +28,17 @@ const detailcontrollers = {
         res.render("products/editProduct", { title: products.titulo, product });
     },
 
-    create: (req, res) => {
+    create:(req, res) => {
+        console.log(req.file);
         const producto = req.body;
-        producto.id = products[products.length - 1].id + 1;
+        producto.image = req.file.filename;
+        producto.id = products[products.length-1].id + 1;
         products.push(producto);
         const json = JSON.stringify(products);
-        fs.writeFileSync(path.join(__dirname, "../data/products.json"), json, 'utf-8')
+        fs.writeFileSync(path.join(__dirname,"../data/products.json"),json,'utf-8')
         res.redirect("/products/dashboard");
     },
+    
 
     formUpdate: (req, res) => {
         const { id } = req.params;

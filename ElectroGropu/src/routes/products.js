@@ -15,13 +15,13 @@ const storage = multer.diskStorage({
 })
 
 const upLoad = multer({storage});
-
+const upLoad2 = multer({storage});
 router
 .get('/productDetail/:id', productDetail)
 .get('/productCart', productCart)
 .get('/dashboard', dashboard)
 .get('/createProduct', formCreate)
-.post('/create', create)
+.post('/createProduct', upLoad2.single("image"), create)
 .get('/formUpdate/:id',formUpdate)
 .put('/update/:id', update)
 .delete('/delete/:id', destroy)
