@@ -82,7 +82,7 @@ const detailcontrollers = {
         const nuevoArray = products.map(product => {
             if (product.id == id) {
                 return {
-                    id,
+                    id: +id,
                     titulo: titulo,
                     description: description,
                     price: +price,
