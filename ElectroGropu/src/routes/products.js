@@ -3,7 +3,7 @@ const path = require('path');
 const router = express.Router();
 
 const multer = require('multer');
-const {productDetail, productCart,formCreate,dashboard,create,formUpdate,update,productDelete,editProduct,formEdit,destroy} = require("../controllers/productControllers")
+const {products,productDetail, productCart,formCreate,dashboard,create,editProduct,formEdit,destroy} = require("../controllers/productControllers")
 
 
 const storage = multer.diskStorage({
@@ -25,8 +25,6 @@ router
 .get('/dashboard', dashboard)
 .get('/createProduct', formCreate)
 .post('/createProduct', upLoad2.single("image"), create)
-.get('/formUpdate/:id',formUpdate)
-.put('/update/:id', update)
 .delete('/delete/:id', destroy)
 .get('/editProduct/:id',formEdit)
 .put('/editProduct/:id', upLoad.array('images'),editProduct)
