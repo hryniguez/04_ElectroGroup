@@ -44,7 +44,7 @@ const detailcontrollers = {
 
 products: function (req, res) {
     res.render("products/productsGeneral", { title: "ElectroGroup", products });
-  },
+},
 
 
 
