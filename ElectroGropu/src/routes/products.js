@@ -20,7 +20,7 @@ const upLoad = multer({storage});
 const upLoad2 = multer({storage});
 router
 .get('/productDetail/:id', productDetail)
-.get("/", products)
+.get('/productCart', productCart)
 .get('/productCart', productCart)
 .get('/dashboard', dashboard)
 .get('/createProduct', formCreate)
