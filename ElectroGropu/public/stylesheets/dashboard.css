@@ -50,7 +50,14 @@
     align-items: center;
     flex-direction: column;
 }
-
+.home__main__products__product__photo-container--editar i{
+    color:darkmagenta;
+    font-size: center;
+}
+.fa-regular.fa-file-circle-plus{
+    color:darkmagenta;
+    font-size: center;
+}
 
 .createpro{
     background-image: url('/img/177606.jpg');
@@ -124,6 +131,7 @@
 .eliminar{
     color: rgb(255, 0, 0);
     font-size: 20px;
+    display: contents;
 }
 .editar{
     color: rgb(9, 255, 0);
@@ -229,6 +237,7 @@
         margin-top: 4%;
     }
 }
+
 
 
 
