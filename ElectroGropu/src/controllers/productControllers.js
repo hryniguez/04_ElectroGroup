@@ -77,7 +77,6 @@ const detailcontrollers = {
     
     editProduct: (req, res) => {
         const files = req.files;
-        res.send( req.files)
         const { id } = req.params;
         const { titulo, description, price} = req.body;
         const json = fs.readFileSync(path.join(__dirname, '../data/products.json'), 'utf-8');
