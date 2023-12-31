@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const router = express.Router();
 const multer = require('multer');
-const {productDetail, productCart,formCreate,dashboard,create,formUpdate,update,productDelete,editProduct,formEdit} = require("../controllers/productControllers")
+const {productDetail, productCart,formCreate,dashboard,create,formUpdate,update,productDelete,editProduct,formEdit,destroy} = require("../controllers/productControllers")
 
 const storage = multer.diskStorage({
     destination:(req,file,cb)=>{
@@ -24,7 +24,7 @@ router
 .post('/create', create)
 .get('/formUpdate/:id',formUpdate)
 .put('/update/:id', update)
-.delete('/delete/:id', productDelete)
+.delete('/delete/:id', destroy)
 .get('/editProduct/:id',formEdit)
 .put('/editProduct/:id', upLoad.array('images'),editProduct)
 

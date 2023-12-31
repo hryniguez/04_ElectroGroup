@@ -47,10 +47,27 @@ const detailcontrollers = {
         const product = products.find(producto => producto.id == id);
         res.redirect("/products/dashboard");
     },
-    productDelete: (req, res) => {
-        const {id} = req.params;
-        const product = products.find(producto => producto.id == id);
-        res.redirect("/products/dashboard");
+    destroy: (req, res) => {
+        const {id}= req.params;
+        const json = fs.readFileSync(path.join(__dirname,"../data/products.json"),"utf-8")
+        const products = JSON.parse(json);
+            
+            let product = products.find(product => product.id == id);
+            let productClear = products.filter(product => product.id !== +req.params.id);
+            const jsonn = JSON.stringify(productClear);
+    
+            fs.unlink(path.join(__dirname,`../../public/img/${product.image}`), (err) =>{
+                if(err) throw err;
+                console.log(`borre el archivo ${product.image}`);
+            })
+    
+    
+            
+        fs.writeFileSync(path.join(__dirname,"../data/products.json"),jsonn,'utf-8')
+            res.redirect ('/products/dashboard')
+    
+    
+        
     },
     // editProduct: (req, res) => {
         // const {id} = req.params;
