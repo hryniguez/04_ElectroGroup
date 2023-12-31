@@ -131,6 +131,7 @@
 .eliminar{
     color: rgb(255, 0, 0);
     font-size: 20px;
+    display: contents;
 }
 .editar{
     color: rgb(9, 255, 0);
@@ -236,6 +237,7 @@
         margin-top: 4%;
     }
 }
+
 
 
 
