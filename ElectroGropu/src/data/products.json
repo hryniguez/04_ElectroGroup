@@ -28,32 +28,11 @@
         "price": "2.167.999"
     },
     {
-        "id": 3,
-        "image": "1-thinkpad Yoga X1.png",
-        "titulo": "ThinkPad X1 Yoga 6ta Gen(14Intel)",
-        "description": {
-            "opcional": "Laptop 2 en 1 potente y liviana con Intel Eva opcional",
-            "arranque": "Inicio de sección con un solo toque",
-            "lapiz": "Lápiz recargable integrado para dibujar o tomar notas",
-            "detalles": "Ver los detalles del Producto",
-            "marca": "Marca: Lenovo",
-            "modelo": "Nombre del modelo: Lenovo Thinkpad",
-            "pantalla": "Tamaño de pantalla: 14 Pulgadas",
-            "disco": "Tamaño de disco duro: 512GB SSD",
-            "cpu": " CPU: Core i7",
-            "memoria": "Memoria Ram Instalada:16 GB",
-            "sistema": "Sistema Operativo: Windows 10 Pro",
-            "grafica": "Tarjeta gráfica: Integrado",
-            "velocidad": "Velocidad de la CPU: 3 GHz"
-        },
-        "price": "1.235.000"
-    },
-    {
         "id": 4,
         "titulo": "asus zenbook pro max",
-        "description": "pruebita again",
-        "price": null,
-        "image": "image-1704046688383.webp"
+        "description": "",
+        "price": 5433,
+        "image": "image-1704057865680.jpg"
     },
     {
         "id": 5,
