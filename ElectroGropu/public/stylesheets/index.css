@@ -27,13 +27,13 @@
 }
 
 .enlace__articulo__detalle img{
-    width: 70%;
-    height: 40%;
-    filter:brightness(1.1);
+    width: 76%;
+    margin-top: 5px;
+    margin-left: 29px;
+    height: 100%;
+    filter: brightness(1.1);
     mix-blend-mode: multiply;
     transition: 1.5s
-
-    
 }
 
 .home__main__section-article div{
