@@ -72,3 +72,64 @@
 
 ### Dejar de hacer
 * En este apartado aprovechamos para plantear las dificultades que tuvimos en el sprint, en nuestro  caso se nos bajo un integrante del grupo por lo que tuvimos que arreglarnos para dividir las tareas solo entre tres a mitad del sprint uno de los integrantes tuvo una situacion personal por lo que no podia completar su tarea y los otros dos integrantes asumieron esa responsabilidad en pos de entregar el trabajo a tiempo .
+
+--------------------------------------------------------------------------------
+
+![Alt text](./public/img/electrogroup.jpg) 
+# <font color='darkblue'>SPRINT IV: Retrospectiva</font>
+----------
+##Integrantes:
+
+ |Originales |> |
+   |---|---| 
+* Emmanuel Heredia
+* Angel Moreno
+* Horacio 
+
+ |Nuevos integrantes|>|
+ |---|---| 
+* Paula Escobar
+* Valeria Castillo
+
+ >[!NOTE]
+   >##<span style="color:darkblue">Breve reseña: </span>
+    >En este sprint se incorporaron nuevas integrantes. se organizo un encuentro por zoom en donde nos presentamos. Y hablamos de metodo de trabajar.
+    En otra reunion distribuimos las tareas.
+   >This is note text.
+
+
+
+----------
+![Alt text](./public/img/estrella%202.jpg)
+---------
+##<span style="color:darkblue">Implementando metodologia estrella:</span>
+
+#### <span style="color:darkblue">Seguir haciendo </span>
+* Mantener el tablero de jira actualizado con los avances dentro de cada tareas o incidencias
+(se decidio en este sprint q un integrante moviera y describiera el avance de tareas por temas de horarios laborales)
+* Reuniones para poder resolver cualquier bloqueo o dificultad en el desarrollo de la tarea asignada.
+(se comparten errores o se realiza reunion para tareas que tienen un bloqueo u error)
+* Seguir manteniendo una buena comunicación grupal.
+
+* Reunión de seguimiento sobre los avances individuales de la cursada(apoyarnos en el progreso y afianzar los conocimientos)
+
+* Seguir manteniendo el flujo de la comunicacion a traves de Whatsapp u otro medio de forma diaria.
+
+* Implementar ramas de trabajo en Github.
+--------
+#### <span style="color:darkblue">Empezar a hacer </span>
+
+* Ser mas descriptivos 
+* Tratar de combinar el horario para estar todos en las reuniones
+--------
+#### <span style="color:darkblue">Hacer más </span>
+
+* Reuniones cortas con temas definidos para cada dia 
+* Compromiso con la tarea dada
+* descripcion de tareas o progreso en el jira.
+
+--------
+#### <span style="color:darkblue"> Hacer menos </span>
+ * no procastinar las tareas, 
+-------
+#### <span style="color:darkblue"> Dejar de hacer</span>
