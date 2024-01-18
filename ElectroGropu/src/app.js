@@ -4,11 +4,10 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const methodOverride =require ('method-override');
-
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const productsRouter = require('./routes/products');
-
+const session = require("express-session");
 const app = express();
 
 // view engine setup
@@ -21,7 +20,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname,"..",'public')));
 app.use(methodOverride('_method'));
-
+app.use(session({
+  secret:"electrogrup",
+  resave: false,
+  saveUninitialized: true,
+}))
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/products', productsRouter);

@@ -1,59 +1,18 @@
 [
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {
-        "nombre": "sgsdfsd",
-        "apellido": "sdfdsfsdf",
-        "email": "sads@sad",
-        "password": "asasdadadadas"
-    },
-    {},
-    {},
-    {
-        "Nombre de usuario": "mayco"
-    },
-    {
-        "Nombre de usuario": "angel moreno",
-        "correo": "angelqq@fdashg",
-        "contraseña": [
-            "quetiimporta|",
-            "quetiimportta"
-        ]
-    },
-    {
-        "Nombre de usuario": "sdasdad",
-        "correo": "dsadad@dsdas",
-        "contraseña": [
-            "dwqd",
-            "dwwda"
-        ]
-    },
-    {
-        "Nombre de usuario": "sdsadasdkkofjo",
-        "correo": "sadkflakfkas@salpdfjka",
-        "contraseña": [
-            "asdadkjhnjkl",
-            "fdsañlkflaskjfklañjm"
-        ]
-    },
-    {
-        "Nombre de usuario": "",
-        "correo": "",
-        "contraseña": [
-            "",
-            ""
-        ]
-    },
-    {
-        "Nombre de usuario": "",
-        "correo": "",
-        "contraseña": [
-            "",
-            ""
-        ]
-    }
+  {},
+  {
+    "Nombre": "angel moreno",
+    "correo": "tamizmoreno107@gmail.com",
+    "contraseña": ["sadas", "sdas"]
+  },
+  {
+    "Nombre": "Angel",
+    "email": "chinoman309@hotmail.com",
+    "contraseña": ["asdasd", "asdasdas"]
+  },
+  {
+    "Nombre": "ANGEL MORENO",
+    "email": "chinoman309@outlook.com",
+    "contraseña": ["sadasda", "sadasda"]
+  }
 ]

@@ -12,7 +12,7 @@ const detailcontrollers = {
     },
     
     productCart: function (req, res) {
-        res.render("products/productCart", { title: "productCart" });
+        res.render("products/productCart", { title: "productCart",usuario:req.session.user });
     },
     productcreate: function (req, res) {
         res.render("products/productcreate", { title: "productcreate" });

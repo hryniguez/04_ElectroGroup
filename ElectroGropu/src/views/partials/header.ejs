@@ -41,8 +41,15 @@
          </div>
          <nav class="main__navbar-icon">
             <ul>
-               <a href="/users/login"><i class="fa-regular fa-circle-user"></i></a>
-
+               
+               <% if(locals.usuario){%>
+                  <a><%= usuario.Nombre %> </a>
+                 <% }else{ %>
+                  <a href='/users/register'><i class="far fa-address-card"></i></a>
+                  <a href='/users/login'> <i class="fa-regular fa-circle-user"></i>
+               
+                 </a>
+                 <% } %>
                <i class="fa-solid fa-heart"></i>
                <a href="/products/productCart"><i class="fa-solid fa-cart-shopping"></i></a>
             </ul>
