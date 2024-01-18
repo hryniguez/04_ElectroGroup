@@ -1,5 +1,6 @@
 const path = require('path');
 const fs = require('fs');
+const {setJson,getJson} = require("../utility/jsonMethod");
 
 const usercontrollers = {
     login: function (req, res) {
@@ -11,10 +12,10 @@ const usercontrollers = {
     createUser:(req,res)=> {
         console.log(req.body);
         const dir = path.join(__dirname, '../','data','users.json')
-        let products = JSON.parse(fs.readFileSync(dir,'utf-8'));
+        let products = getJson("users");
         products.push(req.body);
         let nuevoArray = JSON.stringify(products);
-        fs.writeFileSync(dir,nuevoArray,"utf-8");
+        setJson(users,"users");
         res.redirect("/")
     },
 };
