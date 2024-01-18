@@ -1,0 +1,73 @@
+<%- include("../partials/head.ejs")%>
+
+    <body class="home__body">
+
+        <%- include("../partials/header.ejs")%>
+
+            <main class="Editar_producto">
+
+                <h1 class="titulo_actualizacion">Actualiza tu informacion</h1>
+                <form action="/users/editUser/:id_method=PUT" method="POST"
+                    enctype="multipart/form-data">
+                    
+                    <div class="contenedor_usuario">
+                        <section class="main__register__form">
+                            <div class="register ">
+                                    <label for="">Nombre de usuario</label>
+                                    <input type="text" name="nombre" id="placeholder"
+                                        placeholder="Nombre de usuario" required>
+                                    
+                                </div>
+                                <div class="register ">
+                                    <label for="">Correo Electrónico</label>
+                                    <input type="email" name="correo" id="placeholder" placeholder="Correo Electrónico" required>
+                                    
+                                </div>
+                                
+                                <div class="register ">
+                                    <label for="">Contraseña</label>
+                                    <input type="password" name="contraseña" id="placeholder" placeholder="Repetir contraseña" required>
+                                    
+                                </div>
+
+                                <div class="register ">
+                                    <label for="edad">Edad:</label>
+                                    <input class="campos" type="number" id="edad" name="edad" value="" >
+                                    
+                                </div>
+
+                                <div class="register ">
+                                <label for="direccion">Dirección:</label>
+                                <input class="campos" type="text" id="direccion" name="direccion"  value="">
+                                </div>
+
+                                <div class="register ">
+                                    <label for="telefono">Teléfono:</label>
+                                    <input class="campos" type="tel" id="telefono" name="telefono" value="">
+                                
+                                </div>
+
+                                <div class="register ">
+                                    <label for="genero">Género:</label>
+                                <select class="campos" id="genero" name="genero">
+                                    <option value="masculino">Masculino</option>
+                                    <option value="femenino">Femenino</option>
+                                    <option value="otro">Otro</option>
+                                </select>
+                                
+                                </div>
+                               
+                                   <div class="register__buttom">
+        
+                                    <button type="submit">editar</button>
+                                </div>
+                            </section>
+                            </div>
+        
+                            </form>
+        
+                      
+        </main>
+    </body>
+
+    </html>

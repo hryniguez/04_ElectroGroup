@@ -17,6 +17,11 @@ const usercontrollers = {
         fs.writeFileSync(dir,nuevoArray,"utf-8");
         res.redirect("/")
     },
+
+    editForm :(req,res,next) => {
+        res.render("users/userEdition", { title: "editar usuario"
+        })
+    }
 };
 
 module.exports = usercontrollers;
