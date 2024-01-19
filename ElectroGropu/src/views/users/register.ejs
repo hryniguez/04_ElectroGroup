@@ -25,7 +25,10 @@
                         </div>
                         <div class="register ">
                             <label for="">Correo Electrónico</label>
-                            <input type="email" name="email" id="placeholder" placeholder="Correo Electrónico" required>
+                            <input type="email" name="email" id="placeholder" placeholder="Correo Electrónico" value="<%= locals.old && old.email %>" required>
+                            <% if (locals.errors && errors.email) { %>
+                                <h6 class="feedback"><%= errors.email.msg %></h6>
+                                <% } %>
                             <div class="iconousuario">
                                 <i class="fa-regular fa-envelope" id=""></i>
                             </div>
