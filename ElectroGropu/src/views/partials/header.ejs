@@ -41,10 +41,15 @@
          </div>
          <nav class="main__navbar-icon">
             <ul>
-               
                <% if(locals.usuario){%>
-                  <a><%= usuario.Nombre %> </a>
-                 <% }else{ %>
+                  <img src="/public/img/<%=usuario.image %>"  id="image-profile">
+                  <a href="/users/profile/<%=usuario.id%>"> <%= usuario.nombre %>  </a>
+                     <a class="user-menu" href="/users/logout"> <i class="fas fa-sign-out-alt"></i></a>
+
+               
+               
+                 
+               <% }else{ %>
                   <a href='/users/register'><i class="far fa-address-card"></i></a>
                   <a href='/users/login'> <i class="fa-regular fa-circle-user"></i>
                

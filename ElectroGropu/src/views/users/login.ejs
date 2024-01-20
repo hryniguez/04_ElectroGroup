@@ -24,19 +24,22 @@
                               <% } %>
                           </div>
                   <div >
-                    <label for="contraseña"></label>
-                            <input class="imput_register" type="password" name="contraseña" id="contraseña"
-                                placeholder="Ingresa contraseña" value="<%= locals.old && old.contraseña %>" />
-                            <% if (locals.errors && errors.contraseña) { %>
+                    <label for="password"></label>
+                            <input class="imput_register" type="password" name="password" id="password"
+                                placeholder="Ingresa contraseña" value="<%= locals.old && old.password %>" />
+                            <% if (locals.errors && errors.password) { %>
                                 <h6 class="feedback">
-                                    <%= errors.contraseña.msg %>
+                                    <%= errors.password.msg %>
                                 </h6>
                                 <% } %>
                     <div class="contraseña">
                       <a href="/">Forgot password?</a>
                   </div>
                   </div>
-                 
+                  <div class="contraseña">
+                    <label for="remember">Mantener sesion</label>
+                    <input type="checkbox" name="remember" value="true">
+                </div>
               
                   
                   <div class="contenor_botones">
