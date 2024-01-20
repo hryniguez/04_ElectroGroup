@@ -7,7 +7,7 @@ const validationRegister = require("../validaciones/validationRegister");
 
 /* GET users listing. */
 router.get('/login', login);
-router.get('/register',validationRegister ,register);
-router.post('/register',upload.single('avatar') ,ValidationAvatar ,createUser);
+router.get('/register',register);
+router.post('/register',upload.single('avatar') ,validationRegister,createUser);
 
 module.exports = router;
