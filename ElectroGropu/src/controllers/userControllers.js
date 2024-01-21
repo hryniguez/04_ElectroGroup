@@ -70,17 +70,38 @@ console.log(errors);
         
         
     },
-<<<<<<< HEAD
 
-    editForm :(req,res,next) => {
-        res.render("users/userEdition", { title: "editar usuario"
-        })
-    }
-};
-=======
-    
-    
+    profile :(req,res,next) => {
+        const {id} = req.params;
+        const users = getJson("users");
+        const user = users.find(user => user.id == id);
+        res.render("./users/userEdition", { title: "editar usuario",user, usuario: req.session.user});
+    },
+
+    profileEdited:(req,res)=>{
+        const {id} = req.params;
+        const {nombre,email,age,direction,phone,genre,rol} = req.body;
+        const users = getJson("users");
+        const usuario = users.find(elemento => elemento.id == id);
+        const usuarios = users.map(element => {
+          if (element.id == id) {
+            return {
+              id,
+              nombre: nombre.trim(),
+              email:email.trim(),
+              age,
+              direction,
+              phone,
+              genre,
+              image:req.file ? req.file.filename : usuario.image, 
+              password: usuario.password,
+              rol: rol ? rol : "user"
+            }
+          }
+        });
+        setJson(usuarios,"users");
+        res.redirect(`/users/userProfile/${id}`);
+      },
 }
->>>>>>> develop
 
 module.exports = usercontrollers;
