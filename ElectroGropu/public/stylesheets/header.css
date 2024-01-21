@@ -155,6 +155,58 @@ body {
 }
 
 
+
+@keyframes sun-rise {
+    0% {
+        /* pushes the sun down past the viewport */
+        /*transform: translateX(60%);
+      z-index: 5;*/
+        opacity: 5%;
+    }
+
+    25% {
+        /* returns the sun to its default position */
+        /*transform: translateX(-60%);
+        z-index: 5;*/
+        opacity: 100%;
+    }
+
+    100% {
+        /* returns the sun to its default position */
+        /*transform: translateX(-60%);
+        z-index: 5;*/
+        opacity: 5%;
+    }
+}
+/*#user-icon{
+    margin-top: 1vh;
+}*/
+
+#image-profile{
+    width: 25%;
+    border-radius: 50px;
+    display: inline;
+}
+
+.user-menu {
+    display: none;
+}
+
+#user-name:hover .user-menu{
+    display: inline
+}
+
+.user-name ul{
+    list-style: none;
+    text-decoration: none;
+}
+
+.user-menu {
+    text-decoration: none;
+}
+
+
+
 /*table*/
 
 

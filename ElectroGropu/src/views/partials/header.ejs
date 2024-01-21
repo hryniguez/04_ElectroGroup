@@ -1,22 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>ElectroGroup Header</title>
-   <link rel="preconnect" href="https://fonts.googleapis.com">
-   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap" rel="stylesheet">
-   <link rel="stylesheet" href="/css/style.css">
-
-   <script src="https://kit.fontawesome.com/31ef5b172c.js" crossorigin="anonymous"></script>
-
-</head>
-
-<body>
-
-   <!--HEADER-->
+<!--HEADER-->
 
    <header class="main__header">
       <div class="main__header__top_bar">
@@ -25,13 +7,15 @@
             <i class="fa-solid fa-bars"></i>
          </a>
 
+        <div>
          <a class="logo" href="/"><img src="/img/logo electrogroup s texto.png" class="logo"
                alt="Logo ElectroGroup"></a>
 
 
-         <a href="">
+         <a href="/">
             <h2 class="copy__header">ElectroGroup</h2>
          </a>
+      </div> 
 
          <div class="main__header-search">
             <form action="">
@@ -42,13 +26,9 @@
          <nav class="main__navbar-icon">
             <ul>
                <% if(locals.usuario){%>
-                  <img src="/public/img/<%=usuario.image %>"  id="image-profile">
-                  <a href="/users/userProfile/<%=usuario.id%>"> <%= usuario.nombre %>  </a>
-                     <a class="user-menu" href="/users/logout"> <i class="fas fa-sign-out-alt"></i></a>
-
-               
-               
-                 
+                  <img src="/img/<%=usuario.image %>"  id="image-profile">
+                  <a style="font-size: 18px;" href="/users/userProfile/<%=usuario.id%>"> <%= usuario.nombre %>  </a>
+                  <a  href="/users/logout"> <i class="fas fa-sign-out-alt" style="font-size: 18px;"></i></a>
                <% }else{ %>
                   <a href='/users/register'><i class="far fa-address-card"></i></a>
                   <a href='/users/login'> <i class="fa-regular fa-circle-user"></i>
