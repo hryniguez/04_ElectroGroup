@@ -1,0 +1,109 @@
+<%- include("../partials/head.ejs")%>
+
+    <body class="home__body">
+
+        <%- include("../partials/header.ejs")%>
+
+            <main class="Editar_producto" style="background: linear-gradient(to left, blue,rgb(58, 125, 224));">
+
+                <h1 class="titulo_actualizacion">Perfil de usuario</h1>
+                
+                    
+                    <div class="contenedor_usuario">
+                        <section class="main__register__form">
+                            <div class="register ">
+                                    
+                                    <h2 style="color: black; font-size: 30px;border: black;background-color: white;">Nombre:      <%=user.nombre%></h2>
+                                    
+                            </div>
+                            <div class="register ">
+                                    
+                                <h2 style="color: black; font-size: 30px;border: black;background-color: white;">Email:       <%=user.email%></h2>
+                                
+                        </div>
+                               
+                        <% if(user.age) {%>
+                        <div class="register ">
+                                    
+                           <h2 style="color: black; font-size: 30px;border: black;background-color: white;"> Edad:     <%=user.age %> </h2>
+                            
+                    </div>
+                    <% }else { %> 
+                        <%= null %>
+
+                        <% } %>
+
+                        <% if(user.direction) {%>
+                            <div class="register ">
+                                        
+                               <h2 style="color: black; font-size: 30px;border: black;background-color: white;"> Direccion:     <%=user.direction %> </h2>
+                                
+                        </div>
+                        <% }else { %> 
+                            <%= null %>
+    
+                            <% } %>
+
+                            <% if(user.phone) {%>
+                                <div class="register ">
+                                            
+                                   <h2 style="color: black; font-size: 30px;border: black;background-color: white;"> Telefono:     <%=user.phone %> </h2>
+                                    
+                            </div>
+                            <% }else { %> 
+                                <%= null %>
+        
+                                <% } %>
+
+                                <% if(user.genre) {%>
+                                    <div class="register ">
+                                                
+                                       <h2 style="color: black; font-size: 30px;border: black;background-color: white;"> Genero:     <%=user.genre %> </h2>
+                                        
+                                </div>
+                                <% }else { %> 
+                                    <%= null %>
+            
+                                    <% } %>
+                                    
+                            <% if (locals.usuario && usuario.rol == 'admin') {%>
+                                 <div class="register">
+                                     <label for="rol">Rol</label>
+                                     <input class="campos" type="text" id="rol" name="rol" value="<%= locals.user ? user.rol : locals.old && old.rol ? old.rol : null %>">
+                                     <p> <%= locals.errores && errores.rol ? errores.rol.msg : null %> </p>
+                                 </div>    
+                             <% } %>
+                             
+                             <% if(user.image) {%>
+                                <div class="register ">
+                                
+                                    <label for="image" class="col-12 mt-3">Foto de perfil</label><br>
+                                    <img style="width: 10%;margin-bottom: 20px;" src="/img/<%= user.image %>" alt="profile image">
+                                    
+                                </div>
+                            <% }else { %> 
+                            <div class="register ">
+                                <label for="image" class="col-12 mt-3">Foto de perfil</label><br>
+                                <img style="width: 10%;margin-bottom: 20px;" src="/img/<%= user.image %>" alt="profile image">
+                                <input type="file" class="form-control"  name="image">
+                                <p><%= locals.errores && errores.image ? errores.image.msg : null %> </p>
+                            </div>
+                                <% } %>
+
+                             
+                            
+                                <div class="register__buttom" style="width: 100%;margin-top: 150px;">
+     
+                                 <button style="font-size: 22px;background-color: rgb(25, 124, 206);"><a href="/users/profileEdit/<%= user.id%>">Actualiza tu perfil</a></button>
+                             </div>
+                         </section>
+                         </div>
+     
+                         </form>
+     
+                   
+     </main>
+ </body>
+
+ </html>
+                                

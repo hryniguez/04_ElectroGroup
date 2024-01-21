@@ -70,8 +70,46 @@ console.log(errors);
         
         
     },
-    
-    
+
+    profile:(req,res,next) => {
+      const {id} = req.params;
+      const users = getJson("users");
+      const user = users.find(user => user.id == id);
+      res.render("./users/profile", { title: "Perfil de usuario",user, usuario: req.session.user});
+    },
+
+    formProfile:(req,res,next) => {
+        const {id} = req.params;
+        const users = getJson("users");
+        const user = users.find(user => user.id == id);
+        res.render("./users/userEdition", { title: "editar usuario",user, usuario: req.session.user});
+    },
+
+    profileEdited:(req,res)=>{
+        const {id} = req.params;
+        const {nombre,email,age,direction,phone,genre,rol} = req.body;
+        const users = getJson("users");
+        
+        const usuarios = users.map(user => {
+          if (user.id == id) {
+            return {
+              id,
+              nombre: nombre.trim(),
+              email:email.trim(),
+              age,
+              direction,
+              phone,
+              genre,
+              image:req.file ? req.file.filename : user.image, 
+              password: user.password,
+              rol: rol ? rol : "user"
+            }
+          }
+          return user
+        });
+        setJson(usuarios,"users");
+        res.redirect(`/users/userProfile/${id}`);
+      },
 }
 
 module.exports = usercontrollers;
