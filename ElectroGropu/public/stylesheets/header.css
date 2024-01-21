@@ -399,4 +399,9 @@ body {
         left: 12%;
         top: 5%;
     }
+    
+.logo {
+    width: 125px;
+    margin-left: 3px;
+    }
 }
