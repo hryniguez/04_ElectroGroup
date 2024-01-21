@@ -5,7 +5,7 @@ const products = JSON.parse(json);
 
 const indexcontrollers = {
   home: function (req, res) {
-    res.render("index", { title: "ElectroGroup", products });
+    res.render("index", { title: "ElectroGroup", products,usuario:req.session.user });
   },
   about: function (req, res) {
     res.render("about", { title: "about", about });

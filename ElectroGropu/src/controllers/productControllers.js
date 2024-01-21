@@ -8,18 +8,18 @@ const detailcontrollers = {
         const {id}= req.params;
         const products = getJson("products");
         const detalle = products.find(detalle => detalle.id == id);
-        res.render("products/productDetail",{ title: detalle.titulo, detalle });
+        res.render("products/productDetail",{ title: detalle.titulo, detalle,usuario:req.session.user });
     },
     
     productCart: function (req, res) {
-        res.render("products/productCart", { title: "productCart" });
+        res.render("products/productCart", { title: "productCart",usuario:req.session.user });
     },
     productcreate: function (req, res) {
         res.render("products/productcreate", { title: "productcreate" });
     },
     dashboard: (req, res) => {
         const products = getJson("products");
-        res.render('products/dashboard', { title: "Dashboard", products });
+        res.render('products/dashboard', { title: "Dashboard", products,usuario:req.session.user });
     },
     formCreate: (req, res) => {
         
@@ -47,7 +47,7 @@ const detailcontrollers = {
 
     products: function (req, res) {
         const products = getJson("products");
-        res.render("products/productsGeneral", { title: "ElectroGroup", products });
+        res.render("products/productsGeneral", { title: "ElectroGroup", products,usuario:req.session.user });
     }, 
 
     formUpdate: (req, res) => {

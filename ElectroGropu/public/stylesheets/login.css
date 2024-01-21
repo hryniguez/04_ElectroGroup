@@ -100,6 +100,7 @@
 
 } 
 #botonrojo{
+    width: 110px;
     background-color: red;
 }
 @media(min-width: 768px){

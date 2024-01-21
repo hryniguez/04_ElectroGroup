@@ -1,4 +1,4 @@
-<%- include("../partials/head.ejs")%>
+<%- include("../partials/head.ejs" ,{title: 'Todos los productos' })%>
  
 
 <body class="body_general_login">
@@ -15,28 +15,40 @@
           <fieldset class="registro__main2">
               <h1>login</h1>
               
-                <form action="/" method="post">
+                <form action="/users/login" method="post">
                   <div >
-                    <label for="nombre"> </label>
-                    <input type="text" name="usuario" placeholder="User name" required>
-                  </div>
+                    <label for="email"></label>
+                            <input class="imput_register" type="text" name="email" id="email" placeholder="Ingresa tu email"  value="<%= locals.old && old.email %>" >
+                            <% if (locals.errors && errors.email) { %>
+                              <h6 class="feedback"><%= errors.email.msg %> <br> Para registrarse haga click  <p <button style="color: blue;"  onclick="location.href='/users/register'">"AQUI"</button></p> </h6>
+                              <% } %>
+                          </div>
                   <div >
-                    <label for="password"> </label>
-                    <input type="password" placeholder="Password" name="Password" required>
+                    <label for="password"></label>
+                            <input class="imput_register" type="password" name="password" id="password"
+                                placeholder="Ingresa contraseña" value="<%= locals.old && old.password %>" />
+                            <% if (locals.errors && errors.password) { %>
+                                <h6 class="feedback">
+                                    <%= errors.password.msg %>
+                                </h6>
+                                <% } %>
                     <div class="contraseña">
-                      <a href="#">Forgot password?</a>
+                      <a href="/">Forgot password?</a>
                   </div>
                   </div>
-                 
+                  <div class="contraseña" style="display: flex;">
+                    <label style="    font-size: 16px;color: rgb(8, 175, 8);width: 80%;" for="remember">Mantener sesion</label>
+                    <input style="width:15%" type="checkbox" name="remember" value="true">
+                </div>
               
                   
-                  <div class="contenor_botones">
-                    
+                  <div class="contenor_botones" >
                       <button type="submit" title="Ingresar" name="Ingresar">Login</button>
                       
-                      <button id="botonrojo"  onclick="location.href='/users/register'">signup</button>
                   </div>
+
                 </form>
+                
             </fieldset>  
       </main>
   </div>
