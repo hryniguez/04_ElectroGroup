@@ -5,6 +5,10 @@
 
 }
 
+.mensaje_errors{
+    font-size: 10px;
+    color:blue;
+}
 /*FORMULARIO DE REGISTRO mobile*/
 .register label {
     font-size: 14px

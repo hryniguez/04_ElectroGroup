@@ -18,7 +18,7 @@
                         <div class="register ">
                             <label for="usuario">Ingrese Nombre</label>
                             <input type="text" name="usuario" id="placeholder"  value="<%= locals.old && old.name ? old.name : null %>" >
-                            <p><%= locals.errores && errores.name ? errores.name.msg : null %> </p>
+                            <p class="mensaje_errors"><%= locals.errores && errores.name ? errores.name.msg : null %> </p>
                             <div class="iconousuario">
                                 <i class="fa-regular fa-circle-user" id="userIcon"></i>
                             </div>
@@ -26,7 +26,7 @@
                         <div class="register ">
                             <label for="">Ingrese un correo</label>
                             <input type="email" name="correo" id="placeholder"  value="<%= locals.old && old.correo ? old.correo : null %>" >
-                            <p><%= locals.errores && errores.correo ? errores.correo.msg : null %> </p>
+                            <p class="mensaje_errors"><%= locals.errores && errores.correo ? errores.correo.msg : null %> </p>
                             <div class="iconousuario">
                                 <i class="fa-regular fa-envelope" id=""></i>
                             </div>
@@ -35,7 +35,7 @@
                             <label for="">Ingrese una contraseña</label>
                             <input type="password" name="contraseña" id="placeholder"
                             value="<%= locals.old && old.contraseña ? old.contraseña : null %>" >
-                            <p><%= locals.errores && errores.contraseña ? errores.contraseña.msg : null %> </p>
+                            <p class="mensaje_errors"><%= locals.errores && errores.contraseña ? errores.contraseña.msg : null %> </p>
                             <div class="iconousuario">
                                 <i class="fa-regular fa-eye-slash" id=""></i>
                             </div>
@@ -43,14 +43,14 @@
                         <div class="register ">
                             <label for="">Confirme su contraseña</label>
                             <input type="password" name="contraseña" id="placeholder"  value="<%= locals.old && old.contraseñaB ? old.contraseñaB : null %>" >
-                            <p><%= locals.errores && errores.contraseñaB ? errores.contraseñaB.msg : null %> </p>
+                            <p class="mensaje_errors"><%= locals.errores && errores.contraseñaB ? errores.contraseñaB.msg : null %> </p>
                             <div class="iconousuario">
                                 <i class="fa-solid fa-eye-slash" id=""></i>
                             </div>
                             <div class="imgAvatar">
                                 <label for="avatar" class="avatar">Foto de perfil</label>
                                 <input type="file" class="form-avatar" id="avatar2" name="avatar">
-                                <p><%= locals.errores && errores.avatar ? errores.avatar.msg : null %> </p>
+                                <p class="mensaje_errors"><%= locals.errores && errores.avatar ? errores.avatar.msg : null %> </p>
                             </div>
 
                         </div>
