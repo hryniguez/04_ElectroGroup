@@ -9,9 +9,15 @@
     font-size: 10px;
     color:blue;
 }
+.imgAvatar{
+    width: 99%;
+}
+.form-avatar{
+    width: 93%;
+    margin: 15px}
 /*FORMULARIO DE REGISTRO mobile*/
 .register label {
-    font-size: 14px
+    font-size: 17px;
 }
 
 .copy_header_register h3 {
@@ -28,10 +34,13 @@
     width: 79%;
     background-color: #d9c5c5e6;
     margin-left: 8%;
+    border-radius: 3%
 }
 
 .redessocialesregsiter {
     margin-left: 15%;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .main__register__form {
@@ -44,6 +53,7 @@
     padding: 19px;
     align-items: stretch;
     height: max-content;
+    border-radius: 26px;
 }
 
 .register__form_general {
@@ -55,13 +65,15 @@
 
 .iconousuario {
     position: absolute;
-    left: 4%;
-    top: 46%;
-    font-size: 25px;
+    left: 5%;
+    top: 45%;
+    font-size: 14px;
+    color: #21043d;
 }
-
+#look{
+margin-top: 12px;
+}
 .register {
-
     align-items: center;
     position: relative;
     padding-top: 5px;
@@ -106,13 +118,15 @@
     border-radius: 25px;
 }
 .register__buttom {
+    display: flex;
     text-align: center;
+    flex-direction: column;
 }
 
 .register__buttom nav ul i {
-    font-size: 30px;
+    font-size: 16px;
     padding-right: 50px;
-    color: white;
+    color: #21043df0;
 }
 
 .register__buttom button {
@@ -147,7 +161,7 @@
         position: absolute;
         left: 0%;
         top: 32%;
-        font-size: 18px;
+        font-size: 16px;
     }
 
     .redessocialesregsiter {
@@ -280,7 +294,7 @@
         position: absolute;
         left: 0%;
         top: 21%;
-        font-size: 18px;
+        font-size: 16px;
     }
 
     .cajagranderegister {
@@ -307,11 +321,11 @@
 
 /*FORMULARIO DE REGISTRO Desktop*/
 @media(min-width:1440px) {
-    .iconousuario {
+    .iconousuario i .fa-solid.fa-eye-slash{
         position: absolute;
-        left: 0%;
-        top: 21%;
-    }
+        top: 27%;
+        width: 3%;
+        font-size: 10px;}
 
     .register__form .register__form_general {
         display: flex;

@@ -45,15 +45,16 @@
                             <input type="password" name="contraseña" id="placeholder"  value="<%= locals.old && old.contraseñaB ? old.contraseñaB : null %>" >
                             <p class="mensaje_errors"><%= locals.errores && errores.contraseñaB ? errores.contraseñaB.msg : null %> </p>
                             <div class="iconousuario">
-                                <i class="fa-solid fa-eye-slash" id=""></i>
+                                <i class="fa-solid fa-eye-slash" id="look"></i>
                             </div>
+                        </div>
+
                             <div class="imgAvatar">
                                 <label for="avatar" class="avatar">Foto de perfil</label>
-                                <input type="file" class="form-avatar" id="avatar2" name="avatar">
+                                <input type="file" class="form-avatar"  name="avatar">
                                 <p class="mensaje_errors"><%= locals.errores && errores.avatar ? errores.avatar.msg : null %> </p>
                             </div>
 
-                        </div>
                         <div class="register__terminos-condiciones">
                             <input type="checkbox" name="terminos">
                             <label for="">Acepto terminos y condiciones</label>
