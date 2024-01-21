@@ -3,7 +3,7 @@ const fs = require("fs")
 const router = express.Router();
 const {login,register,createUser,processlogin,logout,dashboard,formProfile,profileEdited,profile} = require("../controllers/userControllers");
 const loginValidator = require("../validations/loginValidator");
-const registerValidator = require("../validations/registerValidator");
+const registerValidator = require("../validations/validationRegister");
 const upload = require('../validations/uploadUser');
 
 
