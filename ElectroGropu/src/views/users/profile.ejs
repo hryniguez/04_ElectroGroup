@@ -77,7 +77,11 @@
                              <% if (locals.usuario && usuario.rol == 'admin') {%>
                                 <div class="register ">
 
-                                    <button style="font-size: 22px;background-color: rgb(25, 124, 206);"  onclick="location.href='/users/dashboard'"> Lista de usuario</button>
+                                    <button style="font-size: 28px;background-color: rgb(25, 124, 206);color: white;border-radius: 22px;border: 1px solid #ccc;width: 20%;"  onclick="location.href='/users/dashboard'"> Lista de usuario</button>
+                                </div>
+                                <div class="register ">
+
+                                    <button style="font-size: 28px;background-color: rgb(25, 124, 206);color: white;border-radius: 22px;border: 1px solid #ccc;width: 20%;"  onclick="location.href='/products/dashboard'"> Lista de productos</button>
                                 </div>
                             
                                 <% } %>
@@ -102,7 +106,8 @@
                             
                                 <div class="register__buttom" style="width: 100%;margin-top: 150px;">
      
-                                 <button style="font-size: 22px;background-color: rgb(25, 124, 206);"><a href="/users/profileEdit/<%= user.id%>">Actualiza tu perfil</a></button>
+                                 <button style="font-size: 22px;background-color: rgb(25, 124, 206); width: 20%;
+                                 align-self: center;" ><a href="/users/profileEdit/<%= user.id%>">Actualiza tu perfil</a></button>
                              </div>
                          </section>
                          </div>
