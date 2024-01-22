@@ -27,8 +27,8 @@
             <ul>
                <% if(locals.usuario){%>
                   <img src="/img/users/<%=usuario.image %>"  id="image-profile">
-                  <a style="font-size: 18px;" href="/users/userProfile/<%=usuario.id%>"> <%= usuario.nombre %>  </a>
-                  <a  href="/users/logout"> <i class="fas fa-sign-out-alt" style="font-size: 18px;"></i></a>
+                  <a style="font-size: 23px;" href="/users/userProfile/<%=usuario.id%>"> <%= usuario.nombre %>  </a>
+                  <a  href="/users/logout"> <i class="fas fa-sign-out-alt" style="font-size: 30px;"></i></a>
                <% }else{ %>
                   <a href='/users/register'><i class="far fa-address-card"></i></a>
                   <a href='/users/login'> <i class="fa-regular fa-circle-user"></i>
