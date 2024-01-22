@@ -71,8 +71,16 @@
                                      <label for="rol">Rol</label>
                                      <input class="campos" type="text" id="rol" name="rol" value="<%= locals.user ? user.rol : locals.old && old.rol ? old.rol : null %>">
                                      <p> <%= locals.errores && errores.rol ? errores.rol.msg : null %> </p>
+                                     
                                  </div>    
                              <% } %>
+                             <% if (locals.usuario && usuario.rol == 'admin') {%>
+                                <div class="register ">
+
+                                    <button style="font-size: 22px;background-color: rgb(25, 124, 206);"  onclick="location.href='/users/dashboard'"> Lista de usuario</button>
+                                </div>
+                            
+                                <% } %>
                              
                              <% if(user.image) {%>
                                 <div class="register ">
@@ -90,7 +98,7 @@
                             </div>
                                 <% } %>
 
-                             
+                            
                             
                                 <div class="register__buttom" style="width: 100%;margin-top: 150px;">
      

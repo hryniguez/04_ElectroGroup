@@ -1,9 +1,9 @@
+const fs = require("fs");
+const path = require("path");
 const {setJson,getJson} = require("../utility/jsonMethod");
 const { v4: uuidv4 } = require('uuid');
 const bcrypt = require('bcrypt');
 const {validationResult} = require('express-validator');
-const e = require("method-override");
-const multer = require('multer');
 
 
 
@@ -114,6 +114,24 @@ console.log(errors);
         setJson(usuarios,"users");
         res.redirect(`/users/userProfile/${id}`);
       },
+      destroy: (req, res) => {
+        const {id}= req.params;
+        const user = getJson("users");
+            
+            let users = user.find(user => user.id == id);
+            let userClear = user.filter(user => user.id !== req.params.id);
+    
+            fs.unlink(path.join(__dirname,`../../public/img/${users.image}`), (err) =>{
+                if(err) throw err;
+                console.log(`borre el archivo ${users.image}`);
+            })
+          
+            setJson(userClear,"users");
+            res.redirect ('/users/dashboard')
+    
+    
+        
+    },
 }
 
 module.exports = usercontrollers;

@@ -1,10 +1,10 @@
 const express = require('express');
 const path = require('path');
 const router = express.Router();
-
+const isAdmin = require("../middleware/isAdminValidate");
 const multer = require('multer');
 const {products,productDetail, productCart,formCreate,dashboard,create,editProduct,formEdit,destroy} = require("../controllers/productControllers")
-
+const sessionValidate = require("../middleware/sessionValidate");
 
 const storage = multer.diskStorage({
     destination:(req,file,cb)=>{
@@ -21,12 +21,12 @@ const upLoad2 = multer({storage});
 router
 .get('/productDetail/:id', productDetail)
 .get('/', products)
-.get('/productCart', productCart)
-.get('/dashboard', dashboard)
-.get('/createProduct', formCreate)
+.get('/productCart',sessionValidate, productCart)
+.get('/dashboard',isAdmin, dashboard)
+.get('/createProduct',isAdmin, formCreate)
 .post('/createProduct', upLoad2.single("image"), create)
 .delete('/delete/:id', destroy)
-.get('/editProduct/:id',formEdit)
+.get('/editProduct/:id',isAdmin,formEdit)
 .put('/editProduct/:id', upLoad.array('images'),editProduct)
 
 

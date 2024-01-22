@@ -39,34 +39,20 @@
                                 <i class="fa-solid fa-eye-slash" id=""></i>
                             </div>
                         </div>
-                        <% if (locals.nombre && nombre.rol == 'admin') {%>
-                        <div class="register">
-                            <label for="rol">Rol</label>
-            <input type="text" id="rol" name="rol" value="<%= locals.old && old.rol ? old.rol : null %>">
-            <p class="mensaje_errors"> <%= locals.errors && errors.rol ? errors.rol.msg : null %> </p>
-            <% } %>
-                        </div>
-                        <div class="register">
-                            <label for="">Confirme su contraseña</label>
-                            <input type="password" name="password2" id="placeholder"  >
+                        <div class="register ">
+                            <label for="password2">Confirme su contraseña</label>
+                            <input type="password" name="password2" id="placeholder">
                             <p class="mensaje_errors"><%= locals.errors && errors.password ? errors.password.msg : null %> </p>
                             <div class="iconousuario">
                                 <i class="fa-solid fa-eye-slash" id="look"></i>
                             </div>
                         </div>
-
-                            <div class="imgAvatar">
-                                <label for="image" class="avatar">Foto de perfil</label>
-                                <input type="file" class="form-avatar"  name="image">
-                                <p class="mensaje_errors"><%= locals.errors && errors.image ? errors.image.msg : null %> </p>
-                            </div>
-
-                        <div class="register__terminos-condiciones">
-                            <input type="checkbox" name="terminos">
-                            <label for="">Acepto terminos y condiciones</label>
+                        <br>
+                        <div class="register ">
+                            <label for="image" class="avatar">Foto de perfil</label>
+                            <input type="file" class="form-avatar"  name="image">
+                            <p class="mensaje_errors"><%= locals.errors && errors.image ? errors.image.msg : null %> </p>
                         </div>
-
-
                         <div class="register__buttom">
 
                             <button type="submit">Registrarme</button>
@@ -84,6 +70,21 @@
 
 
                         </div>
+                        <% if (locals.nombre && nombre.rol == 'admin') {%>
+                        <div class="register">
+                            <label for="rol">Rol</label>
+            <input type="text" id="rol" name="rol" value="<%= locals.old && old.rol ? old.rol : null %>">
+            <p class="mensaje_errors"> <%= locals.errors && errors.rol ? errors.rol.msg : null %> </p>
+            <% } %>
+                        </div>
+                        
+
+                            
+
+                    
+
+
+                        
 
                     </form>
 
