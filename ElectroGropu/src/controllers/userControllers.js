@@ -3,6 +3,10 @@ const { v4: uuidv4 } = require('uuid');
 const bcrypt = require('bcrypt');
 const {validationResult} = require('express-validator');
 const e = require("method-override");
+const multer = require('multer');
+
+
+
 const usercontrollers = {
     login: function (req, res) {
         res.render("users/login", { title: "login" });

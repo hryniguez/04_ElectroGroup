@@ -10,9 +10,15 @@ const storage = multer.diskStorage({
         const uniqueSuffix = Date.now() + '-' + uuidv4();
         cb(null, path.basename(file.originalname,path.extname(file.originalname)) + '-' + uniqueSuffix + path.extname(file.originalname))
       }
+      
 });
+const fileFilter = (req,file,cb)=>{
+  if(!file.originalname.match(/\.(jpg|jpeg|png|webp|gif)$/)){
+      req.fileValidationError ="el archivo subido no tiene el formato correcto"
+      return cb(null,false)
+  }
+  return cb(null,true)
+}
 
 
-
-
-module.exports = multer({storage})
+module.exports = multer({storage,fileFilter})

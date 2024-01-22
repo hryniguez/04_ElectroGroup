@@ -9,10 +9,6 @@ const upload = require('../validations/uploadUser');
 
 
 
-
-
-
-
 /* user login. */
 router.get('/login', login);
 router.post('/login',loginValidator, processlogin);

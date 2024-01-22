@@ -16,50 +16,49 @@
                     <form action="/users/register" method="post" class="register__form_general" enctype="multipart/form-data">
 
                         <div class="register ">
-                            <label for="usuario">Ingrese Nombre</label>
-                            <input type="text" name="usuario" id="placeholder"  value="<%= locals.old && old.name ? old.name : null %>" >
-                            <p class="mensaje_errors"><%= locals.errores && errores.name ? errores.name.msg : null %> </p>
+                            <label for="nombre">Ingrese Nombre</label>
+                            <input type="text" name="nombre" id="placeholder"  value="<%= locals.old && old.nombre ? old.nombre : null %>" >
+                            <p class="mensaje_errors"><%= locals.errors && errors.nombre ? errors.nombre.msg : null %> </p>
                             <div class="iconousuario">
                                 <i class="fa-regular fa-circle-user" id="userIcon"></i>
                             </div>
                         </div>
                         <div class="register ">
                             <label for="">Ingrese un correo</label>
-                            <input type="email" name="correo" id="placeholder"  value="<%= locals.old && old.correo ? old.correo : null %>" >
-                            <p class="mensaje_errors"><%= locals.errores && errores.correo ? errores.correo.msg : null %> </p>
+                            <input type="email" name="email" id="placeholder"  value="<%= locals.old && old.email ? old.email : null %>" >
+                            <p class="mensaje_errors"><%= locals.errors && errors.email ? errors.email.msg : null %> </p>
                             <div class="iconousuario">
                                 <i class="fa-regular fa-envelope" id=""></i>
                             </div>
                         </div>
                         <div class="register ">
                             <label for="">Ingrese una contraseña</label>
-                            <input type="password" name="contraseña" id="placeholder"
-                            value="<%= locals.old && old.contraseña ? old.contraseña : null %>" >
-                            <p class="mensaje_errors"><%= locals.errores && errores.contraseña ? errores.contraseña.msg : null %> </p>
+                            <input type="password" name="password" id="placeholder">
+                            <p class="mensaje_errors"><%= locals.errors && errors.password? errors.password.msg : null %> </p>
                             <div class="iconousuario">
                                 <i class="fa-solid fa-eye-slash" id=""></i>
                             </div>
                         </div>
-                        <% if (locals.usuario && usuario.rol == 'admin') {%>
-                        <div class="register ">
+                        <% if (locals.nombre && nombre.rol == 'admin') {%>
+                        <div class="register">
                             <label for="rol">Rol</label>
             <input type="text" id="rol" name="rol" value="<%= locals.old && old.rol ? old.rol : null %>">
-            <p> <%= locals.errors && errors.rol ? errors.rol.msg : null %> </p>
+            <p class="mensaje_errors"> <%= locals.errors && errors.rol ? errors.rol.msg : null %> </p>
             <% } %>
                         </div>
-                        <div class="register ">
+                        <div class="register">
                             <label for="">Confirme su contraseña</label>
-                            <input type="password" name="contraseña" id="placeholder"  value="<%= locals.old && old.contraseñaB ? old.contraseñaB : null %>" >
-                            <p class="mensaje_errors"><%= locals.errores && errores.contraseñaB ? errores.contraseñaB.msg : null %> </p>
+                            <input type="password" name="password2" id="placeholder"  >
+                            <p class="mensaje_errors"><%= locals.errors && errors.password ? errors.password.msg : null %> </p>
                             <div class="iconousuario">
                                 <i class="fa-solid fa-eye-slash" id="look"></i>
                             </div>
                         </div>
 
                             <div class="imgAvatar">
-                                <label for="avatar" class="avatar">Foto de perfil</label>
-                                <input type="file" class="form-avatar"  name="avatar">
-                                <p class="mensaje_errors"><%= locals.errores && errores.avatar ? errores.avatar.msg : null %> </p>
+                                <label for="image" class="avatar">Foto de perfil</label>
+                                <input type="file" class="form-avatar"  name="image">
+                                <p class="mensaje_errors"><%= locals.errors && errors.image ? errors.image.msg : null %> </p>
                             </div>
 
                         <div class="register__terminos-condiciones">
