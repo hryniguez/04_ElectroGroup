@@ -121,7 +121,7 @@ console.log(errors);
             let users = user.find(user => user.id == id);
             let userClear = user.filter(user => user.id !== req.params.id);
     
-            fs.unlink(path.join(__dirname,`../../public/img/${users.image}`), (err) =>{
+            fs.unlink(path.join(__dirname,`../../public/img/users/${users.image}`), (err) =>{
                 if(err) throw err;
                 console.log(`borre el archivo ${users.image}`);
             })

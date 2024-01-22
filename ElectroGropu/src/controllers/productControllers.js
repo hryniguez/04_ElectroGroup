@@ -8,7 +8,17 @@ const detailcontrollers = {
         const {id}= req.params;
         const products = getJson("products");
         const detalle = products.find(detalle => detalle.id == id);
-        res.render("products/productDetail",{ title: detalle.titulo, detalle,usuario:req.session.user });
+        const productsRandom = () => {
+            const indiceAleatorio = [];
+            const cantidad = 3;
+            for(let i = 0; i < cantidad ; i++) {
+                const productAleatorio = Math.floor(Math.random()* products.length);
+                indiceAleatorio.push(products[productAleatorio])
+            }
+            return indiceAleatorio
+        }
+        const productRandom = productsRandom()
+        res.render("products/productDetail",{ title: detalle.titulo, detalle, productRandom, usuario:req.session.user });
     },
     
     productCart: function (req, res) {
@@ -69,7 +79,7 @@ const detailcontrollers = {
             let product = products.find(product => product.id == id);
             let productClear = products.filter(product => product.id !== +req.params.id);
     
-            fs.unlink(path.join(__dirname,`../../public/img/${product.image}`), (err) =>{
+            fs.unlink(path.join(__dirname,`../../public/img/products/${product.image}`), (err) =>{
                 if(err) throw err;
                 console.log(`borre el archivo ${product.image}`);
             })

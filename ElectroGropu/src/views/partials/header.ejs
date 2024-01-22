@@ -26,7 +26,7 @@
          <nav class="main__navbar-icon">
             <ul>
                <% if(locals.usuario){%>
-                  <img src="/img/<%=usuario.image %>"  id="image-profile">
+                  <img src="/img/users/<%=usuario.image %>"  id="image-profile">
                   <a style="font-size: 18px;" href="/users/userProfile/<%=usuario.id%>"> <%= usuario.nombre %>  </a>
                   <a  href="/users/logout"> <i class="fas fa-sign-out-alt" style="font-size: 18px;"></i></a>
                <% }else{ %>

@@ -8,7 +8,7 @@
 
     <section class="Detail__main__principal">
       <article class="Detail__main__articulos">
-        <img src="/img/<%= detalle.image %>" alt="Aquí va la foto4 1-thinkpad Yoga ">
+        <img src="/img/products/<%= detalle.image %>" alt="Aquí va la foto4 1-thinkpad Yoga ">
 
         <div>
           <h5>Precio especial Notebook</h5>
@@ -22,11 +22,10 @@
       </article>
       <article class="Detail__main__caracteristicas">
         <ul class="caracteristicas__titulo">
-          <% for(propiedad in detalle.description){ %>
           <p>
-            <%= propiedad%>: <%= detalle.description[propiedad] %>
+            <%= detalle.description %> 
           </p>
-          <% } %>
+         
         </ul>
       </article>
     </section>
@@ -36,24 +35,19 @@
         <h4>Página 1 de 3</h4>
       </div>
 
-      <ul class="recomendado__articulo">
-        <article>
-          <img src="/img/1-thinkpad Yoga X1.png" alt="Aquí va foto1 Notebook Thinkpad X1 Yoga">
+      <div style="display: flex; flex-direction: row; justify-content: space-around">
+      <% productRandom.forEach(product => { %>
+        <a href="/products/productDetail/<%=product.id %> ">
+          <article style="border: black;">
+          <img src="/img/products/<%= product.image %>" alt="<%= product.titulo %>">
 
-          <p>Notebook Thinkpad X1 Yoga 6ta generacion Pantalla 14" 512gb Ssd 16gb Win 11 Pro</p>
-          <p>$1.235.00</p>
+          <p><%= product.titulo %></p>
+          <p>$<%= product.price %></p>
         </article>
+      </a>
+        <%}); %>
 
-        <article>
-          <img src="/img/1-asus zenbook pro duo.png" alt="Aquí va foto2 Asus Zenbook Pro Duo Oled">
-          <p>Asus Zenbook Pro Duo Oled Pantalla Touch 17" 16gb Ram 1tb Ssd Color Celestial Blue</p>
-          <p>$2.364.932</p>
-        </article>
-        <article>
-          <img src="/img/1-rog strix g16.png" alt="Aquí va foto3 Notebook Gamer ROG Strix g16">
-          <p>Notebook Gamer ROG Strix g16 Pantalla 16" 16gb Ram 1tb Ssd 16 Rtx 4070 8gb</p>
-          <p>$2.167.999</p>
-        </article>
+        
         </div>
 
     </section>
