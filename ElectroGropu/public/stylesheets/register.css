@@ -353,6 +353,12 @@ margin-top: 12px;
         margin-top: 0px;
         height: 100px;
     }
+    .register2 {
+        width: 60%;
+    margin-top: 0px;
+    height: 100px;
+    align-self: center;
+    }
 
     .register__terminos-condiciones {
         display: flex;
@@ -404,13 +410,15 @@ margin-top: 12px;
     }
 
     .register__buttom button {
-        padding: 20px;
-        font-size: 15px;
-        margin-top: 20px;
-        margin-left: 0px;
-        border: 1px solid #ccc;
-        border-radius: 20px;
-        outline: none;
+        width: 50%;
+    align-self: center;
+    padding: 17px;
+    font-size: 23px;
+    margin-top: 18px;
+    margin-left: 0px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    outline: none;
         background-color: rgb(160, 201, 241);
     }
 
@@ -432,6 +440,8 @@ margin-top: 12px;
     .register__form_general {
         display: flex;
         flex-wrap: wrap;
+        width: 50%;
+    align-self: center;
     }
 
     .footer__container {

@@ -1,12 +1,5 @@
 [
     {
-        "id": 1,
-        "titulo": "asus zenbook",
-        "description": "",
-        "price": 45542222,
-        "image": "image-1705607342501.jpeg"
-    },
-    {
         "id": 2,
         "image": "1-rog strix g16.png",
         "titulo": "Notebook Gamer ROG Strix g16",
@@ -42,10 +35,10 @@
         "image": "image-1704046902616.jpg"
     },
     {
-        "titulo": "pca gamer",
-        "description": "jaf lkajs jlkasfjfl kjkla",
-        "price": "55555",
-        "image": "image-1705618056882.jpg",
-        "id": 6
+        "titulo": "computadora ",
+        "description": "Procesador intel : 5ghz\r\n\r\npantalla plana \r\n\r\nmemoria RAM : 5",
+        "price": "500000",
+        "image": "image-1705930830465.jpg",
+        "id": 7
     }
 ]
