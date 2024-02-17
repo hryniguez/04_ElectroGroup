@@ -54,5 +54,13 @@
     "image": "user2-1705885523194-296d7af6-2783-4d7c-974c-910a46f893cb.jpeg",
     "password": "$2b$10$vw70kvtykuHL.iATgGIHa.ZbUwdXjMueZvd3HzmyffLJXAMVTeV7q",
     "rol": "user"
+  },
+  {
+    "id": "d976dbdf-c72b-4e22-8880-aedad174d767",
+    "nombre": "valeria castillo",
+    "email": "casvale@gmail.com",
+    "image": "user-1706461682108-adb18158-546d-43c3-a296-4fc8a6a6cd0f.jpeg",
+    "password": "$2b$10$/IvqDUeqJLiZagBYvXpA6Os8FkBnCsSjL1HTk3O5JWvdC/NlJHwO6",
+    "rol": "admin"
   }
 ]
