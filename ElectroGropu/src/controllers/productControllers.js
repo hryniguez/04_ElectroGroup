@@ -1,19 +1,20 @@
 const fs = require("fs");
 const path = require("path");
-const {setJson,getJson} = require("../utility/jsonMethod");
+const db = require('../../database/models')
 
 
 const detailcontrollers = {
     productDetail: function (req, res) {
         const {id}= req.params;
-        const products = getJson("products");
-        const detalle = products.find(detalle => detalle.id == id);
+        const detalle = products.then(detalle => detalle.id == id);
         const productsRandom = () => {
             const indiceAleatorio = [];
             const cantidad = 3;
             for(let i = 0; i < cantidad ; i++) {
                 const productAleatorio = Math.floor(Math.random()* products.length);
                 indiceAleatorio.push(products[productAleatorio])
+                .catch( error =>{ console.log(error)
+                });
             }
             return indiceAleatorio
         }
@@ -28,7 +29,7 @@ const detailcontrollers = {
         res.render("products/productcreate", { title: "productcreate" });
     },
     dashboard: (req, res) => {
-        const products = getJson("products");
+        
         res.render('products/dashboard', { title: "Dashboard", products,usuario:req.session.user });
     },
     formCreate: (req, res) => {
@@ -83,11 +84,8 @@ const detailcontrollers = {
                 if(err) throw err;
                 console.log(`borre el archivo ${product.image}`);
             })
-          
             setJson(productClear,"products");
             res.redirect ('/products/dashboard')
-    
-    
         
     },
     editProduct: (req, res) => {

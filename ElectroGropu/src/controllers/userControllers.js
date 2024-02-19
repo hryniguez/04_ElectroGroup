@@ -28,25 +28,40 @@ const usercontrollers = {
       
         if (!errors.isEmpty()) {
             
-            res.render("users/login", { errors: errors.mapped(), title: "ELECTRO", usuario: req.session.user });
+            res.render("users/login", {
+            errors: errors.mapped(),
+            title: "ELECTRO", 
+            usuario: req.session.user });
         }else{
 
             const {email} = req.body;
-            const users = getJson("users");
-            const user = users.find(usuario => usuario.email == email);
-            req.session.user = user;
+            db.User.findOne({
+              attributes: { exclude: ["password"] },
+              where: {
+                email,
+              },
+            })
+              .then((user) => {
+                console.log("user info:", user);
+                req.session.user = user.dataValues;
             
             
-            res.cookie('user',user,{maxAge: 1000 * 60 });;
-            if(req.body.remember == "true") {
+                if(req.body.remember == "true") {
+                res.cookie('user',user,{maxAge: 1000 * 60 });;
                 res.cookie('rememberMe',"true", {maxAge: 1000 * 60 * 15 });
               }
             res.redirect('/');
-        }
-
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
     },
     register: function (req, res) {
-        res.render("users/register", { title: "register" });
+        res.render("users/register", { 
+          title: "register",
+          usuario: req.session.user,
+        });
     },
     createUser: (req, res) => {
         const errors = validationResult(req);
@@ -56,19 +71,14 @@ console.log(errors);
             res.render('users/register', { errors: errors.mapped(), old: req.body });
         }else{
 
-            const users = getJson("users");
-            const { nombre,  email,  password, rol } = req.body;
-            const id = uuidv4();
-            const user = {
-                id,
-                nombre: nombre.trim(),
-                email: email.trim(),
-                image: req.file ? req.file.filename : "default.jpg",
-                password: bcrypt.hashSync(password, 10),
-                rol: rol ? rol : "user"
-            }
-            users.push(user)
-            setJson(users, "users");
+            db.User.create({
+              nombre: req.body.nombre,
+              apellido: req.body.surname,
+              edad: req.body.age,
+              email: req.body.email,
+              password: req.body.password,
+              fechaNacimiento: req.body.date,
+            })
             res.redirect('/');
         }
         
