@@ -6,7 +6,7 @@ const db = require('../../database/models')
 const detailcontrollers = {
     productDetail: function (req, res) {
         const {id}= req.params;
-        const detalle = products.then(detalle => detalle.id == id);
+        const promesaDetail= products.then(detalle => detalle.id == id)
         const productsRandom = () => {
             const indiceAleatorio = [];
             const cantidad = 3;
@@ -21,6 +21,7 @@ const detailcontrollers = {
         const productRandom = productsRandom()
         res.render("products/productDetail",{ title: detalle.titulo, detalle, productRandom, usuario:req.session.user });
     },
+    // revisar
     
     productCart: function (req, res) {
         res.render("products/productCart", { title: "productCart",usuario:req.session.user });
@@ -29,9 +30,13 @@ const detailcontrollers = {
         res.render("products/productcreate", { title: "productcreate" });
     },
     dashboard: (req, res) => {
-        
-        res.render('products/dashboard', { title: "Dashboard", products,usuario:req.session.user });
-    },
+        Promise.all([products])
+        .then(function([resultadoProducts
+        ])
+        {res.render('products/dashboard', { title: "Dashboard", products,usuario:req.session.user })})
+        .catch( error =>{ console.log(error)
+        })
+    },  
     formCreate: (req, res) => {
         
         res.render('products/createProduct', { title: "Create Product" });
