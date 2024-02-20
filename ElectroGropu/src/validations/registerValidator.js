@@ -1,6 +1,6 @@
 const {body} = require('express-validator');
-const db = require('../../database/models'); 
-const User = db.User; 
+const User = db.User;  db = require('../../database/models'); 
+
 
 module.exports = [
     body('nombre').notEmpty().withMessage("El campo no puede estar vacio").bail()
