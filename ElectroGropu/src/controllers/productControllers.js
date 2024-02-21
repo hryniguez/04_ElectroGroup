@@ -8,6 +8,7 @@ const detailcontrollers = {
         const {id}= req.params;
         const products = getJson("products");
         const detalle = products.find(detalle => detalle.id == id);
+        //esta funcion muestra los productos aleatorios en la vista de detalle
         const productsRandom = () => {
             const indiceAleatorio = [];
             const cantidad = 3;
@@ -18,6 +19,7 @@ const detailcontrollers = {
             return indiceAleatorio
         }
         const productRandom = productsRandom()
+        // aca termina la funcion 
         res.render("products/productDetail",{ title: detalle.titulo, detalle, productRandom, usuario:req.session.user });
     },
     

@@ -31,12 +31,23 @@ fs
     db[model.name] = model;
   });
 
-Object.keys(db).forEach(modelName => {
-  if (db[modelName].associate) {
-    db[modelName].associate(db);
-  }
-});
-
+  
+  
+  Object.keys(db).forEach(modelName => {
+    if (db[modelName].associate) {
+      db[modelName].associate(db);
+    }
+  });
+  
+  sequelize
+        .authenticate()
+        .then(() => {
+            console.log('Connection has been established successfully.');
+        })
+        .catch((err) => {
+            console.log('Unable to connect to the database:', err);
+        });
+        
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
