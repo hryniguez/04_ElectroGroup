@@ -60,7 +60,15 @@
     "nombre": "valeria castillo",
     "email": "casvale@gmail.com",
     "image": "user-1706461682108-adb18158-546d-43c3-a296-4fc8a6a6cd0f.jpeg",
-    "password": "$2b$10$/IvqDUeqJLiZagBYvXpA6Os8FkBnCsSjL1HTk3O5JWvdC/NlJHwO6",
+    "password": "12345",
+    "rol": "admin"
+  },
+  {
+    "id": "e775d6d0-c79e-48a5-8ec2-1bc7cd981d92",
+    "nombre": "valen xcas",
+    "email": "tini06@gmail.com",
+    "image": "estrella azul-1708652139898-cc6bf884-7f9c-4149-84e5-bda84a05fec7.jpeg",
+    "password": "$2b$10$L0bWK1PjfslIH2YxF9VbjuQrgzth/F5tvkpFPZKbZdDpEQXszT1FO",
     "rol": "admin"
   }
 ]

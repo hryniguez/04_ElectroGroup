@@ -19,6 +19,7 @@ const detailcontrollers = {
             return indiceAleatorio
         }
         const productRandom = productsRandom()
+        // aca termina la funcion 
         res.render("products/productDetail",{ title: detalle.titulo, detalle, productRandom, usuario:req.session.user });
     },
     // revisar
