@@ -6,7 +6,7 @@ const db = require('../../database/models')
 const detailcontrollers = {
     productDetail: function (req, res) {
         const {id}= req.params;
-        const promesaDetail= db.products.then(detalle => detalle.id == id)
+        db.description.then(detail => detail.id == id)
         const productsRandom = () => {
             const indiceAleatorio = [];
             const cantidad = 3;
@@ -31,7 +31,7 @@ const detailcontrollers = {
         res.render("products/productcreate", { title: "productcreate" });
     },
     dashboard: (req, res) => {
-    db.Promise.all([products])
+    db.product.Promise.all([products])
         .then(function([resultadoProducts
         ])
         {res.render('products/dashboard', { title: "Dashboard", products,usuario:req.session.user })})
@@ -39,7 +39,6 @@ const detailcontrollers = {
         })
     },  
     formCreate: (req, res) => {
-        
         res.render('products/createProduct', { title: "Create Product" });
     },
     formEdit: (req, res) => {
@@ -63,7 +62,7 @@ const detailcontrollers = {
     
 
     products: function (req, res) {
-        db.Promise.all([products])
+        db.product.Promise.all([products])
         .then(function([resultadoProducts
         ])
         {res.render("products/productsGeneral", { title: "ElectroGroup", products,usuario:req.session.user })})

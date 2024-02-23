@@ -12,9 +12,10 @@ const usercontrollers = {
         res.render("users/login", { title: "login" });
     },
     dashboard: (req, res) => {
-        const user = getJson("users");
-        res.render('users/dashboard', { title: "Dashboard", user,usuario:req.session.user });
-        },
+        db.User.findAlll(),then()
+        {{res.render('users/dashboard', { title: "Dashboard", user,usuario:req.session.user });
+        }}.catch()
+      },
     logout:(req,res)=>{
         req.session.destroy();
         if (req.cookies.user) {
