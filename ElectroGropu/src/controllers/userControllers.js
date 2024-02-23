@@ -4,6 +4,7 @@ const {setJson,getJson} = require("../utility/jsonMethod");
 const { v4: uuidv4 } = require('uuid');
 const bcrypt = require('bcrypt');
 const {validationResult} = require('express-validator');
+const { error } = require("console");
 
 
 
@@ -12,10 +13,13 @@ const usercontrollers = {
         res.render("users/login", { title: "login" });
     },
     dashboard: (req, res) => {
-        db.User.findAlll(),then()
-        {{res.render('users/dashboard', { title: "Dashboard", user,usuario:req.session.user });
-        }}.catch()
-      },
+        db.User.findAlll().then(
+        res.render('users/dashboard', { title: "Dashboard", user,usuario:req.session.user })
+    )
+    .catch(err => {console.log(err);
+      })
+    },
+  
     logout:(req,res)=>{
         req.session.destroy();
         if (req.cookies.user) {
@@ -58,7 +62,7 @@ const usercontrollers = {
         });
     }
     },
-    register: function (req, res) {
+      register: function (req, res) {
         res.render("users/register", { 
           title: "register",
           usuario: req.session.user,
@@ -95,9 +99,11 @@ console.log(errors);
 
     formProfile:(req,res,next) => {
         const {id} = req.params;
-        const users = getJson("users");
-        const user = users.find(user => user.id == id);
-        res.render("./users/userEdition", { title: "editar usuario",user, usuario: req.session.user});
+        db.User.findOne()
+        .then(user => user.id == id);
+        res.render("./users/userEdition", { title: "editar usuario",user, usuario: req.session.user})
+        .catch(err => {
+          console.log(err)});
     },
 
     profileEdited:(req,res)=>{
@@ -139,10 +145,7 @@ console.log(errors);
           
             setJson(userClear,"users");
             res.redirect ('/users/dashboard')
-    
-    
-        
+            
     },
-}
-
+  }
 module.exports = usercontrollers;
