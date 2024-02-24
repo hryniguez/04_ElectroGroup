@@ -5,31 +5,36 @@ const db = require('../../database/models')
 
 const detailcontrollers = {
     productDetail: function (req, res) {
-        const {id}= req.params;
-        db.description.then(detail => detail.id == id)
-        const productsRandom = () => {
-            const indiceAleatorio = [];
-            const cantidad = 3;
-            for(let i = 0; i < cantidad ; i++) {
-                const productAleatorio = Math.floor(Math.random()* products.length);
-                indiceAleatorio.push(products[productAleatorio])
-                .catch( error =>{ console.log(error)
-                });
-            }
-            return indiceAleatorio
-        }
-        const productRandom = productsRandom()
-        // aca termina la funcion 
-        res.render("products/productDetail",{ title: detalle.titulo, detalle, productRandom, usuario:req.session.user });
-    },
-    // revisar
+            const { id } = req.params;
+            db.Product.findByPk(id)
+                .then(detalle => {
+                    const productsRandom = () => {
+                        const indiceAleatorio = [];
+                        const cantidad = 3;
+                        for (let i = 0; i < cantidad; i++) {
+                            const productAleatorio = Math.floor(Math.random() * products.length);
+                            indiceAleatorio.push(products[productAleatorio]);
+                        }
+                        return indiceAleatorio;
+                    };
     
-    productCart: function (req, res) {
+                    const productRandom = productsRandom();
+    
+                    res.render("products/productDetail", { title: detalle.titulo, detalle, productRandom, usuario: req.session.user });
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+    },
+     // revisar
+        productCart: function (req, res) {
         res.render("products/productCart", { title: "productCart",usuario:req.session.user });
     },
+
     productcreate: function (req, res) {
         res.render("products/productcreate", { title: "productcreate" });
     },
+
     dashboard: (req, res) => {
     db.product.Promise.all([products])
         .then(function([resultadoProducts
@@ -38,16 +43,17 @@ const detailcontrollers = {
         .catch( error =>{ console.log(error)
         })
     },  
+
     formCreate: (req, res) => {
         res.render('products/createProduct', { title: "Create Product" });
     },
+
     formEdit: (req, res) => {
         const products = getJson("products");
         const { id } = req.params;
         const product = products.find(product => product.id == id);
         res.render("products/editProduct", { title: products.titulo, product });
     },
-
 
     create:(req, res) => {
         const products = getJson("products");
@@ -62,26 +68,47 @@ const detailcontrollers = {
     
 
     products: function (req, res) {
-        db.product.Promise.all([products])
-        .then(function([resultadoProducts
-        ])
-        {res.render("products/productsGeneral", { title: "ElectroGroup", products,usuario:req.session.user })})
-        .catch( error =>{ console.log(error)
-        })
-    }, 
+        db.product.findAll()
+            .then(products => {
+                res.render("products/productsGeneral", { title: "ElectroGroup", products, usuario: req.session.user });
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    },
 
     formUpdate: (req, res) => {
         const { id } = req.params;
-        const products = getJson("products");
-        const product = products.find(producto => producto.id == id);
-        res.render('products/createProduct', { title: product.nombre, product });
+
+        db.product.findByPk(id)
+            .then(product => {
+                res.render('products/createProduct', { title: product.nombre, product });
+            })
+            .catch(error => {
+                console.log(error);
+            });
     },
+
     update: (req, res) => {
-        const products = getJson("products");
         const { id } = req.params;
-        const product = products.find(producto => producto.id == id);
-        res.redirect("/products/dashboard");
+        const { body, file } = req;
+
+        db.Product.update({
+            title: body.title,
+            description: body.description,
+            price: body.price,
+            image: file.filename
+        }, {
+            where: { id: id }
+        })
+        .then(() => {
+            res.redirect('/products/dashboard');
+        })
+        .catch(error => {
+            console.log(error);
+        });
     },
+
     destroy: (req, res) => {
         const {id}= req.params;
         const products = getJson("products");
