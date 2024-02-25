@@ -1,6 +1,6 @@
 const fs = require("fs");
 const path = require("path");
-const db = require('../../database/models')
+const db = require('../database/models')
 
 
 const detailcontrollers = {
@@ -93,7 +93,7 @@ const detailcontrollers = {
         const { id } = req.params;
         const { body, file } = req;
 
-        db.Product.update({
+        db.roduct.update({
             title: body.title,
             description: body.description,
             price: body.price,
