@@ -17,13 +17,17 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
+    password:{
+      type: Sequelize.STRING,
+        allowNull: false,
+    },
       birthday: {
         type: Sequelize.DATE,
-        allowNull:false
+        allowNull:true,
       },
       genre: {
         type: Sequelize.STRING,
-        allowNull:false
+        allowNull:true,
       },
       rol_id: {
         type: Sequelize.INTEGER,
