@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const {setJson,getJson} = require("../utility/jsonMethod");
-
+const db = require("../database/models");
 
 const detailcontrollers = {
     productDetail: function (req, res) {
@@ -30,30 +30,91 @@ const detailcontrollers = {
         res.render("products/productcreate", { title: "productcreate" });
     },
     dashboard: (req, res) => {
-        const products = getJson("products");
-        res.render('products/dashboard', { title: "Dashboard", products,usuario:req.session.user });
+        db.Product.findAll()
+        .then((products)=>{
+            res.render('products/dashboard', { title: "Dashboard", products, usuario:req.session.user });
+        }
+        ).catch(error => {
+            console.log(error);
+        });
     },
     formCreate: (req, res) => {
         
         res.render('products/createProduct', { title: "Create Product" });
     },
     formEdit: (req, res) => {
-        const products = getJson("products");
         const { id } = req.params;
-        const product = products.find(product => product.id == id);
-        res.render("products/editProduct", { title: products.titulo, product });
+        db.Product.findByPk(id)
+
+        .then((product)=> {
+            res.render("products/editProduct", { title: db.Product.titulo, product });
+        })
+        .catch(error => {
+            console.log(error);
+        });
+        
+
     },
 
 
     create:(req, res) => {
-        const products = getJson("products");
-        console.log(req.file);
-        const producto = req.body;
-        producto.image = req.file.filename;
-        producto.id = products[products.length-1].id + 1;
-        products.push(producto);
-        setJson(products,"products");
-        res.redirect("/products/dashboard");
+        const {titulo,description,price,image} = req.body
+        const product = { 
+            name:titulo,
+            description_id:null,
+            brand_id:null,
+            precio:price}
+            
+            db.Product.create(product)
+            .then(() => {
+                res.redirect('/products/dashboard');
+            })
+            .catch(error => {
+                console.log(error);
+            });
+
+
+
+            // const { body, file } = req;
+    
+            // db.Product.create({
+            //     name: body.titulo,
+            //     description_id: body.description,
+            //     precio: body.price,
+            //     image: file.filename,
+        
+            // })
+            // .then(() => {
+            //     res.redirect('/products/dashboard');
+            // })
+            // .catch(error => {
+            //     console.log(error);
+            // });
+        
+
+            
+        // db.Product.create({
+        //     titulo: req.body.name,
+        //     nombre: req.body.brand_id ,
+        //     price: req.body.precio,
+        //     description: req.body.description_id,
+
+        // })
+        
+            // .then(() => {
+            //     res.redirect("/products/dashboard");
+            // })
+            // .catch((err) => {
+            // console.log(err);
+            // });
+    
+        // const products = getJson("products");
+        // const producto = req.body;
+        // producto.image = req.file.filename;
+        // producto.id = products[products.length-1].id + 1;
+        // products.push(producto);
+        // setJson(products,"products");
+        // res.redirect("/products/dashboard");
     },
     
 
@@ -93,28 +154,46 @@ const detailcontrollers = {
         
     },
     editProduct: (req, res) => {
-        const files = req.files;
-        const { id } = req.params;
-        const { titulo, description, price} = req.body;
-        const products = getJson("products");
-
+       const {id} = req.params
+    const { titulo,description,price,image } = req.body;
+    db.Product.update(
+      {
+        name: titulo.trim(),
+        description: description.trim(),
+        image: req.file ? req.file.filename : "default.jpg",
+        precio:price,
     
-        const nuevoArray = products.map(product => {
-            if (product.id == id) {
-                return {
-                    id: +id,
-                    titulo: titulo,
-                    description: description,
-                    price: +price,
-                    image: files ? files[0].filename : product.image,
-                };
-            }
-            return product;
-        });
+      },
+      {
+        where: {
+          id,
+        },
+      }
+    )
+      .then((resp) => {
+        res.redirect('/products/dashboard', );
+      })
+      .catch((err) => console.log(err));
+        // const files = req.files;
+        // const { id } = req.params;
+        // const { titulo, description, price} = req.body;
+        // const products = getJson("products");
+        // const nuevoArray = products.map(product => {
+        //     if (product.id == id) {
+        //         return {
+        //             id: +id,
+        //             titulo: titulo,
+        //             description: description,
+        //             price: +price,
+        //             image: files ? files[0].filename : product.image,
+        //         };
+        //     }
+        //     return product;
+        // });
     
 
-        setJson(nuevoArray,"products");
-        res.redirect('/products/dashboard');
+        // setJson(nuevoArray,"products");
+        // res.redirect('/products/dashboard');
     }
 }
     module.exports = detailcontrollers
