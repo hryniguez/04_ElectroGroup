@@ -37,12 +37,12 @@
 
       <div style="display: flex; flex-direction: row; justify-content: space-around">
       <% productRandom.forEach(product => { %>
-        <a href="/products/productDetail/<%=product.id %> ">
+        <a href="/products/productDetail/<%=db.product.id %> ">
           <article style="border: black;">
-          <img src="/img/products/<%= product.image %>" alt="<%= product.titulo %>">
+          <img src="/img/products/<%=db.product.image %>" alt="<%=db.product.name %>">
 
-          <p><%= product.titulo %></p>
-          <p>$<%= product.price %></p>
+          <p><%=db.product.name %></p>
+          <p>$<%= db.product.price %></p>
         </article>
       </a>
         <%}); %>

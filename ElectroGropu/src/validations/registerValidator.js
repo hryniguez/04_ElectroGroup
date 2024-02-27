@@ -1,5 +1,5 @@
 const {body} = require('express-validator');
-const User = db.User;  db = require('../../database/models'); 
+const { db }= require('../database/models'); 
 
 
 module.exports = [
@@ -14,18 +14,39 @@ module.exports = [
     .custom((value)=> {
         return value >= 18;
     }).withMessage("Debe ser mayor de 18 años para registrarse"),
-    
-    body('email').notEmpty().withMessage("El campo no puede estar vacio").bail()
-    .isEmail().withMessage('Debe ser un correo con formato valido').bail()
+    body('email').notEmpty().withMessage("El campo no puede estar vacío")
+    .isEmail().withMessage('Debe ser un correo con formato válido')
+    .isEmail().withMessage('*Debe ser un correo con formato valido*').bail()
     .custom(value => {
-        const user = users.find(elemento => elemento.email == value);
-        return user ? false : true
-    }).withMessage("! EL USUARIO YA EXITE !"),
-    
-    body('password').notEmpty().withMessage("El campo no puede estar vacio").bail()
+        return db.User.findOne({
+            where: {
+                email: value
+            }
+        })
+        .then(user => {
+            console.log(value);
+            if (user) {
+                return Promise.reject('El email se encuentra registrado')
+            }
+        })
+        .catch(() => {
+            return Promise.reject('El email se encuentra registrado')
+        })
+}),
+
+
+
+    body('password').notEmpty().withMessage("*El campo no puede estar vacio*").bail()
     .custom((value,{req})=> {
         return value == req.body.password2;
-    }).withMessage("Los password no coinciden"),
+    }).withMessage("*Los password no coinciden*"),
+
+    body('image').custom((value, {req})=>{
+        if (req.errorImgProfile) {
+            return false;
+        };
+        return true;
+    }).withMessage("*Esta imagen no tiene un formato valido*"),
 
     body('date').notEmpty().withMessage("El campo no puede estar vacio").bail()
     .custom(value => {

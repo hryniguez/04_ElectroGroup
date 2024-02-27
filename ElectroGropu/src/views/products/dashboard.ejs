@@ -11,20 +11,20 @@
                             <article class="home__main__products__product">
                                 <div class="home__main__products__product__photo-container">
                                     <img class="home__main__products__product__photo-container--photo"
-                                        src="/img/products/<%= product.image %> " alt="<%= product.titulo %>" />
+                                        src="/img/products/<%= db.image %> " alt="<%= product.titulo %>" />
                                 </div>
                                 <h4 class="h4dash">
                                     <%= product.titulo %>
                                 </h4>
                                 <div class="contenedor-botones-dashboard">
                                     <a class="home__main__products__product__photo-container--more listar"
-                                        href="/products/productDetail/<%= product.id %>"><i
+                                        href="/products/productDetail/<%=db.product.id %>"><i
                                             class="fa-brands fa-readme"></i></a>
                                     <a class="home__main__products__product__photo-container--more editar"
-                                        href="/products/editProduct/<%= product.id %>">
+                                        href="/products/editProduct/<%= db.product.id %>">
                                         <i class="fa-solid fa-pen-to-square"></i>
                                     </a>
-                                    <form action="/products/delete/<%= product.id %>?_method=DELETE"  method="post" style="display: inline-flex" class="deleteeeeeeeeeeeee">
+                                    <form action="/products/delete/<%=db.product.id %>?_method=DELETE"  method="post" style="display: inline-flex" class="deleteeeeeeeeeeeee">
                                         <button type="submit" class="home__main__products__product__photo-container--more eliminar" > <i class="fa-solid fa-trash"></i></button>
                                         
                                     </form>
