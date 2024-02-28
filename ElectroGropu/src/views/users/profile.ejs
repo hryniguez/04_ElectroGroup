@@ -12,20 +12,20 @@
                     <div class="contenedor_usuario">
                         <section class="main__register__form">
                             <div class="register2 ">
-                                    
-                                    <h2 style="color: black; font-size: 30px;border: black;background-color: white; border-radius: 22px">Nombre:      <%=user.nombre%></h2>
+                                <label for="">Nombre </label>
+                                    <h2 style="color: black; font-size: 30px;border: black;background-color: white; border-radius: 22px">      <%=user.nombre%></h2>
                                     
                             </div>
                             <div class="register2 ">
-                                    
-                                <h2 style="color: black; font-size: 30px;border: black;background-color: white; border-radius: 22px">Email:       <%=user.email%></h2>
+                                <label for="">Email</label>
+                                <h2 style="color: black; font-size: 30px;border: black;background-color: white; border-radius: 22px">      <%=user.email%></h2>
                                 
                         </div>
                                
                         <% if(user.age) {%>
                         <div class="register2 ">
-                                    
-                           <h2 style="color: black; font-size: 30px;border: black;background-color: white; border-radius: 22px"> Edad:     <%=user.age %> </h2>
+                            <label for="">Edad</label>
+                           <h2 style="color: black; font-size: 30px;border: black;background-color: white; border-radius: 22px">     <%=user.age %> </h2>
                             
                     </div>
                     <% }else { %> 
@@ -35,8 +35,8 @@
 
                         <% if(user.direction) {%>
                             <div class="register2 ">
-                                        
-                               <h2 style="color: black; font-size: 30px;border: black;background-color: white; border-radius: 22px"> Direccion:     <%=user.direction %> </h2>
+                                        <label for="">Direccion</label>
+                               <h2 style="color: black; font-size: 30px;border: black;background-color: white; border-radius: 22px">    <%=user.direction %> </h2>
                                 
                         </div>
                         <% }else { %> 
@@ -46,8 +46,8 @@
 
                             <% if(user.phone) {%>
                                 <div class="register2 ">
-                                            
-                                   <h2 style="color: black; font-size: 30px;border: black;background-color: white; border-radius: 22px"> Telefono:     <%=user.phone %> </h2>
+                                    <label for="">Telefono</label>
+                                   <h2 style="color: black; font-size: 30px;border: black;background-color: white; border-radius: 22px">      <%=user.phone %> </h2>
                                     
                             </div>
                             <% }else { %> 
@@ -57,8 +57,8 @@
 
                                 <% if(user.genre) {%>
                                     <div class="register2 ">
-                                                
-                                       <h2 style="color: black; font-size: 30px;border: black;background-color: white; border-radius: 22px"> Genero:     <%=user.genre %> </h2>
+                                        <label for="">Genero</label>
+                                       <h2 style="color: black; font-size: 30px;border: black;background-color: white; border-radius: 22px">     <%=user.genre %> </h2>
                                         
                                 </div>
                                 <% }else { %> 
@@ -67,8 +67,9 @@
                                     <% } %>
                                     
                             <% if (locals.usuario && usuario.rol == 'admin') {%>
-                                 <div class="register2">
+                                 <div class="register2" style="    text-align: -webkit-center;">
                                      <label for="rol">Rol</label>
+                                     
                                      <input class="campos" type="text" id="rol" name="rol" value="<%= locals.user ? user.rol : locals.old && old.rol ? old.rol : null %>">
                                      <p> <%= locals.errores && errores.rol ? errores.rol.msg : null %> </p>
                                      
@@ -77,11 +78,11 @@
                              <% if (locals.usuario && usuario.rol == 'admin') {%>
                                 <div class="register2 ">
 
-                                    <button style="font-size: 28px;background-color: rgb(25, 124, 206);color: white;border-radius: 22px;border: 1px solid #ccc;width: 30%;"  onclick="location.href='/users/dashboard'"> Lista de usuario</button>
+                                    <button style="font-size: 28px;background-color: rgb(25, 124, 206);color: white;border-radius: 22px;border: 1px solid #ccc;width: 50%;"  onclick="location.href='/users/dashboard'"> Lista de usuario</button>
                                 </div>
                                 <div class="register2 ">
 
-                                    <button style="font-size: 28px;background-color: rgb(25, 124, 206);color: white;border-radius: 22px;border: 1px solid #ccc;width: 35%;"  onclick="location.href='/products/dashboard'"> Lista de productos</button>
+                                    <button style="font-size: 28px;background-color: rgb(25, 124, 206);color: white;border-radius: 22px;border: 1px solid #ccc;width: 50%;"  onclick="location.href='/products/dashboard'"> Lista de productos</button>
                                 </div>
                             
                                 <% } %>
@@ -90,7 +91,7 @@
                                 <div class="register2 ">
                                 
                                     <label for="image" class="col-12 mt-3">Foto de perfil</label><br>
-                                    <img style="width: 20%;margin-bottom: 20px;" src="/img/users/<%= user.image %>" alt="profile image">
+                                    <img style="width: 40%;margin-bottom: 20px;" src="/img/users/<%= user.image %>" alt="profile image">
                                     
                                 </div>
                             <% }else { %> 
@@ -106,7 +107,7 @@
                             
                                 <div class="register__buttom" style="width: 100%;margin-top: 150px;">
      
-                                 <button style="font-size: 22px;background-color: rgb(25, 124, 206); width: 20%;
+                                 <button style="font-size: 22px;background-color: rgb(25, 124, 206); width: 50%;
                                  align-self: center;" ><a href="/users/profileEdit/<%= user.id%>">Actualiza tu perfil</a></button>
                              </div>
                          </section>

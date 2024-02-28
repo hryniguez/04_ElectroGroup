@@ -33,7 +33,7 @@ const Image = sequelize.define(alias,cols,config);
 
 Image.associate = models=>{
   Image.belongsTo(models.Product,{
-    as:"productImages",
+    as:"Image",
     foreignKey:"product_id"
   })
 }

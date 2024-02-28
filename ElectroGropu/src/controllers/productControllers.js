@@ -1,7 +1,9 @@
+const { Op } = require("sequelize");
 const fs = require("fs");
 const path = require("path");
 const {setJson,getJson} = require("../utility/jsonMethod");
 const db = require("../database/models");
+const { name } = require("ejs");
 
 const detailcontrollers = {
     productDetail: function (req, res) {
@@ -20,7 +22,7 @@ const detailcontrollers = {
         }
         const productRandom = productsRandom()
         // aca termina la funcion 
-        res.render("products/productDetail",{ title: detalle.titulo, detalle, productRandom, usuario:req.session.user });
+        res.render("products/productDetail",{ title: detalle.id, detalle, productRandom, usuario:req.session.user });
     },
     
     productCart: function (req, res) {
@@ -30,9 +32,13 @@ const detailcontrollers = {
         res.render("products/productcreate", { title: "productcreate" });
     },
     dashboard: (req, res) => {
-        db.Product.findAll()
+        db.Product.findAll({
+            where: {
+                id: { [Op.ne]: req.session.user.id },
+            }
+        })
         .then((products)=>{
-            res.render('products/dashboard', { title: "Dashboard", products, usuario:req.session.user });
+            res.render('products/dashboard', { title: "Dashboard", products:products, usuario:req.session.user });
         }
         ).catch(error => {
             console.log(error);
@@ -40,14 +46,14 @@ const detailcontrollers = {
     },
     formCreate: (req, res) => {
         
-        res.render('products/createProduct', { title: "Create Product" });
+        res.render('products/createProduct', { title: "Create Product",usuario:req.session.user });
     },
     formEdit: (req, res) => {
         const { id } = req.params;
         db.Product.findByPk(id)
 
         .then((product)=> {
-            res.render("products/editProduct", { title: db.Product.titulo, product });
+            res.render("products/editProduct", { title: db.Product.titulo, product , usuario:req.session.user });
         })
         .catch(error => {
             console.log(error);
@@ -60,14 +66,27 @@ const detailcontrollers = {
     create:(req, res) => {
         const {titulo,description,price,image} = req.body
         const product = { 
-            name:titulo,
+            titulo,
             description_id:null,
             brand_id:null,
-            precio:price}
+            price,
+            image: req.file ? req.file.filename : "default.jpg",
+        } 
             
             db.Product.create(product)
-            .then(() => {
-                res.redirect('/products/dashboard');
+            .then((resp) => {
+                db.Image.create({
+                    image, name:name , path,product_id:resp.dataValues.id
+                }) }).then(resp => {
+                    db.Product.findByPk(resp.dataValues.product_id,{include:{
+                        association:"Image"
+                    }})
+                    .then( resp => {
+                        res.redirect('/products/dashboard');
+                    })
+                    
+                
+                
             })
             .catch(error => {
                 console.log(error);
@@ -158,10 +177,10 @@ const detailcontrollers = {
     const { titulo,description,price,image } = req.body;
     db.Product.update(
       {
-        name: titulo.trim(),
-        description: description.trim(),
+        titulo,
+         description,
         image: req.file ? req.file.filename : "default.jpg",
-        precio:price,
+        price,
     
       },
       {

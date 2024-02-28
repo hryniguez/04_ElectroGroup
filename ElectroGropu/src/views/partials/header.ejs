@@ -26,8 +26,9 @@
          <nav class="main__navbar-icon">
             <ul>
                <% if(locals.usuario){%>
-                  <img src="/img/users/<%=usuario.image %>"  id="image-profile">
-                  <a style="font-size: 23px;" href="/users/userProfile/<%=usuario.id%>"> <%= usuario.nombre %>  </a>
+                  <img src="/img/users/<%=usuario.image %>"  id="image-profile"> 
+                  <%= usuario.nombre %>
+                  <a  href="/users/userProfile/<%=usuario.id%>">   <i class="fa-solid fa-gear"></i> </a>
                   <a  href="/users/logout"> <i class="fas fa-sign-out-alt" style="font-size: 30px;"></i></a>
                <% }else{ %>
                   <a href='/users/register'><i class="far fa-address-card"></i></a>
@@ -35,7 +36,7 @@
                
                  </a>
                  <% } %>
-               <i class="fa-solid fa-heart"></i>
+               
                <a href="/products/productCart"><i class="fa-solid fa-cart-shopping"></i></a>
             </ul>
          </nav>

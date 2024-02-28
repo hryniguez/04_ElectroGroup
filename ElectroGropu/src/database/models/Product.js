@@ -7,13 +7,15 @@ module.exports = (sequelize, DataTypes) => {
     primaryKey: true,
     type: DataTypes.INTEGER
   },
-  name:{
+  titulo:{
     type: DataTypes.STRING,
     allowNull: false
   },
-  precio: {
+  price: {
     type: DataTypes.INTEGER
   },
+  
+  
   brand_id: {
     type: DataTypes.INTEGER
   },
@@ -52,8 +54,8 @@ Product.associate = models =>{
     foreignKey:"description_id"
   })
   Product.hasMany(models.Image,{
-    as:"image",
-    foreignKey:"iproduct_id"
+    as:"Image",
+    foreignKey:"product_id"
   })
 }
   return Product;
