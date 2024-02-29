@@ -24,6 +24,7 @@
     "password": "$2a$10$EKhp8S2GnuyTepurqJRy2.OAPmUuaJb/FeaCRth1WcUWVFcrNBt2C",
     "rol_id": 1,
     "genre": "masculino",
+
     "avatar": "potter-1705851479794-a696c97c-4e46-4a7c-bd16-e5814fdae4b7"
   },
   {
@@ -50,6 +51,7 @@
     "email": "casvale@gmail.com",
     "genre": "femenino",
     "rol_id": 2,
+
     "avatar": "user-1706461682108-adb18158-546d-43c3-a296-4fc8a6a6cd0f.jpeg",
     "password": "12345"
   },

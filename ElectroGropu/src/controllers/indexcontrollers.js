@@ -1,11 +1,17 @@
 const fs = require("fs");
 const path = require("path");
-const json = fs.readFileSync(path.join(__dirname,"../data/products.json"),"utf-8")
-const products = JSON.parse(json);
+const db = require('../database/models')
 
 const indexcontrollers = {
   home: function (req, res) {
-    res.render("index", { title: "ElectroGroup", products,usuario:req.session.user });
+    db.Product.findAll( )
+    .then( (product)=>{
+      res.render("index", { title: "ElectroGroup",product,usuario:req.session.user });
+    })
+    .catch(error => {
+      console.log(error);
+  });
+    
   },
   about: function (req, res) {
     res.render("about", { title: "about", about });

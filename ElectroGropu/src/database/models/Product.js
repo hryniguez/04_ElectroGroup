@@ -7,6 +7,10 @@ module.exports = (sequelize, DataTypes) => {
     primaryKey: true,
     type: DataTypes.INTEGER
   },
+  titulo:{
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
   precio: {
     type: DataTypes.INTEGER
   },

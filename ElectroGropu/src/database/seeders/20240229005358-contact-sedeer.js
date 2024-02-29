@@ -6,7 +6,7 @@ module.exports = {
   
   await queryInterface.bulkInsert('contacts', [{
     phone: 1523678145,
-    user_id: " ",
+    user_id: 3,
     opcional_number:1123456789,
     createdAt:new Date,
     updatedAt: new Date

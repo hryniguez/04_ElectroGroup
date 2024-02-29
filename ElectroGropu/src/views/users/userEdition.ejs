@@ -23,11 +23,11 @@
                                     <p><%= locals.errores && errores.email ? errores.email.msg : null %> </p>
                                     
                                 </div>
-                               
+                            
                                 <div class="register ">
-                                    <label for="age">Edad:</label>
-                                    <input class="campos" type="number" id="edad" name="age" value="<%= locals.user ? user.age : locals.old && old.age ? old.age : null %>">
-                                    <p><%= locals.errores && errores.age ? errores.age.msg : null %> </p>
+                                    <label for="birthday">fecha de Nacimiento</label>
+                                    <input class="campos" type="date" id="edad" name="birthday" value="<%= locals.user ? user.birthday : locals.old && old.birthday ? old.birthday : null %>">
+                                    <p><%= locals.errores && errores.bisthday ? errores.birthday.msg : null %> </p>
                                     
                                 </div>
 
@@ -52,12 +52,12 @@
                             </div>
                                     
                             <% if (locals.usuario && usuario.rol == 'admin') {%>
-                                 <div class="register">
-                                     <label for="rol">Rol</label>
-                                     <input class="campos" type="text" id="rol" name="rol" value="<%= locals.user ? user.rol : locals.old && old.rol ? old.rol : null %>">
-                                     <p> <%= locals.errores && errores.rol ? errores.rol.msg : null %> </p>
-                                 </div>    
-                             <% } %>
+                                <div class="register">
+                                    <label for="rol">Rol</label>
+                                    <input class="campos" type="text" id="rol" name="rol" value="<%= locals.user ? user.rol : locals.old && old.rol ? old.rol : null %>">
+                                    <p> <%= locals.errores && errores.rol ? errores.rol.msg : null %> </p>
+                                </div>    
+                            <% } %>
 
                              <div class="register ">
                                 
