@@ -10,7 +10,6 @@ module.exports = {
       country:'Argentina ',
       zip_code:'1234 ',
       apart_number: '12 ',
-      user_id:'1',
       createdAt:new Date,
       updatedAt: new Date,
       }], {});

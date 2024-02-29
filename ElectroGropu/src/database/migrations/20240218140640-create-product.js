@@ -32,6 +32,10 @@ module.exports = {
           key:'id'
         }
       },
+      images:{
+        allowNull: false,
+        type:Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

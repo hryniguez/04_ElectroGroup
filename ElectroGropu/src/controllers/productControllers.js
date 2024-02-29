@@ -36,7 +36,8 @@ const detailcontrollers = {
     },
 
     dashboard: (req, res) => {
-    db.product.Promise.all([products])
+        const products=db.Product.findAll()
+        Promise.all([products])
         .then(function([resultadoProducts
         ])
         {res.render('products/dashboard', { title: "Dashboard", products,usuario:req.session.user })})
@@ -67,8 +68,9 @@ const detailcontrollers = {
     },
     
 
-    products: function (req, res) {
-        db.product.findAll()
+    products: (req, res) =>{
+    const products=db.Product.findAll()
+        Promise.all([products])
             .then(products => {
                 res.render("products/productsGeneral", { title: "ElectroGroup", products, usuario: req.session.user });
             })
@@ -80,7 +82,7 @@ const detailcontrollers = {
     formUpdate: (req, res) => {
         const { id } = req.params;
 
-        db.product.findByPk(id)
+        db.Products.findByPk(id)
             .then(product => {
                 res.render('products/createProduct', { title: product.nombre, product });
             })
@@ -93,7 +95,7 @@ const detailcontrollers = {
         const { id } = req.params;
         const { body, file } = req;
 
-        db.roduct.update({
+        db.Products.update({
             title: body.title,
             description: body.description,
             price: body.price,
@@ -137,8 +139,8 @@ const detailcontrollers = {
                     id: +id,
                     titulo: titulo,
                     description: description,
-                    price: +price,
-                    image: files ? files[0].filename : product.image,
+                    precio: +price,
+                    images: files ? files[0].filename : product.image,
                 };
             }
             return product;

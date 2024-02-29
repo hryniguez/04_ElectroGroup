@@ -20,6 +20,10 @@ module.exports = (sequelize, DataTypes) => {
   description_id: {
     type: DataTypes.INTEGER
   },
+  images:{
+    allowNull: false,
+    type:DataTypes.STRING
+  },
   createdAt: {
     allowNull: false,
     type: DataTypes.DATE
