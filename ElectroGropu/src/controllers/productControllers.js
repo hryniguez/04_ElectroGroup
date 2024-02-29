@@ -1,4 +1,4 @@
-const { Op } = require("sequelize");
+const { Op, DATE } = require("sequelize");
 const fs = require("fs");
 const path = require("path");
 const {setJson,getJson} = require("../utility/jsonMethod");
@@ -70,23 +70,22 @@ const detailcontrollers = {
             description_id:null,
             brand_id:null,
             price,
-            image: req.file ? req.file.filename : "default.jpg",
+        
         } 
             
             db.Product.create(product)
             .then((resp) => {
                 db.Image.create({
-                    image, name:name , path,product_id:resp.dataValues.id
-                }) }).then(resp => {
-                    db.Product.findByPk(resp.dataValues.product_id,{include:{
-                        association:"Image"
-                    }})
-                    .then( resp => {
-                        res.redirect('/products/dashboard');
-                    })
+                    name: req.file ? req.file.filename : "default.jpg",
+                    path:null,
+                    product_id:resp.dataValues.id,
+                    createdAt: new Date,
+                    updatedAt:new Date
                     
-                
-                
+                }) })
+            .then( resp => {
+                // res.redirect('/products/dashboard');
+                res.send (product)
             })
             .catch(error => {
                 console.log(error);

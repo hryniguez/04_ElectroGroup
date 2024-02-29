@@ -18,8 +18,9 @@
                         <label class="label-editP" for="image"></label>
                         <input class="input-edicion" type="file" name="images" id="imagen"
                             value="<%= product.imagen%>" multiple>
+                            
                     </div>
-
+                    <%= console.log("y ella?", product); %>
                     <div class="precio_edicion">
                         <label class="label-editP" for="price">Precio del Producto</label>
                         <input class="input-edicion" type="text" name="price" value="<%= product.price%>">
