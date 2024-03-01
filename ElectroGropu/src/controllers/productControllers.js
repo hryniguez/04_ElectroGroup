@@ -33,6 +33,10 @@ const detailcontrollers = {
     },
     dashboard: (req, res) => {
         db.Product.findAll({
+            include:
+            [{
+                association: "Images"
+            }],
             where: {
                 id: { [Op.ne]: req.session.user.id },
             }
@@ -76,16 +80,24 @@ const detailcontrollers = {
             db.Product.create(product)
             .then((resp) => {
                 db.Image.create({
-                    name: req.file ? req.file.filename : "default.jpg",
+                    name: req.file ? req.file.filename : "1-rog strix g16.png",
                     path:null,
                     product_id:resp.dataValues.id,
                     createdAt: new Date,
                     updatedAt:new Date
                     
-                }) })
+                })
+
             .then( resp => {
-                // res.redirect('/products/dashboard');
-                res.send (product)
+                db.Product.findByPk(resp.dataValues.product_id, {include:{
+                association:"Images"
+            }}).then( resp => {
+                console.log("aqui va toda como A ella", resp);
+                res.redirect('/products/dashboard');
+            })
+                
+                // res.send (product)
+            })
             })
             .catch(error => {
                 console.log(error);
