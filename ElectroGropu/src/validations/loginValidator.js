@@ -6,28 +6,27 @@ loginValidator= [
     body('email').notEmpty().withMessage("El campo no puede estar vacio").bail()
     .isEmail().withMessage("El valor ingresado debe tener el formato de un correo electronico").bail()
     .custom((value,{req} )=> { 
-        console.log("esto es value",value)
-        console.log("esto es body",req.body.email);
+        // console.log("esto es value",value)
+        // console.log("esto es body",req.body.email);
         return db.User.findOne({
             where: {
                 email: value
             }
         })
         .then(user => {
-        console.log("esto es user----",user)
+        // console.log("esto es user----",user)
             if (!user) {
-                return Promise.reject('el email no esta registrado');
+                return Promise.reject('el email no esta registrado')
             }
         })
         .catch(() => {
-            return Promise.reject('el mail no se encuentra registrado');
+            return Promise.reject('el mail no se encuentra registrado')
         })
     }),
-    
-    body('password').notEmpty().withMessage("El campo no puede estar vacio").bail()
-    .custom((value, {req} )=> {
-        return db.User.findOne({
-            where: {
+        body('password').notEmpty().withMessage("El campo no puede estar vacio").bail()
+            .custom((value, {req} )=> {
+            return db.User.findOne({
+                where: {
                 email: req.body.email
             }
         })
