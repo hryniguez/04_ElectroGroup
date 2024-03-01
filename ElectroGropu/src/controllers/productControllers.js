@@ -1,36 +1,41 @@
 const { Op, DATE } = require("sequelize");
 const fs = require("fs");
 const path = require("path");
-const {setJson,getJson} = require("../utility/jsonMethod");
-const db = require("../database/models");
-const { name } = require("ejs");
+const db = require('../database/models')
+
 
 const detailcontrollers = {
     productDetail: function (req, res) {
-        const {id}= req.params;
-        const products = getJson("products");
-        const detalle = products.find(detalle => detalle.id == id);
-        //esta funcion muestra los productos aleatorios en la vista de detalle
-        const productsRandom = () => {
-            const indiceAleatorio = [];
-            const cantidad = 3;
-            for(let i = 0; i < cantidad ; i++) {
-                const productAleatorio = Math.floor(Math.random()* products.length);
-                indiceAleatorio.push(products[productAleatorio])
-            }
-            return indiceAleatorio
-        }
-        const productRandom = productsRandom()
-        // aca termina la funcion 
-        res.render("products/productDetail",{ title: detalle.id, detalle, productRandom, usuario:req.session.user });
-    },
+            const { id } = req.params;
+            db.Product.findByPk(id)
+                .then((detalle) => {
+                    // const productsRandom = () => {
+                    //     const indiceAleatorio = [];
+                    //     const cantidad = 3;
+                    //     for (let i = 0; i < cantidad; i++) {
+                    //         const productAleatorio = Math.floor(Math.random() * products.length);
+                    //         indiceAleatorio.push(products[productAleatorio]);
+                    //     }
+                    //     return indiceAleatorio;
+                    // };
     
-    productCart: function (req, res) {
+                    // const productRandom = productsRandom();
+    
+                    res.render("products/productDetail", { title: "asda", detalle:detalle, usuario: req.session.user });
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+    },
+     // revisar
+        productCart: function (req, res) {
         res.render("products/productCart", { title: "productCart",usuario:req.session.user });
     },
+
     productcreate: function (req, res) {
         res.render("products/productcreate", { title: "productcreate" });
     },
+
     dashboard: (req, res) => {
         db.Product.findAll({
             include:
@@ -52,6 +57,7 @@ const detailcontrollers = {
         
         res.render('products/createProduct', { title: "Create Product",usuario:req.session.user });
     },
+
     formEdit: (req, res) => {
         const { id } = req.params;
         db.Product.findByPk(id)
@@ -66,7 +72,6 @@ const detailcontrollers = {
 
     },
 
-
     create:(req, res) => {
         const {titulo,description,price,image} = req.body
         const product = { 
@@ -80,7 +85,7 @@ const detailcontrollers = {
             db.Product.create(product)
             .then((resp) => {
                 db.Image.create({
-                    name: req.file ? req.file.filename : "1-rog strix g16.png",
+                    name: req.file ? req.file.filename : null,
                     path:null,
                     product_id:resp.dataValues.id,
                     createdAt: new Date,
@@ -148,23 +153,49 @@ const detailcontrollers = {
     },
     
 
-    products: function (req, res) {
-        const products = getJson("products");
-        res.render("products/productsGeneral", { title: "ElectroGroup", products,usuario:req.session.user });
-    }, 
+    products: (req, res) =>{
+    const products=db.Product.findAll()
+        Promise.all([products])
+            .then(products => {
+                res.render("products/productsGeneral", { title: "ElectroGroup", products, usuario: req.session.user });
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    },
 
     formUpdate: (req, res) => {
         const { id } = req.params;
-        const products = getJson("products");
-        const product = products.find(producto => producto.id == id);
-        res.render('products/createProduct', { title: product.nombre, product });
+
+        db.Products.findByPk(id)
+            .then(product => {
+                res.render('products/createProduct', { title: product.nombre, product });
+            })
+            .catch(error => {
+                console.log(error);
+            });
     },
+
     update: (req, res) => {
-        const products = getJson("products");
         const { id } = req.params;
-        const product = products.find(producto => producto.id == id);
-        res.redirect("/products/dashboard");
+        const { body, file } = req;
+
+        db.Products.update({
+            title: body.title,
+            description: body.description,
+            price: body.price,
+            image: file.filename
+        }, {
+            where: { id: id }
+        })
+        .then(() => {
+            res.redirect('/products/dashboard');
+        })
+        .catch(error => {
+            console.log(error);
+        });
     },
+
     destroy: (req, res) => {
         const {id}= req.params;
         const products = getJson("products");
@@ -176,11 +207,8 @@ const detailcontrollers = {
                 if(err) throw err;
                 console.log(`borre el archivo ${product.image}`);
             })
-          
             setJson(productClear,"products");
             res.redirect ('/products/dashboard')
-    
-    
         
     },
     editProduct: (req, res) => {

@@ -13,7 +13,7 @@
                         <section class="main__register__form">
                             <div class="register2 ">
                                 <label for="">Nombre </label>
-                                    <h2 style="color: black; font-size: 30px;border: black;background-color: white; border-radius: 22px">      <%=user.nombre%></h2>
+                                    <h2 style="color: black; font-size: 30px;border: black;background-color: white; border-radius: 22px">      <%=user.username%></h2>
                                     
                             </div>
                             <div class="register2 ">
@@ -25,7 +25,7 @@
                         <% if(user.age) {%>
                         <div class="register2 ">
                             <label for="">Edad</label>
-                           <h2 style="color: black; font-size: 30px;border: black;background-color: white; border-radius: 22px">     <%=user.age %> </h2>
+                           <h2 style="color: black; font-size: 30px;border: black;background-color: white; border-radius: 22px">     <%=user.birthday %> </h2>
                             
                     </div>
                     <% }else { %> 
@@ -66,16 +66,16 @@
             
                                     <% } %>
                                     
-                            <% if (locals.usuario && usuario.rol == 'admin') {%>
+                            <% if (locals.usuario && usuario.rol_id == '1') {%>
                                  <div class="register2" style="    text-align: -webkit-center;">
                                      <label for="rol">Rol</label>
                                      
-                                     <input class="campos" type="text" id="rol" name="rol" value="<%= locals.user ? user.rol : locals.old && old.rol ? old.rol : null %>">
+                                     <input class="campos" type="text" id="rol" name="rol" value="<%= locals.user ? user.rol_id : locals.old && old.rol_id ? old.rol_id : null %>">
                                      <p> <%= locals.errores && errores.rol ? errores.rol.msg : null %> </p>
                                      
                                  </div>    
                              <% } %>
-                             <% if (locals.usuario && usuario.rol == 'admin') {%>
+                             <% if (locals.usuario && usuario.rol_id == '1') {%>
                                 <div class="register2 ">
 
                                     <button style="font-size: 28px;background-color: rgb(25, 124, 206);color: white;border-radius: 22px;border: 1px solid #ccc;width: 50%;"  onclick="location.href='/users/dashboard'"> Lista de usuario</button>
@@ -91,13 +91,13 @@
                                 <div class="register2 ">
                                 
                                     <label for="image" class="col-12 mt-3">Foto de perfil</label><br>
-                                    <img style="width: 40%;margin-bottom: 20px;" src="/img/users/<%= user.image %>" alt="profile image">
+                                    <img style="width: 40%;margin-bottom: 20px;" src="/img/users/<%= user.avatar %>" alt="profile image">
                                     
                                 </div>
                             <% }else { %> 
                             <div class="register2 ">
                                 <label for="image" class="col-12 mt-3">Foto de perfil</label><br>
-                                <img style="width: 9%;margin-bottom: 20px;" src="/img/users/<%= user.image %>" alt="profile image">
+                                <img style="width: 9%;margin-bottom: 20px;" src="/img/users/<%= user.avatar %>" alt="profile image">
                                 <input type="file" class="form-control"  name="image">
                                 <p><%= locals.errores && errores.image ? errores.image.msg : null %> </p>
                             </div>

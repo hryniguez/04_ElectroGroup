@@ -1,5 +1,5 @@
 const isAdminValidate = (req,res,next) => {
-    if (req.session.user && req.session.user.rol == "admin") {
+    if (req.session.user && req.session.rol_id == "1") {
         next();
     }else{
 

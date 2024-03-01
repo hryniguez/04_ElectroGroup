@@ -23,7 +23,7 @@
                                     <p><%= locals.errores && errores.email ? errores.email.msg : null %> </p>
                                     
                                 </div>
-                               
+                            
                                 <div class="register ">
                                     <label for="age">Edad:</label>
                                     <input class="campos" type="number" id="placeholder" name="age" value="<%= locals.user ? user.age : locals.old && old.age ? old.age : null %>">
@@ -52,12 +52,21 @@
                             </div>
                                     
                             <% if (locals.usuario && usuario.rol == 'admin') {%>
+<<<<<<< HEAD
                                  <div class="register">
                                      <label for="rol">Rol</label>
                                      <input class="campos" type="text" id="placeholder" name="rol" value="<%= locals.user ? user.rol : locals.old && old.rol ? old.rol : null %>">
                                      <p> <%= locals.errores && errores.rol ? errores.rol.msg : null %> </p>
                                  </div>    
                              <% } %>
+=======
+                                <div class="register">
+                                    <label for="rol">Rol</label>
+                                    <input class="campos" type="text" id="rol" name="rol" value="<%= locals.user ? user.rol : locals.old && old.rol ? old.rol : null %>">
+                                    <p> <%= locals.errores && errores.rol ? errores.rol.msg : null %> </p>
+                                </div>    
+                            <% } %>
+>>>>>>> refactorizacionViews
 
                              <div class="register ">
                                 

@@ -22,6 +22,7 @@ module.exports = (sequelize, DataTypes) => {
   description_id: {
     type: DataTypes.INTEGER
   },
+  
   createdAt: {
     allowNull: false,
     type: DataTypes.DATE

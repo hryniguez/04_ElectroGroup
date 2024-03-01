@@ -8,7 +8,7 @@
 
     <section class="Detail__main__principal">
       <article class="Detail__main__articulos">
-        <img src="/img/products/<%= detalle.image %>" alt="Aquí va la foto4 1-thinkpad Yoga ">
+        <img src="/img/products/<%= detalle.images %>" alt="Aquí va la foto4 1-thinkpad Yoga ">
 
         <div>
           <h5>Precio especial Notebook</h5>
@@ -36,13 +36,13 @@
       </div>
 
       <div style="display: flex; flex-direction: row; justify-content: space-around">
-      <% productRandom.forEach(product => { %>
-        <a href="/products/productDetail/<%=product.id %> ">
+      <% product.forEach(product => { %>
+        <a href="/products/productDetail/<%=db.product.id %> ">
           <article style="border: black;">
-          <img src="/img/products/<%= product.image %>" alt="<%= product.titulo %>">
+          <img src="/img/products/<%=db.product.image %>" alt="<%=db.product.name %>">
 
-          <p><%= product.titulo %></p>
-          <p>$<%= product.price %></p>
+          <p><%=db.product.name %></p>
+          <p>$<%= db.product.price %></p>
         </article>
       </a>
         <%}); %>
