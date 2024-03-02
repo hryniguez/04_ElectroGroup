@@ -1,7 +1,7 @@
 [
     {
         "id": 2,
-        "price": 222,
+        "precio": 222,
         "images": "1-rog strix g16.png",
         "titulo": "Notebook Gamer ROG Strix g16",
         "description_id": "Laptop 2 en 1 potente y liviana con Intel Eva opcional"
@@ -12,7 +12,7 @@
         "id": 3,
         "titulo": "ThinkPad X1 Yoga 6ta Gen(14Intel)",
         "description_id": "",
-        "price": 333,
+        "precio": 333,
         "images": "image-1705538624878.jpeg"
     }
     

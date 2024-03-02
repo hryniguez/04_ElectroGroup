@@ -195,19 +195,25 @@ const detailcontrollers = {
             console.log(error);
         });
     },
-
-    destroy: async (req, res) => {
-        const {id} = req.params
+    destroy: async (req, res) => { 
+        const {id} =req.params; 
         const product = await db.Product.findByPk(id);
+    if (product) {
+        const imagesToDelete = await db.Image.findAll({ where: { product_id: id } });
 
-if (product) {
-    await product.update({ Images: { product_id: null } }); // Update all images' product_id to NULL
-    await product.destroy();                                  // Now delete the product
-} else {
-    console.log("Product with ID 4 not found.");
-}
-        },
-      
+        if (imagesToDelete.length > 0) {
+            imagesToDelete.forEach(async (image) => {
+                await image.destroy(); // Delete the image
+            });
+        }
+    await product.destroy(); // Delete the product
+        res.status(200).json({ message: "Product and images successfully deleted." });
+    } else {
+        res.status(404).json({ message: "Product not found." });
+    }
+},
+
+
 
 
 

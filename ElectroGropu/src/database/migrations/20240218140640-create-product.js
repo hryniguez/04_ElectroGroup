@@ -13,7 +13,7 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
-      price: {
+      precio: {
         type: Sequelize.INTEGER
       },
       brand_id: {
