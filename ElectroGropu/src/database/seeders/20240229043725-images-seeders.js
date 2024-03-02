@@ -6,9 +6,9 @@ module.exports = {
   async up (queryInterface, Sequelize) {
   
       await queryInterface.bulkInsert('Images', [{
-        name:"photo",
-        path:null,
-        product_id:0,
+        name:"default.jpg",
+        path:"/public/img/users",
+        product_id:1,
         createdAt: new Date,
         updatedAt: new Date,
       }], {});

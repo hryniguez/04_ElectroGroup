@@ -1,9 +1,8 @@
-const isAdminValidate = (req,res,next) => {
-    if (req.session.user && req.session.rol_id == "1") {
-        next();
-    }else{
+const session = require("express-session");
 
-        res.redirect("/");
+const isAdminValidate = (req,res,next) => {
+    if (req.session.user && req.session.rol_id ==2) {
+        next();
     }
 }
 

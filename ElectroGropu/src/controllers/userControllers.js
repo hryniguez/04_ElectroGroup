@@ -56,7 +56,7 @@ const usercontrollers = {
             })
                 .then((user) => {
                     req.session.user = user.dataValues;
-
+console.log("aqui va el usuario",req.session.user);
                     if (req.body.remember == "true") {
                         res.cookie("user", user.dataValues, { maxAge: 1000 * 60 });
                         res.cookie("rememberMe", "true", { maxAge: 1000 * 60 * 15 });

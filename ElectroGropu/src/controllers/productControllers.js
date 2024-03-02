@@ -8,7 +8,7 @@ const detailcontrollers = {
     productDetail: function (req, res) {
             const { id } = req.params;
             db.Product.findByPk(id)
-                .then((detalle) => {
+                .then((products) => {
                     // const productsRandom = () => {
                     //     const indiceAleatorio = [];
                     //     const cantidad = 3;
@@ -21,7 +21,7 @@ const detailcontrollers = {
     
                     // const productRandom = productsRandom();
     
-                    res.render("products/productDetail", { title: "asda", detalle:detalle, usuario: req.session.user });
+                    res.render("products/productDetail", { title: "asda", products, usuario: req.session.user });
                 })
                 .catch(error => {
                     console.log(error);
@@ -47,7 +47,7 @@ const detailcontrollers = {
             }
         })
         .then((products)=>{
-            res.render('products/dashboard', { title: "Dashboard", products:products, usuario:req.session.user });
+            res.render('products/dashboard', { title: "Dashboard", products, usuario:req.session.user });
         }
         ).catch(error => {
             console.log(error);
@@ -196,21 +196,39 @@ const detailcontrollers = {
         });
     },
 
-    destroy: (req, res) => {
-        const {id}= req.params;
-        const products = getJson("products");
+    destroy: async (req, res) => {
+        const {id} = req.params
+        const product = await db.Product.findByPk(id);
+
+if (product) {
+    await product.update({ Images: { product_id: null } }); // Update all images' product_id to NULL
+    await product.destroy();                                  // Now delete the product
+} else {
+    console.log("Product with ID 4 not found.");
+}
+        },
+      
+
+
+
+
+
+
+
+        // const {id}= req.params;
+        // const products = getJson("products");
             
-            let product = products.find(product => product.id == id);
-            let productClear = products.filter(product => product.id !== +req.params.id);
+        //     let product = products.find(product => product.id == id);
+        //     let productClear = products.filter(product => product.id !== +req.params.id);
     
-            fs.unlink(path.join(__dirname,`../../public/img/products/${product.image}`), (err) =>{
-                if(err) throw err;
-                console.log(`borre el archivo ${product.image}`);
-            })
-            setJson(productClear,"products");
-            res.redirect ('/products/dashboard')
+        //     fs.unlink(path.join(__dirname,`../../public/img/products/${product.image}`), (err) =>{
+        //         if(err) throw err;
+        //         console.log(`borre el archivo ${product.image}`);
+        //     })
+        //     setJson(productClear,"products");
+        //     res.redirect ('/products/dashboard')
         
-    },
+    
     editProduct: (req, res) => {
        const {id} = req.params
     const { titulo,description,price,image } = req.body;
