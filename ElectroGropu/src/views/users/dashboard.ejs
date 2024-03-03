@@ -13,10 +13,10 @@
                                 <article class="home__main__products__product">
                                     <div class="home__main__products__product__photo-container">
                                         <img class="home__main__products__product__photo-container--photo"
-                                            src="/img/users/<%= user.image %> " alt="<%= user.titulo %>" />
-                                        <p style="    font-weight: bold">Nombre  de usuario: <%= user.nombre %> </p> 
+                                            src="/img/users/<%= user.avatar %> " alt="<%= user.titulo %>" />
+                                        <p style="    font-weight: bold">Nombre  de usuario: <%= user.username %> </p> 
                                         <p style="color: black;"> Email de usuario: <%= user.email %> </p> 
-                                        <p style="color: black;"> Rol de usuario:  <%= user.rol %>  </p> 
+                                        <p style="color: black;"> Rol de usuario:  <%= user.rol_id %>  </p> 
                                         <a href="/users/profileEdit/<%= user.id %>" > <i class="fa-regular fa-pen-to-square" style="color: blue;"></i></a>
                                         <form action="/users/delete/<%= user.id %>?_method=DELETE"  method="post" style="display: inline-flex" class="deleteeeeeeeeeeeee">
                                             <button type="submit" class="home__main__products__product__photo-container--more eliminar" > <i class="fa-solid fa-trash"></i></button>

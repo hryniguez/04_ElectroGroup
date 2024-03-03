@@ -11,15 +11,20 @@
                         <label class="label-editP" for="titulo">Nombre Producto</label>
                         <input class="input-edicion" type="text" name="titulo" value="<%= product.titulo%>">
                     </div>
+                    <div class="div-input-edicion">
+                        <label class="label-editP" for="brand">Marca del Producto</label>
+                        <input class="input-edicion" type="text" name="brand" value="<%= product.brand_id%>">
+                    </div>
                     <div class="description">
-                        <textarea name="description" rows="20" cols="50"><%= product.descripcion%></textarea>.
+                        <textarea name="description" rows="20" cols="50"><%= product.description_id%></textarea>.
                         </div>
                     <div class="div-input-edicion">
                         <label class="label-editP" for="image"></label>
-                        <input class="input-edicion" type="file" name="images" id="imagen"
-                            value="<%= product.image%>" multiple>
+                        <input class="input-edicion" type="file" name="image" id="imagen"
+                            value="<%= product.name%>" multiple>
+                            
                     </div>
-
+                
                     <div class="precio_edicion">
                         <label class="label-editP" for="price">Precio del Producto</label>
                         <input class="input-edicion" type="text" name="price" value="<%= product.price%>">

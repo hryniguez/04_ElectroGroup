@@ -7,19 +7,22 @@ module.exports = (sequelize, DataTypes) => {
     primaryKey: true,
     type: DataTypes.INTEGER
   },
-  name:{
+  titulo:{
     type: DataTypes.STRING,
     allowNull: false
   },
-  precio: {
+  price: {
     type: DataTypes.INTEGER
   },
+  
+  
   brand_id: {
     type: DataTypes.INTEGER
   },
   description_id: {
     type: DataTypes.INTEGER
   },
+  
   createdAt: {
     allowNull: false,
     type: DataTypes.DATE
@@ -37,7 +40,7 @@ let config = {
 const Product = sequelize.define(alias,cols,config);
 Product.associate = models =>{
   Product.belongsTo(models.Brand,{
-    as:"brands",
+    as:"Brands",
     foreignKey:"brand_id"
   })
   Product.belongsToMany(models.User,{
@@ -48,12 +51,13 @@ Product.associate = models =>{
     timestamps:true
   })
   Product.hasOne(models.Description,{
-    as:"description",
+    as:"Descriptions",
     foreignKey:"description_id"
   })
   Product.hasMany(models.Image,{
-    as:"image",
-    foreignKey:"iproduct_id"
+   
+    as:"Images",
+    foreignKey:"product_id",
   })
 }
   return Product;

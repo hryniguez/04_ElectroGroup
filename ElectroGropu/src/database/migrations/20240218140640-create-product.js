@@ -9,11 +9,11 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      name:{
+      titulo:{
         type: Sequelize.STRING,
         allowNull: false
       },
-      precio: {
+      price: {
         type: Sequelize.INTEGER
       },
       brand_id: {
@@ -32,6 +32,8 @@ module.exports = {
           key:'id'
         }
       },
+      
+      
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
