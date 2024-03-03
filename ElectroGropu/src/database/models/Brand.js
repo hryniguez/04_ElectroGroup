@@ -26,7 +26,7 @@ let config = {
 const Brand = sequelize.define(alias,cols,config);
 Brand.associate = models =>{
   Brand.hasMany(models.Product,{
-    as:"productsBrand",
+    as:"Products",
     foreignKey:"brand_id"
   })
 }

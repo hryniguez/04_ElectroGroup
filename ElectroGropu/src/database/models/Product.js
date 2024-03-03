@@ -40,7 +40,7 @@ let config = {
 const Product = sequelize.define(alias,cols,config);
 Product.associate = models =>{
   Product.belongsTo(models.Brand,{
-    as:"brands",
+    as:"Brands",
     foreignKey:"brand_id"
   })
   Product.belongsToMany(models.User,{
@@ -51,7 +51,7 @@ Product.associate = models =>{
     timestamps:true
   })
   Product.hasOne(models.Description,{
-    as:"description",
+    as:"Descriptions",
     foreignKey:"description_id"
   })
   Product.hasMany(models.Image,{
