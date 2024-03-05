@@ -21,6 +21,10 @@
     font-size: 25px;
     color: lightsteelblue;
 }
+.register2 label {
+    font-size: 25px;
+    color: lightsteelblue;
+}
 
 .copy_header_register h3 {
     text-align: center;
@@ -45,8 +49,22 @@
     display: flex;
     justify-content: space-evenly;
 }
-
+.contenedor_usuario{
+    text-align: -webkit-center;
+}
 .main__register__form {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 35%;
+    background-color: #00000080;
+    color: white;
+    padding: 19px;
+    align-items: stretch;
+    height: max-content;
+    border-radius: 26px;
+}
+.main__register__form2 {
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -58,7 +76,6 @@
     height: max-content;
     border-radius: 26px;
 }
-
 .register__form_general {
     display: flex;
     flex-direction: column;
@@ -354,10 +371,11 @@ margin-top: 12px;
         height: 100px;
     }
     .register2 {
-        width: 60%;
+        width: 100%;
     margin-top: 0px;
     height: 100px;
     align-self: center;
+    
     }
 
     .register__terminos-condiciones {
@@ -396,6 +414,19 @@ margin-top: 12px;
     }
 
     .register #placeholder {
+        text-align: center;
+        padding-left: 10%;
+        padding-right: 9%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border: 2px solid #ccc;
+        border-radius: 25px;
+        outline: none;
+        background-color: rgb(212, 210, 210);
+        font-size: 18px;
+        width: 100%;
+    }
+    .register2 #placeholder {
         text-align: center;
         padding-left: 10%;
         padding-right: 9%;

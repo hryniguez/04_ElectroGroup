@@ -8,11 +8,11 @@
 
     <section class="Detail__main__principal">
       <article class="Detail__main__articulos">
-        <img src="/img/products/<%= detalle.image %>" alt="Aquí va la foto4 1-thinkpad Yoga ">
-
+        <img src="/img/products/<%= products.Images[0].name %>" alt="Aquí va la foto4 1-thinkpad Yoga ">
+        
         <div>
           <h5>Precio especial Notebook</h5>
-          <h2><%= detalle.price %> </h2>
+          <h2><%= products.price %> </h2>
           <h5>Efectivo o Transferencia</h5>
         </div>
         <form action="/productCart">
@@ -23,7 +23,7 @@
       <article class="Detail__main__caracteristicas">
         <ul class="caracteristicas__titulo">
           <p>
-            <%= detalle.description %> 
+            <%= products.description %> 
           </p>
          
         </ul>
@@ -35,20 +35,7 @@
         <h4>Página 1 de 3</h4>
       </div>
 
-      <div style="display: flex; flex-direction: row; justify-content: space-around">
-      <% productRandom.forEach(product => { %>
-        <a href="/products/productDetail/<%=product.id %> ">
-          <article style="border: black;">
-          <img src="/img/products/<%= product.image %>" alt="<%= product.titulo %>">
-
-          <p><%= product.titulo %></p>
-          <p>$<%= product.price %></p>
-        </article>
-      </a>
-        <%}); %>
-
-        
-        </div>
+     
 
     </section>
 

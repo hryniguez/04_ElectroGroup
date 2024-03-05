@@ -22,12 +22,12 @@ router
 .get('/productDetail/:id', productDetail)
 .get('/', products)
 .get('/productCart',sessionValidate, productCart)
-.get('/dashboard',isAdmin, dashboard)
-.get('/createProduct',isAdmin, formCreate)
+.get('/dashboard', dashboard)
+.get('/createProduct', formCreate)
 .post('/createProduct', upLoad2.single("image"), create)
 .delete('/delete/:id', destroy)
-.get('/editProduct/:id',isAdmin,formEdit)
-.put('/editProduct/:id', upLoad.array('images'),editProduct)
+.get('/editProduct/:id',formEdit)
+.put('/editProduct/:id', upLoad.array('image'),editProduct)
 
 
 

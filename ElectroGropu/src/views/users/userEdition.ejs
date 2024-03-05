@@ -13,8 +13,8 @@
                         <section class="main__register__form">
                             <div class="register ">
                                     <label for="nombre">Nombre de usuario</label>
-                                    <input type="text" name="nombre" id="placeholder" value="<%= locals.user ? user.nombre : locals.old && old.nombre ? old.nombre : null %>">
-                                    <p><%= locals.errores && errores.nombre ? errores.nombre.msg : null %> </p>
+                                    <input type="text" name="nombre" id="placeholder" value="<%= locals.user ? user.username : locals.old && old.username ? old.username : null %>">
+                                    <p><%= locals.errores && errores.username ? errores.username.msg : null %> </p>
                                     
                                 </div>
                                 <div class="register ">
@@ -23,46 +23,46 @@
                                     <p><%= locals.errores && errores.email ? errores.email.msg : null %> </p>
                                     
                                 </div>
-                               
+                            
                                 <div class="register ">
                                     <label for="age">Edad:</label>
-                                    <input class="campos" type="number" id="edad" name="age" value="<%= locals.user ? user.age : locals.old && old.age ? old.age : null %>">
+                                    <input class="campos" type="number" id="placeholder" name="age" value="<%= locals.user ? user.age : locals.old && old.age ? old.age : null %>">
                                     <p><%= locals.errores && errores.age ? errores.age.msg : null %> </p>
                                     
                                 </div>
 
                                 <div class="register ">
                                 <label for="direction">Dirección:</label>
-                                <input class="campos" type="text" id="direccion" name="direction"  value="<%= locals.user ? user.direction : locals.old && old.direction ? old.direction : null %>">
+                                <input class="campos" type="text" id="placeholder" name="direction"  value="<%= locals.user ? user.direction : locals.old && old.direction ? old.direction : null %>">
                                 <p><%= locals.errores && errores.direction ? errores.direction.msg : null %> </p>
                                 </div>
 
                                 <div class="register ">
                                     <label for="phone">Teléfono:</label>
-                                    <input class="campos" type="text" id="phone" name="phone" value="<%= locals.user ? user.phone : locals.old && old.phone ? old.phone : null %>">
+                                    <input class="campos" type="text" id="placeholder" name="phone" value="<%= locals.user ? user.phone : locals.old && old.phone ? old.phone : null %>">
                                     <p><%= locals.errores && errores.phone ? errores.phone.msg : null %> </p>
                                 
                                 </div>
 
                                 <div class="register ">
                                     <label for="genre">Defina su género:</label>
-                                    <input class="campos" type="text" id="genre" name="genre" value="<%= locals.user ? user.genre : locals.old && old.genre ? old.genre : null %>">
+                                    <input class="campos" type="text"id="placeholder" name="genre" value="<%= locals.user ? user.genre : locals.old && old.genre ? old.genre : null %>">
                                     <p><%= locals.errores && errores.genre ? errores.genre.msg : null %> </p>
                                     
                             </div>
                                     
-                            <% if (locals.usuario && usuario.rol == 'admin') {%>
+                            <% if (locals.usuario && usuario.rol_id == '1') {%>
                                  <div class="register">
                                      <label for="rol">Rol</label>
-                                     <input class="campos" type="text" id="rol" name="rol" value="<%= locals.user ? user.rol : locals.old && old.rol ? old.rol : null %>">
-                                     <p> <%= locals.errores && errores.rol ? errores.rol.msg : null %> </p>
+                                     <input class="campos" type="text" id="placeholder" name="rol" value="<%= locals.user ? user.rol_id : locals.old && old.rol_id ? old.rol_id : null %>">
+                                     <p> <%= locals.errores && errores.rol_id ? errores.rol_id.msg : null %> </p>
                                  </div>    
                              <% } %>
 
                              <div class="register ">
                                 
                                  <label for="image" class="col-12 mt-3">Foto de perfil</label><br>
-                                 <img style="width: 10%;margin-bottom: 20px;" src="/img/users/<%= user.image %>" alt="profile image">
+                                 <img style="width:20%;margin-bottom: 10px;" src="/img/users/<%= user.avatar %>" alt="profile image">
                                   <input type="file" class="form-control"  name="image">
                                   <p><%= locals.errores && errores.image ? errores.image.msg : null %> </p>
                              </div>

@@ -16,8 +16,12 @@ module.exports = (sequelize, DataTypes) => {
     type: DataTypes.STRING,
     allowNull:false
   },
+  password:{
+    type: DataTypes.STRING,
+    allowNull:false
+  },
   birthday: {
-    type: DataTypes.DATE,
+    type: DataTypes.DATEONLY,
     allowNull:false
   },
   genre: {
@@ -58,7 +62,7 @@ User.associate = models=>{
  
   User.belongsTo(models.Rol,{
       as:"rol",
-      foreignKey:"user_id"
+      foreignKey:"rol_id"
   })
 
   User.belongsToMany(models.Product,{
