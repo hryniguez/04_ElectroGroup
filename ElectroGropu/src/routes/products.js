@@ -27,7 +27,7 @@ router
 .post('/createProduct', upLoad2.single("image"), create)
 .delete('/delete/:id', destroy)
 .get('/editProduct/:id',formEdit)
-.put('/editProduct/:id', upLoad.array('images'),editProduct)
+.put('/editProduct/:id', upLoad.array('image'),editProduct)
 
 
 

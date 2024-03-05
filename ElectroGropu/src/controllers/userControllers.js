@@ -13,8 +13,9 @@ const usercontrollers = {
         db.User.findAll({
             include:
             [{
-                association: "rol"
-            }],
+                association: "rol", 
+               
+            }]
             
         })
             .then( (user)=>{
@@ -97,15 +98,15 @@ console.log("aqui va el usuario",req.session.user);
             const { nombre, email, password } = req.body;
             db.User.create({
                 username: nombre,
-                email: email,
-                birthday: "12-02-12",
+                email,
+                birthday: "1997-12-01",
                 genre: "indistinto",
                 rol_id: null,
-                avatar: req.file ? req.file.filename : "default.jpg",
+                avatar: req.file ? req.file.filename : null,
                 password: bcrypt.hashSync(password, 10),
             })
                 .then((user) => {
-                    res.redirect("/login");
+                    res.render("users/login", { title: "login" });
                 })
                 .catch((err) => {
                     console.log(err);
@@ -129,47 +130,40 @@ console.log("aqui va el usuario",req.session.user);
 
     profileEdited: (req, res) => {
         const { id } = req.params;
-        const { nombre, email, password, phone, genre, rol } = req.body;
-        db.User.findByPk(id);
-
-        const usuarios = users.map((user) => {
-            if (user.id == id) {
-                return {
-                    id,
-                    usernombre: nombre.trim(),
-                    email: email.trim(),
-                    birthday,
-                    direction,
-                    phone,
+        const { nombre, email, password, phone, genre, rol , image } = req.body;
+        db.User.update(
+            {
+                username: nombre ,
+                    email,
+                    birthday: "1997-12-01",
                     genre,
-                    image: req.file ? req.file.filename : user.image,
-                    password: user.password,
-                    rol: rol ? rol : "user",
-                };
+                    image: req.file ? req.file.filename : null,
+                   
+                    rol_id:  rol ? rol : "2",
+            },
+            {
+                where:{
+                id  ,
+                } ,
             }
-            return user;
-        });
-        setJson(usuarios, "users");
-        res.redirect(`/users/userProfile/${id}`);
+        ).then((resp) => {
+            res.redirect(`/users/profile/${id}`);
+        })
+        .catch((err) => console.log(err));
     },
 
     destroy: (req, res) => {
-        const { id } = req.params;
-        const user = getJson("users");
+        db.User.destroy({
+            where: { id: req.params.id },
+          })
+            
+                .then(() => {
+                 
+                  
+                  res.redirect("/users/dashboard");
+                })
+                .catch((err) => console.log(err));
 
-        let users = user.find((user) => user.id == id);
-        let userClear = user.filter((user) => user.id !== req.params.id);
-
-        fs.unlink(
-            path.join(__dirname, `../../public/img/users/${users.image}`),
-            (err) => {
-                if (err) throw err;
-                console.log(`borre el archivo ${users.image}`);
-            }
-        );
-
-        setJson(userClear, "users");
-        res.redirect("/users/dashboard");
     },
 };
 module.exports = usercontrollers;

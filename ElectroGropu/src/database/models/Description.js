@@ -27,7 +27,7 @@ const Description = sequelize.define(alias,cols,config);
 
 Description.associate = models =>{
   Description.belongsTo(models.Product,{
-    as:"productDescription",
+    as:"Products",
     foreignKey:"description_id"
   })
 }
