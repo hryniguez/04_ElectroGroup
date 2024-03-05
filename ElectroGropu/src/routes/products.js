@@ -5,6 +5,7 @@ const isAdmin = require("../middleware/isAdminValidate");
 const multer = require('multer');
 const {products,productDetail, productCart,formCreate,dashboard,create,editProduct,formEdit,destroy} = require("../controllers/productControllers")
 const sessionValidate = require("../middleware/sessionValidate");
+const productValidation= require("../validations/productValidation")
 
 const storage = multer.diskStorage({
     destination:(req,file,cb)=>{
