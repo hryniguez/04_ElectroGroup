@@ -43,12 +43,8 @@ const usercontrollers = {
         const errors = validationResult(req);
         // res.send(errors)
         if (!errors.isEmpty()) {
-            console.log("probandinnng:", errors.mapped());
-            res.render("users/login", {
-                errors: errors.errors,
-                title: "ELECTRO",
-                usuario: req.session.user,
-            });
+            
+            res.render('users/login',{ errors: errors.mapped(), old: req.body });
         } else {
             const { email } = req.body;
             db.User.findOne({
@@ -57,7 +53,7 @@ const usercontrollers = {
             })
                 .then((user) => {
                     req.session.user = user.dataValues;
-console.log("aqui va el usuario",req.session.user);
+
                     if (req.body.remember == "true") {
                         res.cookie("user", user.dataValues, { maxAge: 1000 * 60 });
                         res.cookie("rememberMe", "true", { maxAge: 1000 * 60 * 15 });
@@ -128,29 +124,48 @@ console.log("aqui va el usuario",req.session.user);
             });
     },
 
-    profileEdited: (req, res) => {
-        const { id } = req.params;
-        const { nombre, email, password, phone, genre, rol , image } = req.body;
-        db.User.update(
-            {
-                username: nombre ,
-                    email,
-                    birthday: "1997-12-01",
-                    genre,
-                    image: req.file ? req.file.filename : null,
-                   
-                    rol_id:  rol ? rol : "2",
-            },
-            {
-                where:{
-                id  ,
-                } ,
+    profileEdited: async function (req, res) {
+        try {
+          const { id } = req.params;
+          const { nombre, email, direction, number, phone, genre, rol,age, avatar} = req.body;
+      
+        
+          const user = await db.User.findByPk(id);
+      
+          const deletePreviousImage = async (imagenuser) => {
+            if (imagenuser && imagenuser !== 'default-avatar-profile.jpg') {
+              const imagePath = path.join(__dirname, '../../public/img/users/', imagenuser);
+              try {
+                await fs.promises.unlink(imagePath); 
+                console.log(`Imagen anterior "${imagenuser}" eliminada`);
+              } catch (error) {
+                console.error(`Error de eliminacion de  image: ${error}`);
+               
+              }
             }
-        ).then((resp) => {
-            res.redirect(`/users/profile/${id}`);
-        })
-        .catch((err) => console.log(err));
-    },
+          };
+      
+      
+          const updateuser = await user.update({
+            username: nombre,
+            email,
+            direction,
+            number,
+            phone,
+            birthday: age,
+            genre,
+            rol_id:rol,
+            avatar: req.file.filename,
+            updatedAt: new Date(),
+          });
+      
+          res.redirect("/users/dashboard");
+        } catch (err) {
+          console.error(err);
+    
+        }
+      },
+    
 
     destroy: (req, res) => {
         db.User.destroy({

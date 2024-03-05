@@ -25,8 +25,8 @@
                                 </div>
                             
                                 <div class="register ">
-                                    <label for="age">Edad:</label>
-                                    <input class="campos" type="number" id="placeholder" name="age" value="<%= locals.user ? user.age : locals.old && old.age ? old.age : null %>">
+                                    <label for="age">Fecha de N. :</label>
+                                    <input class="campos" type="date" id="placeholder" name="age" value="<%= locals.user ? user.birthday : locals.old && old.birthday ? old.birthday : null %>">
                                     <p><%= locals.errores && errores.age ? errores.age.msg : null %> </p>
                                     
                                 </div>
