@@ -198,23 +198,69 @@ const detailcontrollers = {
     //     setJson(productClear,"products");
     //     res.redirect ('/products/dashboard')
 
-    editProduct: (req, res) => {
-        const {id} = req.params
-     const { titulo,description,price,image } = req.body;
-     db.Product.update(
-       {
-         titulo,
-          description,
-         image: req.file ? req.file.filename : "default.jpg",
-         price,
+//     editProduct: (req, res) => {
+//         const {id} = req.params
+//      const { titulo,description,price,image } = req.body;
+//      db.Product.update(
+//        {
+//          titulo,
+//           description,
+//          image: req.file ? req.file.filename : "default.jpg",
+//          price,
      
-       },
+//        },
        
-     )
-       .then((resp) => {
-         res.redirect('/products/dashboard', );
-       })
-       .catch((err) => console.log(err));
+//      )
+//        .then((resp) => {
+//          res.redirect('/products/dashboard', );
+//        })
+//        .catch((err) => console.log(err));
+// }
+editProduct: (req, res) => {
+
+async function editProduct(req, res) {
+  const { id, titulo, brand, description, price, image } = req.body;
+
+  try {
+    const productToUpdate = await Product.findByPk(id, {
+      include: {
+        model: Image,
+        as: 'image',
+      },
+    });
+
+    // Handle image deletion if a new image is uploaded
+    if (image && productToUpdate.image) {
+      await productToUpdate.image.destroy(); // Delete from database
+      // Implement logic to delete image from cloud storage (AWS S3, etc.)
+      // ...
+    }
+
+    // Update product data, including handling empty image field
+    productToUpdate.titulo = titulo;
+    productToUpdate.brand_id = brand;
+    productToUpdate.description_id = description; // Assuming description_id stores description text
+    productToUpdate.price = price;
+
+    if (image) {
+      // Assuming image data is stored in the "image" property
+      productToUpdate.image = image; // Update image data (likely a path or reference)
+    } else {
+      // If no new image is uploaded, keep the existing image reference
+      productToUpdate.image = productToUpdate.image.id;
+    }
+
+    await productToUpdate.save();
+
+        res.redirect('/products/dashboard', );
+            
+    
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Error al actualizar el producto' });
+  }
+}
+
 }
 }
 module.exports = detailcontrollers;
