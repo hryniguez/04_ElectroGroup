@@ -54,7 +54,7 @@ Product.associate = models =>{
     as:"description",
     foreignKey:"description_id"
   })
-  Product.hasMany(models.Image,{
+  Product.hasTMany(models.Image,{
     as:"Images",
     foreignKey:"product_id"
   })
