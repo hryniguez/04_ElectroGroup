@@ -1,0 +1,253 @@
+.dashbord{
+    background-image: url('/img/177606.jpg');
+}
+
+.botondash {
+    background-color: #21043d;
+    color: white;
+    border-radius: 15px;
+    font-size: 15px;
+    margin: 10px;
+    width: 100%;
+}
+.h4dash {
+    text-decoration: underline;
+    font-size: 80%;
+}
+.home__main__products__product__photo-container--photo {
+    width: 60%;
+}
+.listar {
+    color: rgb(11, 7, 241);
+    font-size: 19px;
+}
+.editar {
+    color: rgb(9, 255, 0);
+    font-size: 19px;
+}
+.eliminar {
+    color: rgb(255, 0, 0);
+    font-size: 19px;
+}
+.tablet {
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    margin-left: 20%;
+    align-items: center;
+}
+.home__main__products__product{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid #21043d;
+    margin: 10px;
+    background-color: white;
+    width: 100%;
+}
+.home__main__products__product__photo-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.home__main__products__product__photo-container--editar i{
+    color:darkmagenta;
+    font-size: center;
+}
+.fa-regular.fa-file-circle-plus{
+    color:darkmagenta;
+    font-size: center;
+}
+
+.createpro{
+    background-image: url('/img/177606.jpg');
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    height: 86vh;
+}
+.createpro input{
+    width: 100%;
+
+}
+
+.botoncreate {
+    text-align: center;
+    margin-top: 12px;
+}
+.botoncreate button{
+    background-color: #21043d;
+    color: white;
+    border-radius: 25px;
+    width: 30%;
+}
+.createpro form{
+
+    border: 1px solid;
+    width: 63%;
+    font-size: 3px;
+    padding: 10px;
+    /* margin: 10px; */
+    color: white;
+    margin-top: 1%;
+}
+.PRECIOCREATE label{
+    font-weight: bold;
+    padding-bottom: 4px;
+    font-size: 9px;
+}
+
+.PRECIOCREATE {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 1px;
+}
+.PREC input{
+    width: 40%;
+    
+}
+.PREC {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 10px;
+}
+@media(min-width: 768px){
+.tablet {
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 25%;
+}
+.home__main__products__product__photo-container--photo{
+    width: 50%;
+}
+.eliminar{
+    color: rgb(255, 0, 0);
+    font-size: 20px;
+    display: contents;
+}
+.editar{
+    color: rgb(9, 255, 0);
+    font-size: 20px;
+}
+.listar{
+    color: rgb(11, 7, 241);
+    font-size: 35px
+}
+.home__main__products__product{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid #21043d;
+    margin: 10px;
+    background-color: white;
+}
+.home__main__products__product__photo-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.h4dash{
+    text-decoration: underline;
+    font-size: 30px;
+} 
+.botondash{
+    background-color: #21043d;
+    color: white;
+    border-radius: 15px;
+    font-size: 25px;
+    margin: 10px;
+    width: 100%;
+}
+.createpro{
+    background-image: url('/img/177606.jpg');
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+.createpro input{
+    width: 100%;
+
+}
+
+.botoncreate {
+    text-align: center;
+    margin-top: 12px;
+}
+.botoncreate button{
+    background-color: #21043d;
+    color: white;
+    border-radius: 25px;
+    width: 30%;
+}
+.createpro form{
+
+    border: 1px solid;
+    width: 58%;
+    font-size: 11px;
+    padding: 10px;
+    margin: 10px;
+    color: white;
+    margin-top: 4%;
+}
+.PRECIOCREATE label{
+    font-weight: bold;
+    padding-bottom: 10px;
+    font-size: 20px;
+}
+
+.PRECIOCREATE {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 25px;
+}
+.PREC input{
+    width: 40%;
+    
+}
+.PREC {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 25px;
+}
+}
+@media(min-width: 1024px){
+    .createpro form {
+        border: 1px solid;
+        width: 58%;
+        font-size: 27px;
+        padding: 10px;
+        margin: 10px;
+        color: white;
+        margin-top: 4%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

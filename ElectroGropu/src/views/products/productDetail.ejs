@@ -1,0 +1,47 @@
+<%- include("../partials/head.ejs")%>
+
+<body>
+
+  <%- include("../partials/header.ejs")%>
+
+  <main>
+
+    <section class="Detail__main__principal">
+      <article class="Detail__main__articulos">
+        <img src="/img/products/<%= products.Images[0] %>" alt="Aquí va la foto4 1-thinkpad Yoga ">
+        
+        <div>
+          <h5>Precio especial Notebook</h5>
+          <h2><%= products.price %> </h2>
+          <h5>Efectivo o Transferencia</h5>
+        </div>
+        <form action="/productCart">
+          <button>Comprar</button>
+        </form>
+        
+      </article>
+      <article class="Detail__main__caracteristicas">
+        <ul class="caracteristicas__titulo">
+          <p>
+            <%= products.description %> 
+          </p>
+         
+        </ul>
+      </article>
+    </section>
+    <section class="detail__main__recomendado">
+      <div class="recomendado__titulo">
+        <h3>Productos ralacionados con este articulo</h3>
+        <h4>Página 1 de 3</h4>
+      </div>
+
+     
+
+    </section>
+
+  </main>
+  <%- include("../partials/footer.ejs")%>
+
+</body>
+
+</html>

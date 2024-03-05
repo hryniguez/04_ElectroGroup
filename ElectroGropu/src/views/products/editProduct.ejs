@@ -1,0 +1,45 @@
+<%- include("../partials/head.ejs")%>
+
+    <body class="home__body">
+
+        <%- include("../partials/header.ejs")%>
+
+            <main class="edit_product">
+                <form class="form-editProduct" action="/products/editProduct/<%= product.id%>?_method=PUT" method="POST"
+                    enctype="multipart/form-data">
+                    <div class="div-input-edicion">
+                        <label class="label-editP" for="titulo">Nombre Producto</label>
+                        <input class="input-edicion" type="text" name="titulo" value="<%= product.titulo%>">value="<%= locals.old && old.titulo ? old.titulo : null %>" >
+                        <p class="mensaje_errors"><%= locals.errors && errors.titulo ? errors.titulo.msg : null %> </p>
+                    </div>
+                    <div class="div-input-edicion">
+                        <label class="label-editP" for="brand">Marca del Producto</label>
+                        <input class="input-edicion" type="text" name="brand" value="<%= product.brand_id%>">value="<%= locals.old && old.brand ? old.brand : null %>" >
+                        <p class="mensaje_errors"><%= locals.errors && errors.brand ? errors.brand.msg : null %> </p>
+                    </div>
+                    <div class="description">
+                        <textarea name="description" rows="20" cols="50"><%= product.description_id%></textarea>value="<%= locals.old && old.descripcion ? old.descripcion : null %>" >
+                        <p class="mensaje_errors"><%= locals.errors && errors.descripcion ? errors.descripcion.msg : null %> </p>
+                        </div>
+                    <div class="div-input-edicion">
+                        <label class="label-editP" for="image"></label>
+                        <input class="input-edicion" type="file" name="image" id="imagen"
+                            value="<%= product.name%>" multiple>value="<%= locals.old && old.images ? old.images : null %>" >
+                            <p class="mensaje_errors"><%= locals.errors && errors.images ? errors.images.msg : null %> </p>
+                            
+                    </div>
+                
+                    <div class="precio_edicion">
+                        <label class="label-editP" for="price">Precio del Producto</label>
+                        <input class="input-edicion" type="text" name="price" value="<%= product.price%>">value="<%= locals.old && old.price ? old.price : null %>" >
+                        <p class="mensaje_errors"><%= locals.errors && errors.price ? errors.price.msg : null %> </p>
+                    </div>
+                    <div class="boton_edit">
+                        <button class="boton_edit_a" type="submit"> Guardar Cambios</button>
+                    </div>
+                </form>
+            </main>
+            <%- include("../partials/footer.ejs")%>
+    </body>
+
+    </html>
