@@ -8,24 +8,26 @@
             <div class="PRECIOCREATE">
                 <label for="nombre" id="nombre"> Ingrese el nombre del producto</label>
                 <input type="text" name="titulo">
+                <p><%= locals.errores && errores.titulo ? errores.titulo.msg : null %> </p>
+                
             </div>
             <div class="PRECIOCREATE">
                 <label for="nombre" id="nombre"> Ingrese la marca del producto</label>
-                <input type="text" name="brand">
+                <input type="text" name="brand"><p><%= locals.errores && errores.price? errores.brand.msg : null %> </p>
             </div>
             <div class="PRECIOCREATE">
                 <label for="descripcion" >Agregue una breve descripcion</label>
-                <textarea  name="description" id="descripcion"></textarea>
+                <textarea  name="description" id="descripcion"></textarea><p><%= locals.errores && errores.descripcion ? errores.descripcion.msg : null %> </p>
             </div>
             
             <div class="PRECIOCREATE">
                 <label for="imagen" >Selecciona una imagen para el producto</label>
-                <input type="file" name="image" id="imagen"  multiple></input>
+                <input type="file" name="image" id="imagen"  multiple></input><p><%= locals.errores && errores.images ? errores.images.msg : null %> </p>
             </div>
         
             <div class="PREC">
                 <label for="precio" >Precio</label>
-                <input type="text" name="price" placeholder="$" >
+                <input type="text" name="price" placeholder="$" ><p><%= locals.errores && errores.price? errores.brand.msg : null %> </p>
             </div>
             <div class="botoncreate">
                 <button type="reset">Borrar</button>

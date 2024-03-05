@@ -24,11 +24,11 @@ router
 .get('/', products)
 .get('/productCart',sessionValidate, productCart)
 .get('/dashboard', dashboard)
-.get('/createProduct', formCreate)
-.post('/createProduct', upLoad2.single("image"), create)
+.get('/createProduct', formCreate,)
+.post('/createProduct', upLoad2.single("image"), create,productValidation)
 .delete('/delete/:id', destroy)
 .get('/editProduct/:id',formEdit)
-.put('/editProduct/:id', upLoad.array('image'),editProduct)
+.put('/editProduct/:id', upLoad.array('image'),editProduct,productValidation)
 
 
 
