@@ -155,7 +155,7 @@ const usercontrollers = {
             birthday: age,
             genre,
             rol_id:rol,
-            avatar: req.file.filename,
+            avatar: req.file ? req.file.filename : avatar,
             updatedAt: new Date(),
           });
       

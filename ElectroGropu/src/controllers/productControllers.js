@@ -186,63 +186,40 @@ const detailcontrollers = {
     res.redirect("/products/dashboard");
   },
 
-  // const {id}= req.params;
-  // const products = getJson("products");
-
-  //     let product = products.find(product => product.id == id);
-  //     let productClear = products.filter(product => product.id !== +req.params.id);
-
-  //     fs.unlink(path.join(__dirname,`../../public/img/products/${product.image}`), (err) =>{
-  //         if(err) throw err;
-  //         console.log(`borre el archivo ${product.image}`);
-  //     })
-  //     setJson(productClear,"products");
-  //     res.redirect ('/products/dashboard')
   
-//   const { titulo, description, price, image } = req.body;
   editProduct: (req, res) => {
-      const { id } = req.params;
-      const file = req.file;
-      const { titulo, description, price, brand,name } = req.body;
-      const deletePreviousImage = async (imagenuser) => {
-        if (imagenuser && imagenuser !== 'default-avatar-profile.jpg') {
-          const imagePath = path.join(__dirname, '../../public/img/products/', imagenuser);
-          try {
-            await fs.promises.unlink(imagePath); 
-            console.log(`Imagen anterior "${imagenuser}" eliminada`);
-          } catch (error) {
-            console.error(`Error de eliminacion de  image: ${error}`);
-           
-          }
-        }
-      };
-
-    db.Product.update({
-      titulo,
-      brand,
-      price,
-      description,
-      createdAt:new Date,
-      updatedAt:new Date
+    const { id } = req.params;
+    const file = req.file;
+    const {titulo,brand,description,image,price} = req.body;
+      db.Product.update({
+        titulo,
+        brand,
+        price,
+        description,
+        createdAt:new Date,
+        updatedAt:new Date
     },
     {
       where:{id}
     })
       .then((resp)=>{
         db.Image.update({
-           name: file ? file.filename : name,
+           name: file ? file.filename : image,
+           path:null,
            product_id: resp.id,
            createdAt:new Date,
           updatedAt:new Date
         },
         {
           where:{id}
-        }) 
-        .then(()=>{
-          res.redirect ('/products/dashboard')
         })
+        })
+    .then(()=>{
+    res.redirect(`/products/productDetail/${id}`)
     })
     .catch(error=> console.log(error));
- }
-  }
+  
+    }
+
+    }
 module.exports = detailcontrollers;
