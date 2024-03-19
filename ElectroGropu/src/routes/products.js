@@ -24,10 +24,10 @@ router
 .get('/productCart',sessionValidate, productCart)
 .get('/dashboard', isAdmin,dashboard)
 .get('/createProduct', formCreate)
-.post('/createProduct', upLoad2.single("image"), create)
+.post('/createProduct', upLoad.array("image",1), create)
 .delete('/delete/:id', destroy)
 .get('/editProduct/:id',formEdit)
-.put('/editProduct/:id', upLoad.array('image'),editProduct)
+.put('/editProduct/:id', upLoad.array('image',1),editProduct)
 
 
 
