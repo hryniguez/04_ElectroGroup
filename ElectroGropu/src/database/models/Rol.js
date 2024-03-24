@@ -28,7 +28,7 @@ const Rol = sequelize.define(alias,cols,config);
 
 Rol.associate = models =>{
   Rol.hasMany(models.User,{
-    as:"userRol",
+    as:"Users",
     foreignKey:"rol_id"
   })
 }

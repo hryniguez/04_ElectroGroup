@@ -1,6 +1,6 @@
 [
   {
-    "id": 2,
+    "id": 1,
     "username": "ANGEL",
     "email": "chinoman309@hotmail.com",
     "password": "$2a$10$LgorbMiHVmWo7uKoFrtRruOFdrxWEosMb1EWvs4T2iNnvDc2p/yM2",
@@ -9,7 +9,7 @@
     "avatar": "HJFw0ICjM_720x0__1-1705933393815-0670c9cb-f4b7-4855-8877-6fd183a306f0.jpg"
   },
   {
-    "id": 3,
+    "id": 2,
     "username": "MAYCO",
     "email": "mayco@gmail.com",
     "password": "$2a$10$y9FsgjwPQ7pK3lptT703SeKnOm5XkAIfLdYx8EMty3qSJA.r6fQ0G",
@@ -18,7 +18,7 @@
     "avatar": "Imagen de WhatsApp 2023-11-17 a las 00.14.46_daa6dc51-1705788501910-0eec67ef-0803-467a-97b2-ee8c5a700df3.jpg"
   },
   {
-    "id": 4,
+    "id": 3,
     "username": "lorenzo",
     "email": "lolo@gmail.com",
     "password": "$2a$10$EKhp8S2GnuyTepurqJRy2.OAPmUuaJb/FeaCRth1WcUWVFcrNBt2C",
@@ -28,7 +28,7 @@
     "avatar": "potter-1705851479794-a696c97c-4e46-4a7c-bd16-e5814fdae4b7"
   },
   {
-    "id":5,
+    "id":4,
     "username": "valeria",
     "email": "ladivaleliz@hotmail.com",
     "rol_id": 2,
@@ -37,7 +37,7 @@
     "password": "$2b$10$abdhF1eTCLnYqCQKo3k/X.cFN1pF8/dokJuhDnKup2hpsq7hS7PIm"
   },
   {
-    "id":6,
+    "id":5,
     "username": "Manuel",
     "email": "manuelc@gmail.com",
     "genre": "masculino",
@@ -46,7 +46,7 @@
     "password": "$2b$10$vw70kvtykuHL.iATgGIHa.ZbUwdXjMueZvd3HzmyffLJXAMVTeV7q"
   },
   {
-    "id":7,
+    "id":6,
     "username": "valeria castillo",
     "email": "casvale@gmail.com",
     "genre": "femenino",
@@ -56,7 +56,7 @@
     "password": "12345"
   },
   {
-    "id": 8,
+    "id": 7,
     "username": "valen xcas",
     "email": "tini06@gmail.com",
     "genre": "femenino",

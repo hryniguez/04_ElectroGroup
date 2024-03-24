@@ -40,18 +40,18 @@ let config = {
 const Product = sequelize.define(alias,cols,config);
 Product.associate = models =>{
   Product.belongsTo(models.Brand,{
-    as:"Brands",
+    as:"brands",
     foreignKey:"brand_id"
   })
   Product.belongsToMany(models.User,{
-    as:"user",
+    as:"Users",
     through:"cart",
     foreignKey: "product_id",
     otherKey:"user_id",
     timestamps:true
   })
   Product.hasOne(models.Description,{
-    as:"Descriptions",
+    as:"descriptions",
     foreignKey:"description_id"
   })
   Product.hasMany(models.Image,{

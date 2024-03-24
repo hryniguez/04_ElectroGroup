@@ -32,6 +32,11 @@
                             </div>
                         </div>
                         <div class="register ">
+                            <label for="age">Fecha de N. :</label>
+                            <input class="campos" type="date" id="placeholder" name="age" value="<%= locals.user ? user.birthday : locals.old && old.birthday ? old.birthday : null %>">
+                        </div>
+
+                        <div class="register ">
                             <label for="">Ingrese una contraseña</label>
                             <input type="password" name="password" id="placeholder">
                             <p class="mensaje_errors"><%= locals.errors && errors.password? errors.password.msg : null %> </p>

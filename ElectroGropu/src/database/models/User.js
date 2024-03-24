@@ -26,7 +26,7 @@ module.exports = (sequelize, DataTypes) => {
   },
   genre: {
     type: DataTypes.STRING,
-    allowNull:false
+    allowNull:true
   },
   rol_id: {
     type: DataTypes.INTEGER
@@ -52,21 +52,21 @@ const User = sequelize.define(alias,cols,config);
 
 User.associate = models=>{
   User.hasMany(models.Adress,{
-    as:"adress",
+    as:"Adress",
     foreignKey:"user_id"
   })
   User.hasMany(models.Contact,{
-    as:"contact",
+    as:"Contacts",
     foreignKey:"user_id"
   })
  
   User.belongsTo(models.Rol,{
-      as:"rol",
+      as:"Rols",
       foreignKey:"rol_id"
   })
 
   User.belongsToMany(models.Product,{
-    as:"product",
+    as:"Products",
     through:"cart",
     foreignKey: "user_id",
     otherKey:"product_id",

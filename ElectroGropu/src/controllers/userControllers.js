@@ -13,9 +13,9 @@ const usercontrollers = {
         db.User.findAll({
             include: [
                 {
-                    association: "rol",
-                },
-            ],
+                    association: "Rols",
+                }
+            ]
         })
             .then((user) => {
                 res.render("users/dashboard", {
@@ -87,18 +87,18 @@ const usercontrollers = {
             console.log("Ingrese en errors");
             res.render("users/register", { errors: errors.mapped(), old: req.body });
         } else {
-            const { nombre, email, password } = req.body;
+            const { nombre, email, age,password } = req.body;
             db.User.create({
                 username: nombre,
                 email,
-                birthday: "1997-12-01",
-                genre: "indistinto",
+                birthday: age,
+                genre: null,
                 rol_id: null,
                 avatar: req.file ? req.file.filename : null,
                 password: bcrypt.hashSync(password, 10),
             })
                 .then((user) => {
-                    res.render("users/login", { title: "login" });
+                    res.render("users/login", { title: "login" ,user});
                 })
                 .catch((err) => {
                     console.log(err);
@@ -107,9 +107,17 @@ const usercontrollers = {
     },
     formProfile: (req, res, next) => {
         const { id } = req.params;
-        console.log("aqui la session",req.session.user);
-        db.User.findByPk(id)
+       
+        db.User.findByPk(id,{
+            include:[{
+                association:"Adress"
+            },
+        {
+            association: "Contacts"
+        }]
+        })
             .then((user) => {
+                console.log("ESTO ES USER DEL EDIT ",user);
                 req.session.user = user.dataValues
                 res.render("./users/userEdition", {
                     title: "editar usuario",
@@ -137,23 +145,23 @@ const usercontrollers = {
                 avatar,
             } = req.body;
 
-            const user = await db.User.findByPk(id);
+             const user = await db.User.findByPk(id);
             
-            const deletePreviousImage = async (imagenuser) => {
-                if (imagenuser && imagenuser !== "default-avatar-profile.jpg") {
-                    const imagePath = path.join(
-                        __dirname,
-                        "../../public/img/users/",
-                        imagenuser
-                    );
-                    try {
-                        await fs.promises.unlink(imagePath);
-                        console.log(`Imagen anterior "${imagenuser}" eliminada`);
-                    } catch (error) {
-                        console.error(`Error de eliminacion de  image: ${error}`);
-                    }
-                }
-            };
+            // const deletePreviousImage = async (imagenuser) => {
+            //     if (imagenuser && imagenuser !== "default-avatar-profile.jpg") {
+            //         const imagePath = path.join(
+            //             __dirname,
+            //             "../../public/img/users/",
+            //             imagenuser
+            //         );
+            //         try {
+            //             await fs.promises.unlink(imagePath);
+            //             console.log(`Imagen anterior "${imagenuser}" eliminada`);
+            //         } catch (error) {
+            //             console.error(`Error de eliminacion de  image: ${error}`);
+            //         }
+            //     }
+            // };
 
             const updateuser = await user.update({
                 username: nombre,
@@ -167,8 +175,7 @@ const usercontrollers = {
                 avatar: req.file ? req.file.filename : avatar,
                 updatedAt: new Date(),
             });
-
-            res.redirect("/users/dashboard");
+                res.redirect(`/users/profileEdit/${id}`);
         } catch (err) {
             console.error(err);
         }

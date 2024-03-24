@@ -80,9 +80,15 @@ const detailcontrollers = {
 
   formEdit: (req, res) => {
     const { id } = req.params;
-    db.Product.findByPk(id)
+    db.Product.findByPk(id,{
+      include:[{
+        association:"brands"
+      }
+   ]
+    })
 
       .then((product) => {
+        console.log("ESTE ES EL PRODUCTO DEL FORM EDIT: ", product);
         res.render("products/editProduct", {
           title: db.Product.titulo,
           product,

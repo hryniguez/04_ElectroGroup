@@ -33,7 +33,7 @@
 
                                 <div class="register ">
                                 <label for="direction">Dirección:</label>
-                                <input class="campos" type="text" id="placeholder" name="direction"  value="<%= locals.user ? user.direction : locals.old && old.direction ? old.direction : null %>">
+                                <input class="campos" type="text" id="placeholder" name="direction"  value="<%= locals.old && old.user.adress[0].steet ? old.user.adress[0].steet : null %>">
                                 <p><%= locals.errores && errores.direction ? errores.direction.msg : null %> </p>
                                 </div>
 
