@@ -45,7 +45,7 @@ const Adress = sequelize.define(alias,cols,config);
 
 Adress.associate = models=>{
   Adress.belongsTo(models.User,{
-    as:"adressUser",
+    as:"Users",
     foreignKey:"user_id"
   })
 }

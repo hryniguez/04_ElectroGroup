@@ -11,22 +11,19 @@ const usercontrollers = {
     },
     dashboard: (req, res) => {
         db.User.findAll({
-            include:
-            [{
-                association: "rol", 
-               
-            }]
-            
+            include: [
+                {
+                    association: "Rols",
+                }
+            ]
         })
-            .then( (user)=>{
-
+            .then((user) => {
                 res.render("users/dashboard", {
                     title: "Dashboard",
                     user,
                     usuario: req.session.user,
-                })
-            }
-            )
+                });
+            })
             .catch((err) => {
                 console.log(err);
             });
@@ -43,8 +40,7 @@ const usercontrollers = {
         const errors = validationResult(req);
         // res.send(errors)
         if (!errors.isEmpty()) {
-            
-            res.render('users/login',{ errors: errors.mapped(), old: req.body });
+            res.render("users/login", { errors: errors.mapped(), old: req.body });
         } else {
             const { email } = req.body;
             db.User.findOne({
@@ -78,31 +74,31 @@ const usercontrollers = {
             .catch((err) => {
                 console.log(err);
             });
-    }, 
+    },
     register: function (req, res) {
         res.render("users/register", {
             title: "register",
             usuario: req.session.user,
         });
-        },
+    },
     createUser: (req, res) => {
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
             console.log("Ingrese en errors");
-            res.render('users/register',{ errors: errors.mapped(), old: req.body });
+            res.render("users/register", { errors: errors.mapped(), old: req.body });
         } else {
-            const { nombre, email, password } = req.body;
+            const { nombre, email, age,password } = req.body;
             db.User.create({
                 username: nombre,
                 email,
-                birthday: "1997-12-01",
-                genre: "indistinto",
+                birthday: age,
+                genre: null,
                 rol_id: null,
                 avatar: req.file ? req.file.filename : null,
                 password: bcrypt.hashSync(password, 10),
             })
                 .then((user) => {
-                    res.render("users/login", { title: "login" });
+                    res.render("users/login", { title: "login" ,user});
                 })
                 .catch((err) => {
                     console.log(err);
@@ -111,8 +107,18 @@ const usercontrollers = {
     },
     formProfile: (req, res, next) => {
         const { id } = req.params;
-        db.User.findByPk(id)
+       
+        db.User.findByPk(id,{
+            include:[{
+                association:"Adress"
+            },
+        {
+            association: "Contacts"
+        }]
+        })
             .then((user) => {
+                console.log("ESTO ES USER DEL EDIT ",user);
+                req.session.user = user.dataValues
                 res.render("./users/userEdition", {
                     title: "editar usuario",
                     user,
@@ -126,59 +132,64 @@ const usercontrollers = {
 
     profileEdited: async function (req, res) {
         try {
-          const { id } = req.params;
-          const { nombre, email, direction, number, phone, genre, rol,age, avatar} = req.body;
-      
-        
-          const user = await db.User.findByPk(id);
-      
-          const deletePreviousImage = async (imagenuser) => {
-            if (imagenuser && imagenuser !== 'default-avatar-profile.jpg') {
-              const imagePath = path.join(__dirname, '../../public/img/users/', imagenuser);
-              try {
-                await fs.promises.unlink(imagePath); 
-                console.log(`Imagen anterior "${imagenuser}" eliminada`);
-              } catch (error) {
-                console.error(`Error de eliminacion de  image: ${error}`);
-               
-              }
-            }
-          };
-      
-      
-          const updateuser = await user.update({
-            username: nombre,
-            email,
-            direction,
-            number,
-            phone,
-            birthday: age,
-            genre,
-            rol_id:rol,
-            avatar: req.file ? req.file.filename : avatar,
-            updatedAt: new Date(),
-          });
-      
-          res.redirect("/users/dashboard");
+            const { id } = req.params;
+            const {
+                nombre,
+                email,
+                direction,
+                number,
+                phone,
+                genre,
+                rol,
+                age,
+                avatar,
+            } = req.body;
+
+             const user = await db.User.findByPk(id);
+            
+            // const deletePreviousImage = async (imagenuser) => {
+            //     if (imagenuser && imagenuser !== "default-avatar-profile.jpg") {
+            //         const imagePath = path.join(
+            //             __dirname,
+            //             "../../public/img/users/",
+            //             imagenuser
+            //         );
+            //         try {
+            //             await fs.promises.unlink(imagePath);
+            //             console.log(`Imagen anterior "${imagenuser}" eliminada`);
+            //         } catch (error) {
+            //             console.error(`Error de eliminacion de  image: ${error}`);
+            //         }
+            //     }
+            // };
+
+            const updateuser = await user.update({
+                username: nombre,
+                email,
+                direction,
+                number,
+                phone,
+                birthday: age,
+                genre,
+                rol_id: rol,
+                avatar: req.file ? req.file.filename : avatar,
+                updatedAt: new Date(),
+            });
+                res.redirect(`/users/profileEdit/${id}`);
         } catch (err) {
-          console.error(err);
-    
+            console.error(err);
         }
-      },
-    
+    },
 
     destroy: (req, res) => {
         db.User.destroy({
             where: { id: req.params.id },
-          })
-            
-                .then(() => {
-                 
-                  
-                  res.redirect("/users/dashboard");
-                })
-                .catch((err) => console.log(err));
+        })
 
+            .then(() => {
+                res.redirect("/users/dashboard");
+            })
+            .catch((err) => console.log(err));
     },
 };
 module.exports = usercontrollers;

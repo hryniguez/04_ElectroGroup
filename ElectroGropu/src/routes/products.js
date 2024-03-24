@@ -5,6 +5,7 @@ const isAdmin = require("../middleware/isAdminValidate");
 const multer = require('multer');
 const {products,productDetail, productCart,formCreate,dashboard,create,editProduct,formEdit,destroy} = require("../controllers/productControllers")
 const sessionValidate = require("../middleware/sessionValidate");
+const formatosAdmitidos = ['image/jpeg', 'image/png', 'image/gif','image/jpg','image/webp'];
 
 const storage = multer.diskStorage({
     destination:(req,file,cb)=>{
@@ -16,18 +17,30 @@ const storage = multer.diskStorage({
     }
 })
 
-const upLoad = multer({storage});
-const upLoad2 = multer({storage});
+const fileFilter = (req, file, cb) => {
+    const extension = path.extname(file.originalname).toLowerCase();
+    try{if (formatosAdmitidos.includes(extension)) {
+      cb(null, true);
+    } else {
+      cb( new Error('Formato de archivo no válido'), false);
+    }}
+    catch(Error){
+        console.log(Error)
+    }
+  }
+
+const upLoad = multer({storage,fileFilter});
+// const upLoad2 = multer({storage});
 router
 .get('/productDetail/:id', productDetail)
 .get('/', products)
 .get('/productCart',sessionValidate, productCart)
 .get('/dashboard', isAdmin,dashboard)
 .get('/createProduct', formCreate)
-.post('/createProduct', upLoad2.single("image"), create)
+.post('/createProduct', upLoad.array("image",1), create)
 .delete('/delete/:id', destroy)
 .get('/editProduct/:id',formEdit)
-.put('/editProduct/:id', upLoad.array('image'),editProduct)
+.put('/editProduct/:id', upLoad.array('image',1),editProduct)
 
 
 

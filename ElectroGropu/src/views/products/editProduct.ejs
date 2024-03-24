@@ -13,7 +13,7 @@
                     </div>
                     <div class="div-input-edicion">
                         <label class="label-editP" for="brand">Marca del Producto</label>
-                        <input class="input-edicion" type="text" name="brand" value="<%= product.brand_id%>">
+                        <input class="input-edicion" type="text" name="brand" value="<%= product.brands.name%>">
                     </div>
                     <div class="description">
                         <textarea name="description" rows="20" cols="50"><%= product.description_id%></textarea>.
@@ -21,7 +21,7 @@
                     <div class="div-input-edicion">
                         <label class="label-editP" for="image"></label>
                         <input class="input-edicion" type="file" name="image" id="imagen"
-                            value="<%= product.name%>" multiple>
+                             multiple>
                             
                     </div>
                 

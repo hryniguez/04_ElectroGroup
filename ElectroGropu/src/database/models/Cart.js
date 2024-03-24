@@ -35,7 +35,7 @@ let config = {
 const Cart = sequelize.define(alias,cols,config);
 Cart.associate = models => {
   Cart.belongsTo(models.Product,{
-    as:"productCart",
+    as:"Products",
     foreignKey:"producto_id"
   })
   Cart.belongsTo(models.User,{

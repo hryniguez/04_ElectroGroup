@@ -60,6 +60,7 @@ const detailcontrollers = {
       },
     })
       .then((products) => {
+        
         res.render("products/dashboard", {
           title: "Dashboard",
           products,
@@ -79,9 +80,15 @@ const detailcontrollers = {
 
   formEdit: (req, res) => {
     const { id } = req.params;
-    db.Product.findByPk(id)
+    db.Product.findByPk(id,{
+      include:[{
+        association:"brands"
+      }
+   ]
+    })
 
       .then((product) => {
+        console.log("ESTE ES EL PRODUCTO DEL FORM EDIT: ", product);
         res.render("products/editProduct", {
           title: db.Product.titulo,
           product,
@@ -95,7 +102,7 @@ const detailcontrollers = {
 
   create: async function (req, res) {
     const { titulo, description, price, brand } = req.body;
-
+   
     try {
       const brands = await db.Brand.create({
         name: brand,
@@ -116,10 +123,10 @@ const detailcontrollers = {
         price,
       };
       const productos = await db.Product.create(product);
-
-      if (req.file) {
+      
+      if (req.files) {
         await db.Image.create({
-          name: req.file.filename,
+          name: req.files[0].filename,
           path: null,
           product_id: productos.id,
           createdAt: new Date(),
@@ -189,7 +196,7 @@ const detailcontrollers = {
   
   editProduct: (req, res) => {
     const { id } = req.params;
-    const file = req.file;
+    
     const {titulo,brand,description,image,price} = req.body;
       db.Product.update({
         titulo,
@@ -204,21 +211,20 @@ const detailcontrollers = {
     })
       .then((resp)=>{
         db.Image.update({
-           name: file ? file.filename : image,
-           path:null,
-           product_id: resp.id,
-           createdAt:new Date,
+          name: req.files ? req.files[0].filename: image,
+          path:null,
+          product_id: resp.id,
+          createdAt:new Date,
           updatedAt:new Date
         },
         {
-          where:{id}
+          where:{product_id: id}
         })
         })
     .then(()=>{
     res.redirect(`/products/productDetail/${id}`)
     })
     .catch(error=> console.log(error));
-  
     }
 
     }

@@ -26,14 +26,14 @@ module.exports = (sequelize, DataTypes) => {
   }
 };
 let config = {
-  tableName:"contact",
+  tableName:"contacts",
   timestamps:true
 };
 const Contact = sequelize.define(alias,cols,config);
 
 Contact.associate = models =>{
   Contact.belongsTo(models.User,{
-    as:"userContact",
+    as:"Users",
     foreignKey:"user_id"
   })
 }
