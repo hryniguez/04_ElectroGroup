@@ -9,6 +9,7 @@ const methodOverride =require ('method-override');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const productsRouter = require('./routes/products');
+const apiRouter = require('./routes/apiRoutes/apiR');
 const session = require("express-session");
 const cookieValidate = require('./middleware/cookieValidate');
 const app = express();
@@ -37,7 +38,7 @@ app.use(cookieValidate);
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/products', productsRouter);
-
+app.use('/apiRoutes',apiRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
