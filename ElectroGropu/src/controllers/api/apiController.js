@@ -62,9 +62,10 @@ const apiControllers = {
         include: [{ association: "Images" }],
       });
 
-      res.redirect("/products/dashboard");
+      return res.status(200).send(product);
     } catch (error) {
       console.error(error);
+      res.status(400).send(error.message) 
     }
     },
 
@@ -116,41 +117,43 @@ const apiControllers = {
         }
     },
 
-    editProduct: (req, res) => {
+    editProduct:async (req, res) => {
     const { id } = req.params;
 
     const { titulo, brand, description, image, price } = req.body;
-    db.Product.update(
-      {
-        titulo,
-        brand,
-        price,
-        description,
-        createdAt: new Date(),
-        updatedAt: new Date(),
-      },
-      {
-        where: { id },
-      }
-    )
-      .then((resp) => {
-        db.Image.update(
+
+    try {
+      const product =await db.Product.update(
           {
-            name: req.files ? req.files[0].filename : image,
-            path: null,
-            product_id: resp.id,
+            titulo,
+            brand,
+            price,
+            description,
             createdAt: new Date(),
             updatedAt: new Date(),
           },
           {
-            where: { product_id: id },
+            where: { id },
           }
-        );
-      })
-      .then(() => {
-        res.redirect(`/products/productDetail/${id}`);
-      })
-      .catch((error) => console.log(error));
-    },
-};
+          )
+          const image=await db.Image.update(
+            {
+              name: req.files ? req.files[0].filename : image,
+              path: null,
+              product_id: resp.id,
+              createdAt: new Date(),
+              updatedAt: new Date(),
+            },
+            {
+              where: { product_id: id },
+            }
+          );
+          return res.status(200).send(product);
+    } catch (error) {
+      console.log("----->ErroreneditProduct:",error);
+      res.status(400).send(error.message) 
+    }
+
+}
+}
 module.exports = apiControllers;
